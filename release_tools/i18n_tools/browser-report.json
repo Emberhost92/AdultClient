@@ -1,0 +1,22 @@
+{
+  "results": [
+    "settings:Colours & fonts",
+    "settings:Logo & background",
+    "settings:Navigation & home",
+    "settings:Media & playback",
+    "settings:Live & workspaces",
+    "settings:Language & models",
+    "settings:Storage & tools",
+    "settings:Design profiles",
+    "settings:About Adult Client",
+    "settings:Help"
+  ],
+  "timings": [
+    14.100000001490116,
+    14.5,
+    14.100000001490116,
+    13.199999999254942
+  ],
+  "missing": [],
+  "errors": []
+}

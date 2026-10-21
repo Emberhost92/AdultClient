@@ -1,0 +1,8 @@
+/* Following account context stays within the Live menu. */
+#cam-panel-following .lf-accounts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:10px;margin:12px 0}
+#cam-panel-following .lf-accounts[hidden]{display:none}
+#cam-panel-following .lf-account{min-width:0;overflow-wrap:anywhere;border:1px solid var(--lm-border);border-radius:8px;padding:12px;background:var(--lm-panel)}
+#cam-panel-following .lf-account h4{margin:0 0 8px}
+#cam-panel-following .lf-account p{font-size:.88em;line-height:1.5;color:var(--lm-muted)}
+#cam-panel-following .lf-account select{max-width:100%;display:block}
+#cam-panel-following .lf-account button{margin:6px 6px 0 0;max-width:100%;white-space:normal}

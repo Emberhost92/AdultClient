@@ -1,0 +1,440 @@
+import sys
+import os
+
+try:
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    vendor_path = os.path.abspath(os.path.join(current_dir, '..', 'lib', 'vendor'))
+    
+    if os.path.exists(vendor_path) and vendor_path not in sys.path:
+        sys.path.insert(0, vendor_path)
+except Exception:
+    pass
+
+import re
+import html
+import json
+import urllib.parse
+import time
+import xbmc
+import xbmcgui
+import xbmcplugin
+import xbmcaddon
+
+import requests
+
+try:
+    import cloudscraper
+    _HAS_CF = True
+except ImportError:
+    xbmc.log("[freeomovie] cloudscraper not found, fallback to requests", xbmc.LOGWARNING)
+    _HAS_CF = False
+
+from resources.lib.base_website import BaseWebsite
+from resources.lib.resolvers import resolver
+from resources.lib.proxy_utils import PlaybackGuard, ProxyController
+
+# Keys returned by resolvers that are Kodi ListItem properties,
+# NOT HTTP headers.  Must never be appended to the URL via |pipe.
+_KODI_PROPERTY_KEYS = {
+    'inputstream.adaptive.manifest_type',
+    'inputstream.adaptive.stream_headers',
+    'inputstream.adaptive.license_type',
+    'inputstream.adaptive.license_key',
+    'inputstream',
+}
+
+
+class freeomovie(BaseWebsite):
+    def __init__(self, addon_handle):
+        addon = xbmcaddon.Addon()
+        name = "freeomovie"
+        base_url = "https://www.freeomovie.to/"
+        search_url = "https://www.freeomovie.to/?s={}"
+        super(freeomovie, self).__init__(name, base_url, search_url, addon_handle, addon=addon)
+
+        self._headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.9",
+            "Referer": self.base_url,
+        }
+
+    def _http_get(self, url, headers=None, timeout=20):
+        headers = headers or self._headers
+        
+        if _HAS_CF:
+            try:
+                scraper = cloudscraper.create_scraper(
+                    browser={"browser": "chrome", "platform": "windows", "mobile": False}
+                )
+                response = scraper.get(url, headers=headers, timeout=timeout)
+                if response.status_code == 200:
+                    return response.text
+                xbmc.log(f"[freeomovie] Cloudscraper Status: {response.status_code}", xbmc.LOGWARNING)
+            except Exception as e:
+                xbmc.log(f"[freeomovie] Cloudscraper Failed: {e}", xbmc.LOGWARNING)
+        
+        try:
+            response = requests.get(url, headers=headers, timeout=timeout, verify=False)
+            if response.status_code == 200:
+                return response.text
+            xbmc.log(f"[freeomovie] Requests Status: {response.status_code}", xbmc.LOGWARNING)
+        except Exception as e:
+             xbmc.log(f"[freeomovie] Requests Failed: {e}", xbmc.LOGWARNING)
+
+        return ""
+
+    def process_content(self, url):
+        self.add_dir('[COLOR blue]Search...[/COLOR]', '', 5, self.icons.get('search', ''))
+        self.add_dir('[COLOR blue]Categories[/COLOR]', self.base_url, 8, self.icons.get('categories', ''))
+
+        target_url = url if url and url != "BOOTSTRAP" else self.base_url
+        
+        html_text = self._http_get(target_url)
+        
+        if not html_text:
+            self.notify_error("Could not load page.")
+            xbmcplugin.endOfDirectory(self.addon_handle)
+            return
+
+        items = self._parse_listing(html_text)
+        
+        if not items:
+            self.notify_info("No videos found.")
+        else:
+            for item in items:
+                title = html.unescape(item.get("title", "Video")).strip()
+                thumb = self._normalize_thumb(item.get("thumb", ""))
+                link = item.get("url", "")
+                
+                if not link.startswith("http"):
+                     link = urllib.parse.urljoin(self.base_url, link)
+
+                info_labels = {"title": title}
+                self.add_link(title, link, 4, thumb, self.fanart, info_labels=info_labels)
+
+        next_url = self._find_next_page(html_text, target_url)
+        if next_url:
+            self.add_dir("[COLOR skyblue]Next Page >>[/COLOR]", next_url, 2, self.icons.get('default', ''))
+
+        self.end_directory()
+
+    def process_categories(self, url):
+        html_text = self._http_get(url)
+        if not html_text:
+            self.notify_error("Could not load categories.")
+            self.end_directory()
+            return
+
+        cat_pattern = re.compile(r'<li[^>]*class="cat-item[^"]*"[^>]*><a[^>]+href="([^"]+)"[^>]*>([^<]+)</a>', re.IGNORECASE)
+        matches = cat_pattern.findall(html_text)
+
+        if not matches:
+            cat_pattern = re.compile(r'<a[^>]+href="(https?://[^"]+/category/[^"]+)"[^>]*>([^<]+)</a>', re.IGNORECASE)
+            matches = cat_pattern.findall(html_text)
+
+        seen = set()
+        for link, title in matches:
+            if link not in seen:
+                seen.add(link)
+                self.add_dir(title, link, 2, self.icons.get('categories', ''))
+
+        self.end_directory()
+
+    def _parse_listing(self, html_text):
+        items = []
+        
+        if 'id="main"' in html_text:
+            parts = html_text.split('id="main"')
+            main_content = parts[-1]
+        elif '<article' in html_text:
+             main_content = html_text[html_text.find('<article'):]
+        else:
+             main_content = html_text
+
+        blocks = re.split(r'<li[^>]+id="post-', main_content)
+        
+        for block in blocks[1:]:
+            url_match = re.search(r'<a\s+href="([^"]+)"', block)
+            if not url_match: continue
+            url = url_match.group(1)
+            
+            img_match = re.search(r'<img[^>]+data-src="([^"]+)"', block)
+            if not img_match:
+                img_match = re.search(r'<img[^>]+src="([^"]+)"', block)
+            thumb = img_match.group(1) if img_match else ""
+            
+            title = ""
+            title_match = re.search(r'<a[^>]+title="([^"]+)"', block)
+            if title_match:
+                title = title_match.group(1)
+            else:
+                alt_match = re.search(r'<img[^>]+alt="([^"]+)"', block)
+                if alt_match: title = alt_match.group(1)
+            
+            if not title:
+                h2_match = re.search(r'<h2>(.*?)</h2>', block)
+                if h2_match: title = h2_match.group(1)
+                
+            if title:
+                title = re.sub(r'<[^>]+>', '', title)
+
+            if url and "freeomovie" in url and not "login" in url:
+                items.append({"title": title, "url": url, "thumb": thumb})
+            
+        return items
+
+    def play_video(self, url):
+        start_time = time.time()
+        html_text = self._http_get(url)
+        if not html_text:
+            self.notify_error("Could not load detail page.")
+            return
+
+        iframe_urls = self._extract_iframes(html_text)
+        
+        if not iframe_urls:
+            self.notify_error("No host links found.")
+            return
+
+        def sort_hosters(link):
+            link = link.lower()
+            if 'lulu' in link: return 7
+            if 'vidhide' in link: return 6
+            if 'streamtape' in link: return 5
+            if 'voe.sx' in link or 'voe.sa' in link: return 4
+            if 'bigwarp' in link: return 3
+            if 'mixdrop' in link or 'mxdrop' in link: return 2
+            if 'dood' in link or 'myvidplay' in link or 'playmogo' in link: return 1
+            return 0
+            
+        iframe_urls.sort(key=sort_hosters, reverse=True)
+
+        try:
+            autoplay = self.addon.getSetting('freeomovie_autoplay_hoster') != 'false'
+        except:
+            autoplay = True
+
+        stream_url = None
+        headers = {}
+        resolved_host = ""
+
+        if autoplay:
+             xbmcgui.Dialog().notification("Autoplay", f"Checking {len(iframe_urls)} hosts...", xbmcgui.NOTIFICATION_INFO, 2000)
+             
+             for link in iframe_urls:
+                 try:
+                     host_name = urllib.parse.urlparse(link).netloc
+                     xbmc.log(f"[freeomovie] Testing host: {host_name}", xbmc.LOGINFO)
+                     
+                     stream_url, headers = resolver.resolve(link, headers=self._headers)
+                     
+                     if stream_url and stream_url.startswith("http"):
+                         # Determine if we should skip the stream validation:
+                         # 1. Local proxy URLs — proxy already validated
+                         # 2. HLS URLs — HEAD doesn't work on m3u8, and
+                         #    CDN might reject Python but accept Kodi's curl
+                         if (self._is_local_proxy(stream_url)
+                                 or '.m3u8' in stream_url):
+                             resolved_host = host_name
+                             mode = "proxy" if self._is_local_proxy(stream_url) else "direct-hls"
+                             xbmc.log(f"[freeomovie] Success with {host_name} ({mode})", xbmc.LOGINFO)
+                             break
+                         elif self._check_stream_valid(stream_url, headers):
+                             resolved_host = host_name
+                             xbmc.log(f"[freeomovie] Success with {host_name}", xbmc.LOGINFO)
+                             break
+                         else:
+                             xbmc.log(f"[freeomovie] Host {host_name} resolved but stream unreachable.", xbmc.LOGWARNING)
+                             stream_url = None
+                             headers = {}
+                 except Exception as e:
+                     xbmc.log(f"[freeomovie] Resolve failed for {link}: {e}", xbmc.LOGWARNING)
+                     stream_url = None
+                     headers = {}
+                     continue 
+        
+        else:
+            labels = []
+            for u in iframe_urls:
+                host = urllib.parse.urlparse(u).netloc.replace('www.', '')
+                labels.append(host)
+            
+            idx = xbmcgui.Dialog().select("Select host", labels)
+            if idx > -1:
+                 try:
+                     resolved_host = labels[idx]
+                     stream_url, headers = resolver.resolve(iframe_urls[idx], headers=self._headers)
+                 except Exception as e:
+                     self.notify_error(f"Error: {e}")
+                     return
+            else:
+                return
+
+        if stream_url:
+            duration = round(time.time() - start_time, 2)
+            xbmc.log(f"[freeomovie] Resolved {resolved_host} in {duration}s", xbmc.LOGINFO)
+            
+            # Separate Kodi properties from actual HTTP headers
+            kodi_props = {}
+            http_headers = {}
+            for k, v in headers.items():
+                if k in _KODI_PROPERTY_KEYS:
+                    kodi_props[k] = v
+                else:
+                    http_headers[k] = v
+
+            playback_guard = None
+            if any(host in resolved_host.lower() for host in ("myvidplay", "playmogo", "dood")):
+                proxy_session = requests.Session()
+                proxy_session.headers.update(http_headers)
+                controller = ProxyController(
+                    stream_url,
+                    upstream_headers=http_headers,
+                    session=proxy_session,
+                    skip_resolve=True,
+                    probe_size=True,
+                )
+                stream_url = controller.start()
+                http_headers = {}
+                playback_guard = PlaybackGuard(xbmc.Player(), xbmc.Monitor(), stream_url, controller)
+                playback_guard.start()
+                xbmc.log("[freeomovie] Dood/MyVidPlay stream routed through Range proxy", xbmc.LOGINFO)
+
+            # Build ListItem — only append real HTTP headers to URL
+            play_url = self._append_headers(stream_url, http_headers)
+            li = xbmcgui.ListItem(path=play_url)
+            li.setProperty('IsPlayable', 'true')
+            
+            # Set Kodi inputstream properties via setProperty
+            for k, v in kodi_props.items():
+                li.setProperty(k, v)
+
+            # Set mime type for HLS streams
+            if (kodi_props.get('inputstream.adaptive.manifest_type') == 'hls'
+                    or '.m3u8' in stream_url):
+                li.setMimeType('application/vnd.apple.mpegurl')
+                
+            xbmcplugin.setResolvedUrl(self.addon_handle, True, li)
+            if playback_guard is not None:
+                playback_guard.join()
+        else:
+            self.notify_error("No working stream found.")
+
+    def _is_local_proxy(self, url):
+        """Check if a URL points to a local proxy server."""
+        try:
+            parsed = urllib.parse.urlparse(url)
+            return parsed.hostname in ('127.0.0.1', 'localhost', '::1')
+        except Exception:
+            return False
+
+    def _check_stream_valid(self, url, headers):
+        """Check if a stream URL is reachable.
+        Only uses real HTTP headers, not Kodi properties."""
+        try:
+            check_headers = {
+                k: v for k, v in headers.items()
+                if k not in _KODI_PROPERTY_KEYS
+            }
+            r = requests.head(url, headers=check_headers, timeout=5, verify=False)
+            return r.status_code in [200, 302, 301, 206]
+        except:
+            return False
+
+    def _extract_iframes(self, html_text):
+        links = []
+        links.extend(re.findall(r'<iframe[^>]+src=(["\'])(.*?)\1', html_text, re.IGNORECASE))
+        links.extend(re.findall(r'data-src=(["\'])(.*?)\1', html_text, re.IGNORECASE))
+        links.extend(re.findall(r'class=["\']url-a-btn["\'][^>]+href=(["\'])(.*?)\1', html_text, re.IGNORECASE))
+        tabs_match = re.search(r'var\s+TABS\s*=\s*(\[.*?\]);', html_text, re.DOTALL | re.IGNORECASE)
+        if tabs_match:
+            try:
+                for tab in json.loads(tabs_match.group(1)):
+                    if isinstance(tab, dict) and tab.get("url"):
+                        links.append(tab["url"])
+            except Exception:
+                pass
+        links.extend(re.findall(r'<p>\s*(https?://(?:myvidplay|playmogo|dood[^/\s"\']*|voe\.sx|mxdrop\.sx|mxdrop\.to|mixdrop\.[^/\s"\']+|streamtape\.com|vidhide(?:pre)?\.com|lulu(?:stream|vid)\.com)/[^\s"\'<>]+)\s*</p>', html_text, re.IGNORECASE))
+        
+        clean_links = []
+        allowed_hosts = (
+            "myvidplay", "playmogo", "dood", "voe.sx", "mxdrop.", "mixdrop.",
+            "streamtape.com", "vidhide.com", "vidhidepre.com", "lulustream.com",
+            "luluvid.com", "luluvdo.com", "bigwarp",
+        )
+        for l in links:
+            if isinstance(l, tuple):
+                l = l[-1]
+            l = html.unescape(l).replace('\\/', '/').strip()
+            l = l.rstrip('.,);')
+            if l.startswith("//"): l = "https:" + l
+            if not any(host in l.lower() for host in allowed_hosts):
+                continue
+            if "mxdrop.sx/f/" in l or "mxdrop.to/f/" in l:
+                l = l.replace("mxdrop.sx/f/", "mxdrop.to/e/").replace("mxdrop.to/f/", "mxdrop.to/e/")
+            if "streamtape.com/v/" in l:
+                l = l.replace("streamtape.com/v/", "streamtape.com/e/")
+            if "vidhide.com/" in l and "/embed/" not in l:
+                l = l.replace("vidhide.com/", "vidhide.com/embed/")
+            if "vidhidepre.com/" in l and "/embed/" not in l:
+                l = l.replace("vidhidepre.com/", "vidhidepre.com/embed/")
+            if "facebook" in l or "twitter" in l: continue
+            if any(ext in l.lower() for ext in ['.jpg', '.png', '.gif', 'favicon']): continue
+            if l not in clean_links:
+                clean_links.append(l)
+        return clean_links
+
+    def validate_search_result(self, url):
+        """Reject film-search entries whose currently published mirrors are unusable."""
+        page_html = self._http_get(url)
+        if not page_html:
+            return False
+        for link in self._extract_iframes(page_html):
+            host = (urllib.parse.urlparse(link).hostname or "").lower()
+            # MixDrop now requires an interactive reCAPTCHA before exposing the
+            # media URL, which a dependency-free Kodi resolver cannot complete.
+            if "mixdrop" in host or "mxdrop" in host or "miixdrop" in host:
+                continue
+            if "streamtape" in host:
+                try:
+                    response = requests.get(link, headers=self._headers, timeout=5, allow_redirects=True)
+                    if response.status_code == 200 and "video not found" not in response.text.lower():
+                        return True
+                except Exception:
+                    pass
+                continue
+            if resolver.resolver_entry_for_url(link):
+                return True
+        return False
+
+    def _normalize_thumb(self, thumb):
+        if not thumb: return self.icon
+        if thumb.startswith("//"): return "https:" + thumb
+        if thumb.startswith("/"): return urllib.parse.urljoin(self.base_url, thumb)
+        return thumb
+
+    def _find_next_page(self, html_text, current_url):
+        match = re.search(r"<a[^>]+href=['\"]([^'\"]+)['\"][^>]*class=['\"][^'\"]*next", html_text, re.IGNORECASE)
+        if match: return match.group(1)
+        return None
+
+    def _append_headers(self, url, headers):
+        """Append HTTP headers to URL using Kodi's |pipe syntax.
+        Only includes actual HTTP headers, NOT Kodi properties."""
+        if not headers:
+            return url
+        http_only = {
+            k: v for k, v in headers.items()
+            if k not in _KODI_PROPERTY_KEYS
+        }
+        if not http_only:
+            return url
+        parts = [f"{k}={urllib.parse.quote(v)}" for k, v in http_only.items()]
+        return url + "|" + "&".join(parts)
+
+    def notify_error(self, msg):
+        xbmcgui.Dialog().notification('FreeOMovie', msg, xbmcgui.NOTIFICATION_ERROR)
+    
+    def notify_info(self, msg):
+        xbmcgui.Dialog().notification('FreeOMovie', msg, xbmcgui.NOTIFICATION_INFO)

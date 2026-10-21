@@ -1,0 +1,14 @@
+/* Discovery card choices stay confined to Live. */
+.ld-discover .ld-grid{--ld-aspect:16/9;--ld-fit:contain}
+.ld-discover .ld-grid .cam-open{aspect-ratio:var(--ld-aspect)}
+.ld-discover .ld-grid .cam-open>img,.ld-discover .ld-grid .cam-open>video{object-fit:var(--ld-fit)}
+.ld-discover .cam-open>.cam-live{height:100%;z-index:2;object-fit:var(--ld-fit,cover)}
+.ld-discover .ld-grid.ld-list{display:flex;flex-direction:column}
+.ld-discover .ld-list .lm-card{display:grid;grid-template-columns:minmax(150px,28%) minmax(0,1fr);width:100%;align-items:start}
+.ld-discover .ld-list .cam-open{height:100%;min-height:150px;max-height:420px;aspect-ratio:auto}
+.ld-discover .lm-coverage{overflow-wrap:anywhere}
+.ld-discover .lm-summary[hidden]{display:none}
+@media(max-width:600px){.ld-discover .ld-list .lm-card{grid-template-columns:minmax(0,1fr)}.ld-discover .ld-list .cam-open{aspect-ratio:var(--ld-aspect);height:auto}.ld-discover .lm-toolbar>*{max-width:100%}}
+
+.ld-discover .lm-summary{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:600px){.ld-discover .lm-summary{grid-template-columns:repeat(2,minmax(0,1fr))}}

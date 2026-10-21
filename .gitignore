@@ -1,0 +1,14 @@
+/userdata/
+/app/profile/
+**/.auth/
+**/source_sessions/
+__pycache__/
+*.pyc
+*.sqlite3*
+*.zip
+*.exe
+node_modules/
+/runtime/
+/data/
+/distribution/
+.env

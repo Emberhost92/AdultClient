@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.adulthideout" name="AdultHideout" version="1.0.24" provider-name="Vashiel">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="script.module.requests" version="2.25.1"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.service" library="resources/lib/view_service.py" start="startup"/>
+    <extension point="xbmc.addon.metadata">
+        <settingfile>resources/settings.xml</settingfile>
+        <news>
+v. 1.0.24 "Rosetta" - 2026-10-03
+19 new websites including IcePornCasting and PornoEnte. Offline Cyrillic transliteration and title translation. Expanded performer artwork, thumbnail handling and filmography search. Veev resolver support and stricter failed-stream detection. Updated PandaMovies domain and listing parser, AShemaleTube video listing parser, Hentai Cosplay playback, HotMovies pagination, XVideos stream extraction and SxyPrn domain fallback. Corrected website sorting settings and removed Pornobolt, VagoSex and PornoHimmel.
+        </news>
+        <summary>[COLOR red]XXX[/COLOR] Porn videos</summary>
+        <description>
+Internet [COLOR red]XXX Porn Video[COLOR white] Streams.
+
+[COLOR red][B]WARNING:[/B][COLOR red]Only for adults[/COLOR]    
+
+[COLOR white]AdultHideout does not host third-party videos on its own servers and is not affiliated with the websites supported by the addon.
+Content, streams and metadata are provided by third-party websites.[/COLOR]
+
+[COLOR white]Github:
+https://github.com/Vashiel/repository.adulthideout
+[/COLOR]    
+        </description>
+        <disclaimer>AdultHideout does not host third-party videos on its own servers and is not affiliated with the websites supported by the addon. Content, streams and metadata are provided by third-party websites.</disclaimer>    
+        <platform>all</platform>
+        <license>http://www.gnu.org/licenses/</license>
+        <forum></forum>
+        <website>https://github.com/Vashiel/repository.adulthideout/wiki</website>
+        <email></email>
+        <mainsource>https://github.com/Vashiel/repository.adulthideout</mainsource>    
+        <source></source>         
+        <assets>
+            <icon>resources/logos/icon.png</icon>
+            <fanart>resources/logos/fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>

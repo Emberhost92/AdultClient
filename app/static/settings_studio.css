@@ -1,0 +1,803 @@
+@font-face {
+  font-family: "Camclient Script";
+  src: url("/static/camclient-script.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+body {
+  font-family: var(--ds-font-body, var(--font));
+  line-height: var(--ds-line-height, 1.5);
+  letter-spacing: var(--ds-letter-spacing, 0);
+  font-weight: var(--ds-weight, 400);
+}
+body h1,
+body h2,
+body h3,
+body summary {
+  font-family: var(--ds-font-headings, var(--font));
+}
+body h2 {
+  font-size: calc(1.5em * var(--ds-heading-scale, 1));
+}
+body h3 {
+  font-size: calc(1.12em * var(--ds-heading-scale, 1));
+}
+body button,
+body input,
+body select,
+body textarea {
+  font-family: var(--ds-font-controls, var(--font)) !important;
+  font-size: var(--ds-control-size, var(--scale));
+  min-height: var(--ds-control-height, 36px);
+}
+body input[type="checkbox"],
+body input[type="radio"],
+body input[type="color"],
+body input[type="range"] {
+  min-height: 0;
+}
+body textarea {
+  color: var(--text);
+  background: var(--ds-input, #222836);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+body button,
+body input:not([type="color"]),
+body select {
+  background-color: var(--ds-input, #222836);
+}
+body button.primary,
+body button.active {
+  color: var(--ds-button-text, #fff);
+  background: var(--accent);
+}
+body nav button {
+  font-family: var(--ds-font-menu, var(--ds-font-navigation, var(--font))) !important;
+  font-size: var(--ds-nav-size, var(--scale));
+  background: transparent;
+}
+body nav button.active,
+body nav button:hover {
+  background: var(--ds-hover, #2a2230);
+}
+body .card strong,
+body .ml-card strong {
+  font-family: var(--ds-font-cards, var(--font));
+  font-size: var(--ds-card-size, 13px);
+}
+body .card .meta,
+body .ml-card {
+  text-align: var(--ds-card-align, left);
+}
+body main {
+  padding-left: var(--ds-padding, 26px);
+  padding-right: var(--ds-padding, 26px);
+  min-width: 0;
+}
+body.ds-width-limit main > div:not(.hidden) {
+  max-width: var(--ds-max-width);
+  width: 100%;
+  margin-inline: auto;
+}
+body.ds-column-limit #clips.grid:not(.list),
+body.ds-column-limit .ml-grid[data-view="grid"] {
+  grid-template-columns: repeat(var(--ds-columns), minmax(0, 1fr));
+}
+body :focus-visible {
+  outline: var(--ds-focus, 2px) solid var(--accent);
+  outline-offset: 3px;
+}
+body.ds-underlines a {
+  text-decoration: underline !important;
+}
+body.ds-high-contrast :focus-visible {
+  outline-color: #ffd34d;
+}
+body.ds-motion-off *,
+body.ds-motion-off *::before,
+body.ds-motion-off *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  body *,
+  body *::before,
+  body *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+body {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+}
+body.ds-own-wall {
+  background: var(--bg) !important;
+}
+#ds-wall {
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+#ds-wall[hidden] {
+  display: none !important;
+}
+.ds-wall-picture,
+.ds-wall-dim {
+  position: absolute;
+  inset: 0;
+}
+.ds-wall-picture {
+  transform-origin: center;
+  will-change: auto;
+}
+#brand.ds-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+  overflow: hidden;
+  max-width: 100%;
+  font-family: var(--ds-font-brand, var(--font));
+  font-size: 20px;
+}
+#brand.ds-brand img {
+  display: block;
+  max-width: 100%;
+  max-height: none;
+  background: transparent;
+  flex: none;
+}
+#brand.ds-brand img[hidden] {
+  display: none;
+}
+#brand.ds-brand .ds-brand-name {
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+#brand.ds-brand small {
+  font-family: var(--ds-font-body, var(--font));
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 400;
+}
+.ds-monogram {
+  display: grid;
+  place-items: center;
+  min-width: 48px;
+  min-height: 48px;
+  padding: 6px;
+  border-radius: 12px;
+  color: var(--ds-button-text, #fff) !important;
+  background: var(--accent);
+}
+nav .ds-nav-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  margin-right: 8px;
+  font-size: 19px;
+  background: transparent;
+  border-radius: 4px;
+  flex: none;
+}
+.ds-settings {
+  min-width: 0;
+}
+.ds-settings input[type="color"] {
+  width: 58px;
+  height: 34px;
+  padding: 3px;
+}
+.ds-menu-visible {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 12px;
+  min-width: 0;
+}
+.ds-menu-visible span {
+  overflow-wrap: anywhere;
+}
+.ds-menu-row {
+  grid-template-columns:
+    minmax(85px, 1fr) minmax(100px, 1.3fr)
+    60px 32px 32px auto auto;
+}
+.ds-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.ds-header h2 {
+  margin: 0 0 6px;
+}
+.ds-header p {
+  color: var(--muted);
+  margin: 0;
+  font-size: 13px;
+}
+.ds-search {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 230px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.ds-search input {
+  width: 100%;
+  font-size: 14px;
+}
+.ds-settings-layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 22px;
+  min-width: 0;
+}
+.ds-rail {
+  min-width: 0;
+}
+.ds-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: sticky;
+  top: 12px;
+  margin: 0 !important;
+}
+.ds-nav button {
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  padding: 9px 11px;
+  min-height: 40px;
+}
+.ds-nav button:focus-visible {
+  z-index: 1;
+}
+.ds-content {
+  min-width: 0;
+}
+.ds-panel {
+  min-width: 0;
+}
+.ds-panel[hidden],
+.ds-panel.hidden,
+.ds-settings [hidden] {
+  display: none !important;
+}
+.ds-description {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.ds-instant-note {
+  font-size: 12px;
+  color: var(--muted);
+  border-left: 2px solid var(--accent);
+  padding-left: 10px;
+}
+body.ds-high-contrast {
+  background: var(--bg) !important;
+}
+body.ds-high-contrast #ds-wall {
+  display: none !important;
+}
+.ds-section,
+.ds-legacy {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin: 0 0 16px;
+  min-width: 0;
+}
+.ds-section h3,
+.ds-legacy h3 {
+  margin: 0 0 14px;
+}
+.ds-section > p,
+.ds-section small {
+  font-size: 13px;
+  color: var(--muted);
+}
+.ds-original-block {
+  min-width: 0;
+}
+.ds-panel > .row {
+  padding: 8px 0;
+}
+.ds-panel > .muted {
+  margin-block: 10px;
+}
+.ds-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 18px;
+}
+.ds-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+  font-size: 13px;
+  margin: 9px 0;
+}
+.ds-field > input:not([type="color"]),
+.ds-field > select,
+.ds-field > textarea {
+  width: 100%;
+  min-width: 0;
+}
+.ds-field input[type="color"] {
+  width: 64px;
+  height: 34px;
+  padding: 3px;
+}
+.ds-field input[type="range"] {
+  padding: 0;
+  accent-color: var(--accent);
+  height: 24px;
+}
+.ds-field small {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.ds-value {
+  font-size: 12px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.ds-value:empty {
+  display: none;
+}
+.ds-check {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.ds-check input {
+  order: 2;
+  flex: none;
+  width: auto !important;
+}
+.ds-check .ds-value {
+  display: none;
+}
+.ds-advanced {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  margin-top: 14px;
+}
+.ds-advanced summary {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.ds-advanced > .ds-field {
+  margin-bottom: 16px;
+}
+.ds-settings .row {
+  gap: 10px;
+}
+.ds-settings .row > label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+  max-width: 100%;
+  font-size: 13px;
+}
+.ds-settings .row > label:has(input[type="checkbox"]) {
+  flex-direction: row;
+  align-items: center;
+}
+.ds-settings
+  .row
+  input:not([type="checkbox"]):not([type="color"]):not([type="range"]),
+.ds-settings .row select {
+  max-width: 100%;
+  min-width: 0;
+}
+.ds-settings .row > label:has(input[type="range"]) {
+  flex: 1;
+  min-width: 150px;
+}
+.ds-settings .row input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+.ds-preview {
+  margin-top: 22px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 13px;
+  font-size: 13px;
+  overflow: hidden;
+}
+.ds-preview small {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+}
+.ds-preview-heading {
+  display: block;
+  margin-block: 9px;
+  font-family: var(--ds-font-headings, var(--font));
+  overflow-wrap: anywhere;
+}
+.ds-preview-card {
+  background: var(--cardbg, var(--panel));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 9px;
+  margin-block: 12px;
+}
+.ds-preview-card strong {
+  font-family: var(--ds-font-cards, var(--font));
+  font-size: var(--ds-card-size, 13px);
+}
+.ds-preview p {
+  font-size: 12px;
+}
+.ds-preview button {
+  font-size: 13px;
+}
+.ds-contrast {
+  font-size: 12px;
+  color: var(--muted);
+}
+.ds-message,
+.ds-results {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+  background: var(--panel);
+}
+.ds-error {
+  color: #ff9eaa !important;
+}
+.ds-savebar {
+  position: sticky;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-wrap: wrap;
+  padding: 12px;
+  background: var(--aside);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 5px 24px #0005;
+  z-index: 30;
+  margin: 18px 0 0;
+}
+.ds-save-state {
+  margin-right: auto;
+  font-size: 13px;
+  color: var(--muted);
+}
+.ds-dirty .ds-save-state {
+  color: var(--accent);
+}
+.ds-savebar button {
+  font-size: 13px;
+  min-height: 36px;
+}
+.ds-savebar button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.ds-menu-rows,
+.ds-profile-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.ds-menu-row {
+  display: grid;
+  grid-template-columns: minmax(90px, 1fr) 90px 36px 36px auto auto;
+  gap: 5px;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  padding-top: 9px;
+}
+.ds-menu-row strong,
+.ds-profile-row strong {
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.ds-menu-row input {
+  width: 100%;
+  min-width: 0;
+}
+.ds-menu-row button {
+  font-size: 12px;
+  padding: 5px;
+}
+.ds-profile-row,
+.ds-font-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.ds-profile-row strong,
+.ds-font-row span {
+  margin-right: auto;
+}
+.ds-profile-name {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.ds-asset-note {
+  font-size: 12px;
+  color: var(--muted);
+}
+.ds-dialog {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  max-width: min(620px, calc(100vw - 24px));
+  width: 100%;
+  max-height: 85dvh;
+  padding: 0;
+}
+.ds-dialog::backdrop {
+  background: #0009;
+}
+.ds-dialog header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.ds-dialog h2 {
+  font-size: 18px;
+  margin: 0;
+}
+.ds-dialog-body {
+  padding: 16px;
+  overflow: auto;
+  max-height: 65dvh;
+}
+.ds-dialog-body button {
+  margin: 6px 6px 0 0;
+}
+.ds-dialog-body input {
+  width: 100%;
+}
+@media (max-width: 1100px) {
+  .ds-settings-layout {
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 14px;
+  }
+  .ds-menu-row {
+    grid-template-columns: minmax(90px, 1fr) 70px 32px 32px;
+  }
+  .ds-menu-row button:nth-of-type(3),
+  .ds-menu-row button:nth-of-type(4) {
+    grid-row: auto;
+  }
+  .ds-fields {
+    gap: 9px;
+  }
+  .ds-nav button {
+    font-size: 13px;
+  }
+}
+@media (max-width: 760px) {
+  body main {
+    padding-inline: 12px;
+  }
+  .ds-header {
+    flex-direction: column;
+  }
+  .ds-search {
+    width: 100%;
+    min-width: 0;
+  }
+  .ds-settings-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .ds-nav {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ds-nav button {
+    font-size: 12px;
+    min-height: 40px;
+    padding: 8px;
+  }
+  .ds-preview {
+    display: none;
+  }
+  .ds-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ds-section,
+  .ds-legacy {
+    padding: 12px;
+  }
+  .ds-savebar {
+    bottom: 5px;
+    padding: 9px;
+    gap: 6px;
+  }
+  .ds-save-state {
+    width: 100%;
+  }
+  .ds-savebar button {
+    flex: 1;
+    white-space: normal;
+    font-size: 12px;
+  }
+  .ds-menu-row {
+    grid-template-columns: minmax(0, 1fr) 64px 30px 30px;
+  }
+  .ds-settings .row {
+    align-items: stretch;
+  }
+  .ds-settings .row > label {
+    flex: 1 1 140px;
+  }
+  .ds-settings .row > button {
+    max-width: 100%;
+    white-space: normal;
+  }
+  .ds-settings .job-list {
+    max-width: 100%;
+  }
+  .ds-settings input,
+  .ds-settings select {
+    max-width: 100%;
+  }
+  body.ds-column-limit #clips.grid:not(.list),
+  body.ds-column-limit .ml-grid[data-view="grid"] {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(min(100%, var(--card)), 1fr)
+    );
+  }
+}
+
+body .ml-card-title {
+  font-family: var(--ds-font-cards, var(--font)) !important;
+  font-size: var(--ds-card-size, 13px);
+  text-align: var(--ds-card-align, left);
+}
+#brand {
+  font-family: var(--ds-font-brand, var(--font));
+}
+body .mt-tile-title {
+  font-family: var(--ds-font-cards, var(--font));
+  font-size: var(--ds-card-size, 12px);
+}
+.ds-settings .ds-menu-row {
+  grid-template-columns:
+    minmax(85px, 1fr) minmax(100px, 1.3fr)
+    60px 32px 32px auto auto;
+}
+@media (max-width: 1100px) {
+  .ds-settings .ds-menu-row {
+    grid-template-columns: minmax(85px, 1fr) minmax(90px, 1fr) 55px 30px 30px;
+  }
+  .ds-menu-row > button:nth-of-type(3) {
+    grid-column: 2;
+  }
+  .ds-menu-row > button:nth-of-type(4) {
+    grid-column: 3/5;
+  }
+}
+@media (max-width: 760px) {
+  .ds-settings .ds-menu-row {
+    grid-template-columns: minmax(75px, 1fr) minmax(90px, 1fr) 40px 30px 30px;
+    gap: 4px;
+  }
+  .ds-menu-visible {
+    font-size: 11px;
+  }
+  .ds-menu-row > input {
+    font-size: 12px;
+    padding: 5px;
+  }
+}
+
+body:has(#view-settings:not(.hidden)) #top-search {
+  display: none;
+}
+
+body.ds-column-limit #grid.grid:not(.list) {
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(
+      min(
+        100%,
+        max(
+          var(--card),
+          calc((100% + var(--gap, 12px)) / var(--ds-columns) - var(--gap, 12px))
+        )
+      ),
+      1fr
+    )
+  );
+}
+body.ds-column-limit #grid.ml-media-grid:not(.ml-list):not(.ml-masonry) {
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(
+      min(
+        100%,
+        max(
+          var(--ml-card-min, 220px),
+          calc((100% + 16px) / var(--ds-columns) - 16px)
+        )
+      ),
+      1fr
+    )
+  );
+}
+body.ds-custom-cards #grid.ml-media-grid {
+  --ml-card-min: var(--card) !important;
+}
+body.ds-custom-cards .ml-media-grid:not(.ml-masonry) .ml-media-cover {
+  height: var(--thumb);
+  aspect-ratio: auto;
+}
+body .ml-media-card,
+body .ml-provider,
+body .mt-tile {
+  border-radius: var(--radius);
+}
+body.shadow .ml-media-card {
+  box-shadow: 0 6px 20px #0004;
+}
+body.lift:not(.ds-motion-off) .ml-media-card:hover {
+  transform: translateY(-2px);
+}
+@media (prefers-reduced-motion: reduce) {
+  body.lift .card:hover,
+  body.lift .ml-media-card:hover {
+    transform: none;
+  }
+}
+
+/* Menu-specific typography stays local to the corresponding content area. */
+body main > [id^="view-"] { font-family:var(--ds-font-body,var(--font)); }
+body dialog { font-family:var(--ds-active-font,var(--ds-font-body,var(--font))); }
+body dialog :is(button,input,select,textarea) { font-family:var(--ds-active-font,var(--ds-font-controls,var(--font))) !important; }
+body dialog :is(h1,h2,h3,summary) { font-family:var(--ds-active-font,var(--ds-font-headings,var(--font))); }
+.ds-project-credit { color:var(--accent); font-size:1.15em; font-weight:600; }
+#ds-panel-help .ds-section p,#ds-panel-about .ds-section p { line-height:1.75; max-width:85ch; }
+.ds-help-button { align-self:center; white-space:nowrap; }

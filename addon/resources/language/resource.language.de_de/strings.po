@@ -1,0 +1,1497 @@
+# Kodi Media Center language file
+# Addon Name: AdultHideout
+# Addon id: plugin.video.adulthideout
+msgid ""
+msgstr ""
+"Project-Id-Version: plugin.video.adulthideout\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-18 21:00+0000\n"
+"PO-Revision-Date: 2025-11-18 21:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: German\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# General & Common
+
+msgctxt "#30001"
+msgid "General"
+msgstr "Allgemein"
+
+msgctxt "#30002"
+msgid "Sites"
+msgstr "Seiten"
+
+msgctxt "#30003"
+msgid "Enable"
+msgstr "Aktivieren"
+
+msgctxt "#30004"
+msgid "Sort By"
+msgstr "Sortieren nach"
+
+msgctxt "#30005"
+msgid "Content Type"
+msgstr "Inhaltstyp"
+
+msgctxt "#30010"
+msgid "Optimize Mouse Navigation"
+msgstr "Maus-Navigation optimieren"
+
+msgctxt "#30011"
+msgid "Max Retries"
+msgstr "Max. Wiederholungsversuche"
+
+msgctxt "#30012"
+msgid "View Type"
+msgstr "Ansichtstyp"
+
+msgctxt "#30013"
+msgid "Clear Cache"
+msgstr "Cache leeren"
+
+msgctxt "#30014"
+msgid "[B]Reset All Settings[/B]"
+msgstr "[B]Alle Einstellungen zurücksetzen[/B]"
+
+msgctxt "#30015"
+msgid "Use video thumbnails as fanart"
+msgstr "Video-Vorschaubilder als Fanart verwenden"
+
+# Site Specific Filters Categories
+
+msgctxt "#30100"
+msgid "Ashemaletube Filters"
+msgstr "Ashemaletube Filter"
+
+msgctxt "#30110"
+msgid "Beeg Filters"
+msgstr "Beeg Filter"
+
+msgctxt "#30120"
+msgid "eporner Filters"
+msgstr "eporner Filter"
+
+msgctxt "#30130"
+msgid "Freeomovie Filters"
+msgstr "Freeomovie Filter"
+
+msgctxt "#30140"
+msgid "Hanime Filters"
+msgstr "Hanime Filter"
+
+msgctxt "#30150"
+msgid "Hentaigasm Filters"
+msgstr "Hentaigasm Filter"
+
+msgctxt "#30160"
+msgid "Hypnotube Filters"
+msgstr "Hypnotube Filter"
+
+msgctxt "#30170"
+msgid "LuxureTV Filters"
+msgstr "LuxureTV Filter"
+
+msgctxt "#30180"
+msgid "MissAV Filters"
+msgstr "MissAV Filter"
+
+msgctxt "#30190"
+msgid "Motherless Filters"
+msgstr "Motherless Filter"
+
+msgctxt "#30200"
+msgid "PornTN Filters"
+msgstr "PornTN Filter"
+
+msgctxt "#30210"
+msgid "Rule34video Filters"
+msgstr "Rule34video Filter"
+
+msgctxt "#30220"
+msgid "Spankbang Filters"
+msgstr "Spankbang Filter"
+
+msgctxt "#30230"
+msgid "TubePornClassic Filters"
+msgstr "TubePornClassic Filter"
+
+msgctxt "#30240"
+msgid "Txxx Filters"
+msgstr "Txxx Filter"
+
+msgctxt "#30250"
+msgid "xHamster Filters"
+msgstr "xHamster Filter"
+
+msgctxt "#30260"
+msgid "XNXX Filters"
+msgstr "XNXX Filter"
+
+msgctxt "#30270"
+msgid "YouPorn Filters"
+msgstr "YouPorn Filter"
+
+# Specific Filter Labels
+
+msgctxt "#30101"
+msgid "Sort Videos By"
+msgstr "Videos sortieren nach"
+
+msgctxt "#30102"
+msgid "Sort Pornstars By"
+msgstr "Darsteller sortieren nach"
+
+msgctxt "#30131"
+msgid "Auto-Select Hoster"
+msgstr "Hoster automatisch wählen"
+
+msgctxt "#30232"
+msgid "Search Sort By"
+msgstr "Suche sortieren nach"
+
+msgctxt "#30233"
+msgid "Min Duration (Minutes)"
+msgstr "Min. Dauer (Minuten)"
+
+msgctxt "#30223"
+msgid "Quality"
+msgstr "Qualität"
+
+msgctxt "#30224"
+msgid "Duration"
+msgstr "Dauer"
+
+# Shared Filter Attributes
+
+msgctxt "#30500"
+msgid "Country"
+msgstr "Land"
+
+msgctxt "#30501"
+msgid "Penis Size"
+msgstr "Penisgröße"
+
+msgctxt "#30502"
+msgid "Breast Size"
+msgstr "Brustgröße"
+
+msgctxt "#30503"
+msgid "Hair Color"
+msgstr "Haarfarbe"
+
+msgctxt "#30504"
+msgid "Birth Year"
+msgstr "Geburtsjahr"
+
+msgctxt "#30505"
+msgid "Eye Color"
+msgstr "Augenfarbe"
+
+msgctxt "#30506"
+msgid "Gender"
+msgstr "Geschlecht"
+
+msgctxt "#30507"
+msgid "Height"
+msgstr "Größe"
+
+msgctxt "#30508"
+msgid "Cup Size"
+msgstr "Körbchengröße"
+
+msgctxt "#30509"
+msgid "Age"
+msgstr "Alter"
+
+msgctxt "#30510"
+msgid "Debut Year"
+msgstr "Debütjahr"
+# Official source warning
+
+msgctxt "#30600"
+msgid "The official repository add-on '{}' is not installed."
+msgstr "Das offizielle Repository-Addon '{}' ist nicht installiert."
+
+msgctxt "#30601"
+msgid "The installed repository add-on does not have a readable addon.xml."
+msgstr "Das installierte Repository-Addon hat kein lesbares addon.xml."
+
+msgctxt "#30602"
+msgid "The installed repository has an unexpected add-on ID."
+msgstr "Das installierte Repository hat eine unerwartete Add-on-ID."
+
+msgctxt "#30603"
+msgid "The repository URLs do not fully point to the official GitHub repository."
+msgstr "Die Repository-URLs zeigen nicht vollstaendig auf das offizielle GitHub-Repository."
+
+msgctxt "#30604"
+msgid "The official online metadata could not be checked: {}"
+msgstr "Die offiziellen Online-Metadaten konnten nicht geprueft werden: {}"
+
+msgctxt "#30605"
+msgid "The official addons.xml does not match its MD5 file."
+msgstr "Die offizielle addons.xml stimmt nicht mit ihrer MD5-Datei ueberein."
+
+msgctxt "#30606"
+msgid "This add-on was not found in the official addons.xml."
+msgstr "Dieses Add-on wurde in der offiziellen addons.xml nicht gefunden."
+
+msgctxt "#30607"
+msgid "Installed version {} does not match official version {}."
+msgstr "Installierte Version {} passt nicht zur offiziellen Version {}."
+
+msgctxt "#30608"
+msgid "The official metadata has an unexpected provider."
+msgstr "Die offiziellen Metadaten haben einen unerwarteten Provider."
+
+msgctxt "#30609"
+msgid "The official metadata does not contain the expected GitHub source."
+msgstr "Die offiziellen Metadaten enthalten nicht die erwartete GitHub-Quelle."
+
+msgctxt "#30610"
+msgid "The official file hash list could not be read."
+msgstr "Die offizielle Datei-Hashliste konnte nicht gelesen werden."
+
+msgctxt "#30611"
+msgid "The official file hash list is empty or invalid."
+msgstr "Die offizielle Datei-Hashliste ist leer oder ungueltig."
+
+msgctxt "#30612"
+msgid "Hash check: file is missing or empty: {}"
+msgstr "Hashpruefung: Datei fehlt oder ist leer: {}"
+
+msgctxt "#30613"
+msgid "Hash check failed: {}"
+msgstr "Hashpruefung fehlgeschlagen: {}"
+
+msgctxt "#30614"
+msgid "No files from the official hash list could be checked."
+msgstr "Keine Dateien aus der offiziellen Hashliste konnten geprueft werden."
+
+msgctxt "#30615"
+msgid "...and {} more notices."
+msgstr "...und {} weitere Hinweise."
+
+msgctxt "#30616"
+msgid "AdultHideout could not confirm the official installation."
+msgstr "AdultHideout konnte die offizielle Installation nicht bestaetigen."
+
+msgctxt "#30617"
+msgid "Official repository:"
+msgstr "Offizielles Repository:"
+
+msgctxt "#30618"
+msgid "Official source code:"
+msgstr "Offizieller Quellcode:"
+
+msgctxt "#30619"
+msgid "If you installed AdultHideout from another repository, it may be modified or outdated."
+msgstr "Wenn du AdultHideout aus einem anderen Repository installiert hast, koennte es veraendert oder veraltet sein."
+
+msgctxt "#30620"
+msgid "AdultHideout: unofficial installation?"
+msgstr "AdultHideout: inoffizielle Installation?"
+
+msgctxt "#30621"
+msgid "Official installation could not be confirmed."
+msgstr "Offizielle Installation konnte nicht bestaetigt werden."
+
+msgctxt "#30630"
+msgid "Enable FFmpeg recorder"
+msgstr "FFmpeg-Recorder aktivieren"
+
+msgctxt "#30631"
+msgid "FFmpeg executable path"
+msgstr "Pfad zur FFmpeg-Datei"
+
+msgctxt "#30632"
+msgid "Recording download folder"
+msgstr "Download-Ordner fuer Aufnahmen"
+
+msgctxt "#30633"
+msgid "Download video"
+msgstr "Video herunterladen"
+
+msgctxt "#30634"
+msgid "FFmpeg recorder is disabled."
+msgstr "Der FFmpeg-Recorder ist deaktiviert."
+
+msgctxt "#30635"
+msgid "FFmpeg executable was not found."
+msgstr "Die FFmpeg-Datei wurde nicht gefunden."
+
+msgctxt "#30636"
+msgid "Recording started: {}"
+msgstr "Aufnahme gestartet: {}"
+
+msgctxt "#30637"
+msgid "Could not resolve a direct stream for recording."
+msgstr "Fuer die Aufnahme konnte kein direkter Stream ermittelt werden."
+
+msgctxt "#30638"
+msgid "Recording download folder could not be created."
+msgstr "Der Aufnahme-Download-Ordner konnte nicht erstellt werden."
+
+msgctxt "#30640"
+msgid "Downloads"
+msgstr "Downloads"
+
+msgctxt "#30641"
+msgid "Download manager"
+msgstr "Downloadverwaltung"
+
+msgctxt "#30642"
+msgid "Offline videos"
+msgstr "Offline-Videos"
+
+msgctxt "#30643"
+msgid "Download folder"
+msgstr "Download-Ordner"
+
+msgctxt "#30644"
+msgid "Download method"
+msgstr "Download-Methode"
+
+msgctxt "#30645"
+msgid "Show download manager"
+msgstr "Downloadverwaltung anzeigen"
+
+msgctxt "#30646"
+msgid "Show offline videos"
+msgstr "Offline-Videos anzeigen"
+
+msgctxt "#30647"
+msgid "Choose where AdultHideout should save downloaded videos. Local, SMB and NFS folders are supported."
+msgstr "Waehle aus, wo AdultHideout heruntergeladene Videos speichern soll. Lokale, SMB- und NFS-Ordner werden unterstuetzt."
+
+msgctxt "#30648"
+msgid "Choose a download folder"
+msgstr "Download-Ordner auswaehlen"
+
+msgctxt "#30649"
+msgid "The selected folder is not writable."
+msgstr "Der ausgewaehlte Ordner ist nicht beschreibbar."
+
+msgctxt "#30650"
+msgid "Offline videos folder (empty = download folder)"
+msgstr "Ordner fuer Offline-Videos (leer = Download-Ordner)"
+
+msgctxt "#30651"
+msgid "Download queued: {}"
+msgstr "Download eingereiht: {}"
+
+msgctxt "#30654"
+msgid "Refresh"
+msgstr "Aktualisieren"
+
+msgctxt "#30655"
+msgid "Cancel download"
+msgstr "Download abbrechen"
+
+msgctxt "#30656"
+msgid "Remove entry"
+msgstr "Eintrag entfernen"
+
+msgctxt "#30657"
+msgid "aria2 JSON-RPC URL"
+msgstr "aria2 JSON-RPC-URL"
+
+msgctxt "#30658"
+msgid "aria2 RPC secret"
+msgstr "aria2 RPC-Geheimnis"
+
+msgctxt "#30659"
+msgid "aria2 target directory (on aria2 host)"
+msgstr "aria2-Zielordner (auf dem aria2-Geraet)"
+
+msgctxt "#30660"
+msgid "Delete offline file"
+msgstr "Offline-Datei loeschen"
+
+msgctxt "#30661"
+msgid "HLS downloads require FFmpeg."
+msgstr "HLS-Downloads benoetigen FFmpeg."
+
+msgctxt "#30662"
+msgid "Sent to aria2: {}"
+msgstr "An aria2 gesendet: {}"
+
+msgctxt "#30663"
+msgid "Sent to JDownloader: {}"
+msgstr "An JDownloader gesendet: {}"
+
+msgctxt "#30664"
+msgid "This stream needs headers that JDownloader cannot receive through Click'n'Load."
+msgstr "Dieser Stream benoetigt Header, die JDownloader nicht ueber Click'n'Load erhalten kann."
+
+msgctxt "#30665"
+msgid "Cancel the active download before removing it."
+msgstr "Brich den aktiven Download ab, bevor du den Eintrag entfernst."
+
+msgctxt "#30666"
+msgid "JDownloader Click'n'Load URL"
+msgstr "JDownloader Click'n'Load-URL"
+
+msgctxt "#30667"
+msgid "Retry download"
+msgstr "Download erneut versuchen"
+
+msgctxt "#30668"
+msgid "Sites A-H"
+msgstr "Seiten A-H"
+
+msgctxt "#30669"
+msgid "Sites I-P"
+msgstr "Seiten I-P"
+
+msgctxt "#30670"
+msgid "Sites Q-Z"
+msgstr "Seiten Q-Z"
+
+msgctxt "#30671"
+msgid "Site options"
+msgstr "Seitenoptionen"
+
+msgctxt "#30700"
+msgid "Vault"
+msgstr "Vault"
+
+msgctxt "#30701"
+msgid "New Collection"
+msgstr "Neue Sammlung"
+
+msgctxt "#30702"
+msgid "All Items"
+msgstr "Alle Einträge"
+
+msgctxt "#30703"
+msgid "Search Vault"
+msgstr "Vault durchsuchen"
+
+msgctxt "#30704"
+msgid "Backup / Restore"
+msgstr "Sichern / Wiederherstellen"
+
+msgctxt "#30705"
+msgid "Watch Later"
+msgstr "Später ansehen"
+
+msgctxt "#30706"
+msgid "Save to Vault"
+msgstr "In Vault speichern"
+
+msgctxt "#30707"
+msgid "Rename Collection"
+msgstr "Sammlung umbenennen"
+
+msgctxt "#30708"
+msgid "Delete Collection"
+msgstr "Sammlung löschen"
+
+msgctxt "#30709"
+msgid "Add to Another Collection"
+msgstr "Zu weiterer Sammlung hinzufügen"
+
+msgctxt "#30710"
+msgid "Remove from Collection"
+msgstr "Aus Sammlung entfernen"
+
+msgctxt "#30711"
+msgid "Previous Page"
+msgstr "Vorherige Seite"
+
+msgctxt "#30712"
+msgid "Next Page"
+msgstr "Nächste Seite"
+
+msgctxt "#30713"
+msgid "Export Vault Backup"
+msgstr "Vault-Sicherung exportieren"
+
+msgctxt "#30714"
+msgid "Restore Vault Backup"
+msgstr "Vault-Sicherung wiederherstellen"
+
+msgctxt "#30715"
+msgid "Collection name"
+msgstr "Name der Sammlung"
+
+msgctxt "#30716"
+msgid "Save to Collection"
+msgstr "In Sammlung speichern"
+
+msgctxt "#30717"
+msgid "Collection created"
+msgstr "Sammlung erstellt"
+
+msgctxt "#30718"
+msgid "Saved: {}"
+msgstr "Gespeichert: {}"
+
+msgctxt "#30719"
+msgid "Choose backup folder"
+msgstr "Sicherungsordner auswählen"
+
+msgctxt "#30720"
+msgid "Choose Vault backup"
+msgstr "Vault-Sicherung auswählen"
+
+msgctxt "#30721"
+msgid "Backup exported"
+msgstr "Sicherung exportiert"
+
+msgctxt "#30722"
+msgid "Backup restored"
+msgstr "Sicherung wiederhergestellt"
+
+msgctxt "#30723"
+msgid "Invalid backup file"
+msgstr "Ungültige Sicherungsdatei"
+
+msgctxt "#30724"
+msgid "Remove this item from all collections?"
+msgstr "Diesen Eintrag aus allen Sammlungen entfernen?"
+
+msgctxt "#30725"
+msgid "Replace the current Vault with this backup?"
+msgstr "Die aktuelle Vault durch diese Sicherung ersetzen?"
+
+msgctxt "#30726"
+msgid "Item cannot be saved"
+msgstr "Eintrag kann nicht gespeichert werden"
+
+msgctxt "#30727"
+msgid "Delete collection '{}' ?"
+msgstr "Sammlung '{}' löschen?"
+
+msgctxt "#30728"
+msgid "Collection"
+msgstr "Sammlung"
+
+msgctxt "#30729"
+msgid "Saved item"
+msgstr "Gespeicherter Eintrag"
+
+msgctxt "#30730"
+msgid "Saved {} items"
+msgstr "{} Einträge gespeichert"
+
+msgctxt "#30731"
+msgid "Delete from Vault"
+msgstr "Aus Vault löschen"
+
+msgctxt "#30732"
+msgid "Select multiple videos for Vault"
+msgstr "Mehrere Videos für Vault auswählen"
+
+msgctxt "#30733"
+msgid "Open Download Manager"
+msgstr "Downloadverwaltung öffnen"
+
+msgctxt "#30734"
+msgid "Background progress display"
+msgstr "Dauer der Hintergrundanzeige"
+
+msgctxt "#30735"
+msgid "10 seconds"
+msgstr "10 Sekunden"
+
+msgctxt "#30736"
+msgid "1 minute"
+msgstr "1 Minute"
+
+msgctxt "#30737"
+msgid "Always"
+msgstr "Dauerhaft"
+
+msgctxt "#30738"
+msgid "Queued"
+msgstr "In Warteschlange"
+
+msgctxt "#30739"
+msgid "Running"
+msgstr "Läuft"
+
+msgctxt "#30740"
+msgid "Transferring"
+msgstr "Wird übertragen"
+
+msgctxt "#30741"
+msgid "Submitted"
+msgstr "Übergeben"
+
+msgctxt "#30742"
+msgid "Complete"
+msgstr "Abgeschlossen"
+
+msgctxt "#30743"
+msgid "Failed"
+msgstr "Fehlgeschlagen"
+
+msgctxt "#30744"
+msgid "Cancelled"
+msgstr "Abgebrochen"
+
+msgctxt "#30745"
+msgid "Backend"
+msgstr "Download-Methode"
+
+msgctxt "#30746"
+msgid "Status"
+msgstr "Status"
+
+msgctxt "#30747"
+msgid "Download"
+msgstr "Download"
+
+msgctxt "#30748"
+msgid "Download complete: {}"
+msgstr "Download abgeschlossen: {}"
+
+msgctxt "#30749"
+msgid "Download failed: {}"
+msgstr "Download fehlgeschlagen: {}"
+
+msgctxt "#30750"
+msgid "Download produced no file"
+msgstr "Der Download hat keine Datei erzeugt"
+
+msgctxt "#30751"
+msgid "Cancelled by user"
+msgstr "Vom Benutzer abgebrochen"
+
+msgctxt "#30752"
+msgid "ETA {}"
+msgstr "Restzeit {}"
+
+msgctxt "#30753"
+msgid "Could not resolve a downloadable stream."
+msgstr "Es konnte kein herunterladbarer Stream ermittelt werden."
+
+msgctxt "#30754"
+msgid "Auto"
+msgstr "Automatisch"
+
+msgctxt "#30755"
+msgid "Internal"
+msgstr "Intern"
+
+msgctxt "#30756"
+msgid "FFmpeg"
+msgstr "FFmpeg"
+
+msgctxt "#30757"
+msgid "aria2"
+msgstr "aria2"
+
+msgctxt "#30758"
+msgid "JDownloader"
+msgstr "JDownloader"
+
+msgctxt "#30759"
+msgid "Filter & Sort Results"
+msgstr "Ergebnisse filtern & sortieren"
+
+msgctxt "#30760"
+msgid "Filter Sources"
+msgstr "Quellen filtern"
+
+msgctxt "#30761"
+msgid "Filter by Text"
+msgstr "Nach Text filtern"
+
+msgctxt "#30762"
+msgid "Sort Order"
+msgstr "Sortierung"
+
+msgctxt "#30763"
+msgid "Reset Filters"
+msgstr "Filter zurücksetzen"
+
+msgctxt "#30764"
+msgid "Relevance"
+msgstr "Relevanz"
+
+msgctxt "#30765"
+msgid "Title A-Z"
+msgstr "Titel A-Z"
+
+msgctxt "#30766"
+msgid "Source"
+msgstr "Quelle"
+
+msgctxt "#30767"
+msgid "Select at least one source."
+msgstr "Mindestens eine Quelle auswählen."
+
+msgctxt "#30768"
+msgid "Filter Results"
+msgstr "Ergebnisse filtern"
+
+msgctxt "#30769"
+msgid "Preferred playback quality"
+msgstr "Bevorzugte Wiedergabequalität"
+
+msgctxt "#30770"
+msgid "Highest available"
+msgstr "Höchste verfügbare"
+
+msgctxt "#30771"
+msgid "2160p"
+msgstr "2160p"
+
+msgctxt "#30772"
+msgid "1080p"
+msgstr "1080p"
+
+msgctxt "#30773"
+msgid "720p"
+msgstr "720p"
+
+msgctxt "#30774"
+msgid "480p"
+msgstr "480p"
+
+msgctxt "#30775"
+msgid "360p"
+msgstr "360p"
+
+msgctxt "#30776"
+msgid "Preferred resolver"
+msgstr "Bevorzugter Resolver"
+
+msgctxt "#30777"
+msgid "Check resolved mirrors before playback"
+msgstr "Aufgelöste Mirrors vor Wiedergabe prüfen"
+
+msgctxt "#30778"
+msgid "Sort websites..."
+msgstr "Websites sortieren..."
+
+msgctxt "#30779"
+msgid "Filter websites..."
+msgstr "Websites filtern..."
+
+msgctxt "#30782"
+msgid "Newest Websites"
+msgstr "Neueste Websites"
+
+msgctxt "#30783"
+msgid "Category"
+msgstr "Kategorie"
+
+msgctxt "#30784"
+msgid "Content"
+msgstr "Inhalte"
+
+msgctxt "#30785"
+msgid "Website type"
+msgstr "Website-Typ"
+
+msgctxt "#30787"
+msgid "General"
+msgstr "Allgemein"
+
+msgctxt "#30788"
+msgid "Trans"
+msgstr "Trans"
+
+msgctxt "#30789"
+msgid "Hentai / Animation"
+msgstr "Hentai / Animation"
+
+msgctxt "#30790"
+msgid "JAV / Asian"
+msgstr "JAV / Asiatisch"
+
+msgctxt "#30791"
+msgid "Rule34"
+msgstr "Rule34"
+
+msgctxt "#30792"
+msgid "BDSM / Fetish"
+msgstr "BDSM / Fetisch"
+
+msgctxt "#30793"
+msgid "Live / Cams"
+msgstr "Live / Cams"
+
+msgctxt "#30794"
+msgid "Creator Archives"
+msgstr "Creator-Archive"
+
+msgctxt "#30795"
+msgid "Tube"
+msgstr "Tube"
+
+msgctxt "#30796"
+msgid "Archive"
+msgstr "Archiv"
+
+msgctxt "#30797"
+msgid "Live"
+msgstr "Live"
+
+msgctxt "#30798"
+msgid "Resolver-backed"
+msgstr "Resolver-basiert"
+
+msgctxt "#30799"
+msgid "All Websites"
+msgstr "Alle Websites"
+
+msgctxt "#30800"
+msgid "Hide website"
+msgstr "Website ausblenden"
+
+msgctxt "#30801"
+msgid "Website hidden"
+msgstr "Website ausgeblendet"
+
+msgctxt "#30802"
+msgid "Hidden websites"
+msgstr "Ausgeblendete Websites"
+
+msgctxt "#30803"
+msgid "Restore all websites"
+msgstr "Alle Websites wiederherstellen"
+
+msgctxt "#30804"
+msgid "Select websites to restore"
+msgstr "Websites zum Wiederherstellen auswählen"
+
+msgctxt "#30805"
+msgid "No hidden websites"
+msgstr "Keine ausgeblendeten Websites"
+
+msgctxt "#30806"
+msgid "Make every website visible again?"
+msgstr "Alle Websites wieder sichtbar machen?"
+
+msgctxt "#30807"
+msgid "Websites"
+msgstr "Websites"
+
+msgctxt "#30808"
+msgid "Manage hidden websites"
+msgstr "Ausgeblendete Websites verwalten"
+
+msgctxt "#30809"
+msgid "Enable CrazyShit"
+msgstr "CrazyShit aktivieren"
+
+msgctxt "#30810"
+msgid "Resolvers"
+msgstr "Resolver"
+
+msgctxt "#30811"
+msgid "External downloaders"
+msgstr "Externe Downloader"
+
+msgctxt "#30812"
+msgid "Configure website filters"
+msgstr "Website-Filter konfigurieren"
+
+msgctxt "#30813"
+msgid "Select website"
+msgstr "Website auswählen"
+
+msgctxt "#30815"
+msgid "Reset filters"
+msgstr "Filter zurücksetzen"
+
+msgctxt "#30816"
+msgid "Reset all filters for this website?"
+msgstr "Alle Filter für diese Website zurücksetzen?"
+
+msgctxt "#30817"
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+msgctxt "#30818"
+msgid "Enabled"
+msgstr "Aktiviert"
+
+msgctxt "#30819"
+msgid "Choose enabled resolvers"
+msgstr "Aktive Resolver auswählen"
+
+msgctxt "#30820"
+msgid "Enabled resolvers"
+msgstr "Aktive Resolver"
+
+msgctxt "#30821"
+msgid "AdultHideout Diagnostics"
+msgstr "AdultHideout-Diagnose"
+
+msgctxt "#30822"
+msgid "Test this website"
+msgstr "Diese Website testen"
+
+msgctxt "#30823"
+msgid "AdultHideout Diagnostics is not installed. Install it now?"
+msgstr "AdultHideout-Diagnose ist nicht installiert. Jetzt installieren?"
+
+msgctxt "#30824"
+msgid "Open diagnostics"
+msgstr "Diagnose öffnen"
+
+msgctxt "#30825"
+msgid "Enable SpankBang"
+msgstr "SpankBang aktivieren"
+
+msgctxt "#30826"
+msgid "Website Collections"
+msgstr "Website-Sammlungen"
+
+msgctxt "#30827"
+msgid "Add to Collection..."
+msgstr "Zu Sammlung hinzufügen..."
+
+msgctxt "#30828"
+msgid "New Collection"
+msgstr "Neue Sammlung"
+
+msgctxt "#30829"
+msgid "Enter Collection Name"
+msgstr "Sammlungsnamen eingeben"
+
+msgctxt "#30831"
+msgid "Added to Collection"
+msgstr "Zu '{}' hinzugefügt"
+
+msgctxt "#30832"
+msgid "Error"
+msgstr "Fehler"
+
+msgctxt "#30833"
+msgid "Delete"
+msgstr "Löschen"
+
+msgctxt "#30834"
+msgid "Delete collection '{}' ?"
+msgstr "Sammlung '{}' wirklich löschen?"
+
+msgctxt "#30835"
+msgid "Remove from Collection"
+msgstr "Aus Sammlung entfernen"
+
+msgctxt "#30836"
+msgid "Delete Collection"
+msgstr "Sammlung löschen"
+
+msgctxt "#30837"
+msgid "Collection already exists"
+msgstr "Sammlung ist bereits vorhanden"
+
+msgctxt "#30838"
+msgid "Collection name cannot be empty"
+msgstr "Der Sammlungsname darf nicht leer sein"
+
+msgctxt "#30839"
+msgid "Favorites"
+msgstr "Favoriten"
+
+msgctxt "#30840"
+msgid "My Top Sites"
+msgstr "Meine Top-Seiten"
+
+msgctxt "#30841"
+msgid "Skin Integration"
+msgstr "Skin-Integration"
+
+msgctxt "#30842"
+msgid "Enable Website Collections"
+msgstr "Website-Sammlungen aktivieren"
+
+msgctxt "#30843"
+msgid "Manage Website Collections"
+msgstr "Website-Sammlungen verwalten"
+
+msgctxt "#30844"
+msgid "Installing diagnostics..."
+msgstr "Diagnose wird installiert..."
+
+msgctxt "#30845"
+msgid "Installation failed. Install AdultHideout Diagnostics from the AdultHideout Repository."
+msgstr "Installation fehlgeschlagen. Installiere AdultHideout Diagnostics aus dem AdultHideout Repository."
+
+msgctxt "#30672"
+msgid "AdultHideout cannot write to the configured download folder."
+msgstr "AdultHideout kann nicht in den eingestellten Download-Ordner schreiben."
+
+msgctxt "#30673"
+msgid "Download storage"
+msgstr "Download-Speicher"
+
+msgctxt "#30674"
+msgid "Choose another folder"
+msgstr "Anderen Ordner wählen"
+
+msgctxt "#30675"
+msgid "Use Kodi-safe storage"
+msgstr "Kodi-sicheren Speicher verwenden"
+
+msgctxt "#30676"
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgctxt "#30677"
+msgid "Kodi-safe download storage selected."
+msgstr "Kodi-sicherer Download-Speicher wurde ausgewählt."
+
+msgctxt "#30678"
+msgid "Kodi cannot write to this folder. Choose another folder or use Kodi-safe storage."
+msgstr "Kodi kann nicht in diesen Ordner schreiben. Wähle einen anderen Ordner oder verwende Kodi-sicheren Speicher."
+
+msgctxt "#30679"
+msgid "Could not refresh the download link: {}"
+msgstr "Der Download-Link konnte nicht erneuert werden: {}"
+
+msgctxt "#30680"
+msgid "Interrupted download queued for continuation."
+msgstr "Der unterbrochene Download wurde zum Fortsetzen eingereiht."
+
+msgctxt "#30850"
+msgid "Rate item"
+msgstr "Eintrag bewerten"
+
+
+msgctxt "#30851"
+msgid "Rating"
+msgstr "Bewertung"
+
+
+msgctxt "#30852"
+msgid "Rating saved: {}/10"
+msgstr "Bewertung gespeichert: {}/10"
+
+
+msgctxt "#30853"
+msgid "Clear rating"
+msgstr "Bewertung löschen"
+
+
+msgctxt "#30854"
+msgid "Sort Items"
+msgstr "Einträge sortieren"
+
+
+msgctxt "#30855"
+msgid "By Rating (Highest first)"
+msgstr "Nach Bewertung (Höchste zuerst)"
+
+
+msgctxt "#30856"
+msgid "By Date Added (Newest first)"
+msgstr "Nach Hinzugefügt (Neueste zuerst)"
+
+
+msgctxt "#30857"
+msgid "By Title (A-Z)"
+msgstr "Nach Titel (A-Z)"
+
+msgctxt "#30860"
+msgid "Smart Streams (Beta)"
+msgstr "Smart Streams (Beta)"
+
+
+msgctxt "#30861"
+msgid "Vault Favorites Shuffle (24/7)"
+msgstr "Vault-Favoriten Zufallsmix (24/7)"
+
+
+msgctxt "#30862"
+msgid "Trending & Top-Rated Mix"
+msgstr "Trending & Top-Bewertungen Mix"
+
+
+msgctxt "#30863"
+msgid "Mega Tube Shuffle (All Sites)"
+msgstr "Mega-Tube Zufallsmix (Alle Seiten)"
+
+
+msgctxt "#30864"
+msgid "Ultra HD 4K / 1080p Theater"
+msgstr "Ultra HD 4K / 1080p Kino"
+
+
+msgctxt "#30865"
+msgid "Hentai & Anime 24/7"
+msgstr "Hentai & Anime 24/7"
+
+
+msgctxt "#30866"
+msgid "JAV & Asian 24/7"
+msgstr "JAV & Asien 24/7"
+
+
+msgctxt "#30867"
+msgid "Trans / Shemale 24/7"
+msgstr "Trans / Shemale 24/7"
+
+
+msgctxt "#30868"
+msgid "Full Movies & Long Scenes"
+msgstr "Ganze Filme & Lange Szenen"
+
+
+msgctxt "#30869"
+msgid "Custom Smart Playlist..."
+msgstr "Eigene Smart-Wiedergabeliste..."
+
+
+msgctxt "#30870"
+msgid "Generating playlist ({} videos)..."
+msgstr "Erstelle Wiedergabeliste ({} Videos)..."
+
+
+msgctxt "#30871"
+msgid "Smart Playlist started ({} videos)"
+msgstr "Smart-Wiedergabeliste gestartet ({} Videos)"
+
+
+msgctxt "#30872"
+msgid "No videos found for this playlist"
+msgstr "Keine Videos für diese Wiedergabeliste gefunden"
+
+
+msgctxt "#30873"
+msgid "Select Playlist Size"
+msgstr "Anzahl der Videos wählen"
+
+
+msgctxt "#30874"
+msgid "Select Playlist Source"
+msgstr "Playlist-Quelle wählen"
+
+
+msgctxt "#30875"
+msgid "Play as Smart Playlist"
+msgstr "Als Smart-Playlist abspielen"
+
+msgctxt "#30876"
+msgid "Start 24/7 Auto-Play"
+msgstr "24/7 Endlos-Wiedergabe starten"
+
+
+msgctxt "#30877"
+msgid "Refresh Channel Videos"
+msgstr "Kanal-Videos aktualisieren"
+
+msgctxt "#30878"
+msgid "Browse Channel Videos"
+msgstr "Kanal-Videos durchsuchen"
+
+
+msgctxt "#30879"
+msgid "Long Scenes (20+ min)"
+msgstr "Lange Szenen (20+ Min)"
+
+
+msgctxt "#30880"
+msgid "Full Movies & Feature Films (60+ Min)"
+msgstr "Spielfilme & Ganze Filme (60+ Min)"
+
+
+msgctxt "#30881"
+msgid "Retro & Vintage Classic Movies"
+msgstr "Retro & Vintage Filmklassiker"
+
+
+msgctxt "#30882"
+msgid "Zapping to Live Channel..."
+msgstr "Schalte Live-Kanal ein..."
+
+msgctxt "#30883"
+msgid "Custom Smart Stream Builder"
+msgstr "Eigener Smart Stream Konfigurator"
+
+
+msgctxt "#30884"
+msgid "Enter Search Term (or leave empty)"
+msgstr "Suchbegriff eingeben (oder leer lassen)"
+
+
+msgctxt "#30885"
+msgid "Select Duration"
+msgstr "Dauer auswählen"
+
+
+msgctxt "#30886"
+msgid "Select Sources"
+msgstr "Quellen auswählen"
+
+
+msgctxt "#30887"
+msgid "Save as Custom Smart Stream"
+msgstr "Als eigenen Smart Stream speichern"
+
+
+msgctxt "#30888"
+msgid "Enter Name for Custom Stream"
+msgstr "Namen für eigenen Stream eingeben"
+
+
+msgctxt "#30889"
+msgid "Delete Custom Stream"
+msgstr "Eigenen Stream löschen"
+
+
+msgctxt "#30890"
+msgid "Delete All Custom Streams"
+msgstr "Alle eigenen Streams löschen"
+
+
+msgctxt "#30891"
+msgid "Delete all custom streams?"
+msgstr "Möchtest du wirklich alle eigenen Streams löschen?"
+
+msgctxt "#30900"
+msgid "Star Finder (Beta)"
+msgstr "Star Finder (Beta)"
+
+msgctxt "#30901"
+msgid "Search Performer..."
+msgstr "Darsteller suchen..."
+
+
+msgctxt "#30902"
+msgid "Popular & Trending Performers"
+msgstr "Trending Stars"
+
+
+msgctxt "#30903"
+msgid "Hall of Fame & Legends"
+msgstr "Hall of Fame & Legenden"
+
+
+msgctxt "#30904"
+msgid "A – Z Performer Index"
+msgstr "A – Z Darsteller-Index"
+
+
+msgctxt "#30905"
+msgid "Categories & Demographics"
+msgstr "Kategorien & Sparten"
+
+
+msgctxt "#30906"
+msgid "Favorite Performers"
+msgstr "Meine Lieblings-Darsteller"
+
+
+msgctxt "#30907"
+msgid "Performers with"
+msgstr "Darsteller mit"
+
+
+msgctxt "#30908"
+msgid "No performers found"
+msgstr "Keine Darsteller gefunden"
+
+
+msgctxt "#30909"
+msgid "Remove from Favorites"
+msgstr "Aus Favoriten entfernen"
+
+
+msgctxt "#30910"
+msgid "Add to Favorites"
+msgstr "Zu Favoriten hinzufügen"
+
+
+msgctxt "#30911"
+msgid "Start 24/7 Smart Stream"
+msgstr "24/7 Smart Stream starten"
+
+
+msgctxt "#30912"
+msgid "Search Across All 272 Websites"
+msgstr "Über alle 272 Webseiten suchen"
+
+
+msgctxt "#30913"
+msgid "No favorite performers saved yet"
+msgstr "Noch keine Favoriten gespeichert"
+
+
+msgctxt "#30914"
+msgid "added to favorites!"
+msgstr "zu Favoriten hinzugefügt!"
+
+
+msgctxt "#30915"
+msgid "removed from favorites!"
+msgstr "aus Favoriten entfernt!"
+
+msgctxt "#30916"
+msgid "Biography & Profile"
+msgstr "Biografie & Profil anzeigen"
+
+msgctxt "#30920"
+msgid "Pornstar Filter-Matrix / Star Finder"
+msgstr "Star-Finder Filter-Matrix"
+
+msgctxt "#30921"
+msgid "Show Filtered Performers"
+msgstr "Gefilterte Stars anzeigen"
+
+msgctxt "#30922"
+msgid "Start 24/7 Multi-Star Smart Stream"
+msgstr "24/7 Multi-Star Smart Stream starten"
+
+msgctxt "#30923"
+msgid "Global Search for Filtered Stars"
+msgstr "Global Search für alle gefilterten Stars"
+
+msgctxt "#30924"
+msgid "Reset Filter Matrix"
+msgstr "Filter-Matrix zurücksetzen"
+
+msgctxt "#30925"
+msgid "Gender"
+msgstr "Geschlecht"
+
+msgctxt "#30926"
+msgid "Ethnicity & Origin"
+msgstr "Ethnizität & Herkunft"
+
+msgctxt "#30927"
+msgid "Height"
+msgstr "Körpergröße"
+
+msgctxt "#30928"
+msgid "Cup Size & Bust"
+msgstr "Körbchengröße & Oberweite"
+
+msgctxt "#30929"
+msgid "Hair Color"
+msgstr "Haarfarbe"
+
+msgctxt "#30930"
+msgid "Eye Color"
+msgstr "Augenfarbe"
+
+msgctxt "#30931"
+msgid "Body Build"
+msgstr "Körperbau"
+
+msgctxt "#30932"
+msgid "Career Era / Decade"
+msgstr "Karriere-Ära / Jahrzehnt"
+
+msgctxt "#30933"
+msgid "All"
+msgstr "Alle"
+
+msgctxt "#30934"
+msgid "Performers matching your filter"
+msgstr "Darsteller passend zu deinem Filter"
+msgctxt "#30940"
+msgid "Continue Watching"
+msgstr "Weiterschauen"
+
+msgctxt "#30941"
+msgid "Enable local playback history"
+msgstr "Lokalen Wiedergabeverlauf aktivieren"
+
+msgctxt "#30942"
+msgid "More from this uploader"
+msgstr "Weitere Videos dieses Uploaders"
+
+msgctxt "#30943"
+msgid "Complete Backup / Restore"
+msgstr "Vollständiges Backup / Wiederherstellen"
+
+msgctxt "#30944"
+msgid "Export complete backup"
+msgstr "Vollständiges Backup exportieren"
+
+msgctxt "#30945"
+msgid "Restore complete backup"
+msgstr "Vollständiges Backup wiederherstellen"
+
+msgctxt "#30946"
+msgid "Choose backup folder"
+msgstr "Backup-Ordner auswählen"
+
+msgctxt "#30947"
+msgid "Choose backup file"
+msgstr "Backup-Datei auswählen"
+
+msgctxt "#30948"
+msgid "Complete backup exported"
+msgstr "Vollständiges Backup exportiert"
+
+msgctxt "#30949"
+msgid "Complete backup restored"
+msgstr "Vollständiges Backup wiederhergestellt"
+
+msgctxt "#30950"
+msgid "Invalid backup file"
+msgstr "Ungültige Backup-Datei"
+
+msgctxt "#30951"
+msgid "Replace the backed-up AdultHideout data and settings?"
+msgstr "Gesicherte AdultHideout-Daten und Einstellungen ersetzen?"
+
+msgctxt "#30952"
+msgid "Reopen AdultHideout to apply all restored settings."
+msgstr "AdultHideout erneut öffnen, um alle Einstellungen anzuwenden."
+
+msgctxt "#30953"
+msgid "Add to Cam Favorites"
+msgstr "Zu Cam-Favoriten hinzufügen"
+
+msgctxt "#30954"
+msgid "Remove from Cam Favorites"
+msgstr "Aus Cam-Favoriten entfernen"
+
+msgctxt "#30955"
+msgid "Added to Cam Favorites"
+msgstr "Zu Cam-Favoriten hinzugefügt"
+
+msgctxt "#30956"
+msgid "Removed from Cam Favorites"
+msgstr "Aus Cam-Favoriten entfernt"
+
+msgctxt "#30957"
+msgid "Cam Favorites"
+msgstr "Cam-Favoriten"
+
+msgctxt "#30958"
+msgid "Online"
+msgstr "Online"
+
+msgctxt "#30959"
+msgid "Offline"
+msgstr "Offline"
+
+msgctxt "#30960"
+msgid "Recently Seen"
+msgstr "Zuletzt angesehen"
+
+msgctxt "#30961"
+msgid "Currently offline"
+msgstr "Derzeit offline"
+
+msgctxt "#30962"
+msgid "No Cam Favorites in this group"
+msgstr "Keine Cam-Favoriten in dieser Gruppe"
+
+msgctxt "#30963"
+msgid "Public Playlists"
+msgstr "Öffentliche Playlists"
+
+msgctxt "#30964"
+msgid "Play this playlist page"
+msgstr "Diese Playlist-Seite abspielen"
+
+msgctxt "#30965"
+msgid "No public playlist videos found"
+msgstr "Keine öffentlichen Playlist-Videos gefunden"

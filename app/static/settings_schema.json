@@ -1,0 +1,494 @@
+{
+  "version": 1,
+  "menus": [
+    "home",
+    "bookmarks",
+    "sites",
+    "search",
+    "vault",
+    "smart",
+    "stars",
+    "live",
+    "continue",
+    "downloads",
+    "offline",
+    "collections",
+    "profile",
+    "stats",
+    "multi",
+    "settings"
+  ],
+  "fonts": [
+    "inherit",
+    "custom",
+    "system-ui",
+    "Segoe UI",
+    "Arial",
+    "Verdana",
+    "Tahoma",
+    "Georgia",
+    "Palatino Linotype",
+    "Cambria",
+    "Trebuchet MS",
+    "Consolas",
+    "Candara",
+    "Arial Rounded MT Bold",
+    "Times New Roman",
+    "Courier New",
+    "Impact",
+    "Camclient Script"
+  ],
+  "fields": {
+    "colors.input": {
+      "type": "color",
+      "default": "#1c1913"
+    },
+    "colors.buttonText": {
+      "type": "color",
+      "default": "#161108"
+    },
+    "colors.hover": {
+      "type": "color",
+      "default": "#2c2416"
+    },
+    "typography.body": {
+      "type": "font",
+      "default": "inherit"
+    },
+    "typography.headings": {
+      "type": "font",
+      "default": "Cambria"
+    },
+    "typography.navigation": {
+      "type": "font",
+      "default": "inherit"
+    },
+    "typography.controls": {
+      "type": "font",
+      "default": "inherit"
+    },
+    "typography.cards": {
+      "type": "font",
+      "default": "inherit"
+    },
+    "typography.brand": {
+      "type": "font",
+      "default": "Cambria"
+    },
+    "typography.customFamily": {
+      "type": "text",
+      "default": "",
+      "max": 80
+    },
+    "typography.headingScale": {
+      "type": "number",
+      "default": 112,
+      "min": 75,
+      "max": 180
+    },
+    "typography.navigationScale": {
+      "type": "number",
+      "default": 94,
+      "min": 80,
+      "max": 150
+    },
+    "typography.controlScale": {
+      "type": "number",
+      "default": 94,
+      "min": 80,
+      "max": 150
+    },
+    "typography.cardScale": {
+      "type": "number",
+      "default": 100,
+      "min": 80,
+      "max": 160
+    },
+    "typography.lineHeight": {
+      "type": "number",
+      "default": 1.5,
+      "min": 1.15,
+      "max": 2
+    },
+    "typography.letterSpacing": {
+      "type": "number",
+      "default": 0,
+      "min": -0.5,
+      "max": 2
+    },
+    "typography.weight": {
+      "type": "enum",
+      "default": "400",
+      "values": [
+        "400",
+        "500",
+        "600"
+      ]
+    },
+    "brand.name": {
+      "type": "text",
+      "default": "Adult Client",
+      "max": 80
+    },
+    "brand.tagline": {
+      "type": "text",
+      "default": "",
+      "max": 160
+    },
+    "brand.monogram": {
+      "type": "text",
+      "default": "AC",
+      "max": 6
+    },
+    "brand.mode": {
+      "type": "enum",
+      "default": "legacy",
+      "values": [
+        "legacy",
+        "text",
+        "logo",
+        "both",
+        "monogram"
+      ]
+    },
+    "brand.logo": {
+      "type": "image",
+      "default": ""
+    },
+    "brand.favicon": {
+      "type": "image",
+      "default": ""
+    },
+    "brand.title": {
+      "type": "text",
+      "default": "",
+      "max": 120
+    },
+    "brand.width": {
+      "type": "number",
+      "default": 240,
+      "min": 40,
+      "max": 400
+    },
+    "brand.height": {
+      "type": "number",
+      "default": 120,
+      "min": 24,
+      "max": 240
+    },
+    "brand.fit": {
+      "type": "enum",
+      "default": "contain",
+      "values": [
+        "contain",
+        "cover",
+        "fill",
+        "scale-down"
+      ]
+    },
+    "brand.shape": {
+      "type": "enum",
+      "default": "natural",
+      "values": [
+        "natural",
+        "rounded",
+        "circle",
+        "square"
+      ]
+    },
+    "brand.padding": {
+      "type": "number",
+      "default": 0,
+      "min": 0,
+      "max": 30
+    },
+    "brand.positionX": {
+      "type": "number",
+      "default": 50,
+      "min": 0,
+      "max": 100
+    },
+    "brand.positionY": {
+      "type": "number",
+      "default": 50,
+      "min": 0,
+      "max": 100
+    },
+    "brand.background": {
+      "type": "enum",
+      "default": "transparent",
+      "values": [
+        "transparent",
+        "panel",
+        "accent",
+        "white",
+        "black"
+      ]
+    },
+    "layout.contentWidth": {
+      "type": "number",
+      "default": 0,
+      "min": 0,
+      "max": 2560
+    },
+    "layout.padding": {
+      "type": "number",
+      "default": 26,
+      "min": 8,
+      "max": 48
+    },
+    "layout.controlHeight": {
+      "type": "number",
+      "default": 36,
+      "min": 28,
+      "max": 56
+    },
+    "layout.maxColumns": {
+      "type": "number",
+      "default": 0,
+      "min": 0,
+      "max": 12
+    },
+    "layout.customCards": {
+      "type": "boolean",
+      "default": false
+    },
+    "layout.cardAlign": {
+      "type": "enum",
+      "default": "left",
+      "values": [
+        "left",
+        "center",
+        "right"
+      ]
+    },
+    "accessibility.motion": {
+      "type": "enum",
+      "default": "system",
+      "values": [
+        "system",
+        "off"
+      ]
+    },
+    "accessibility.underlineLinks": {
+      "type": "boolean",
+      "default": false
+    },
+    "accessibility.highContrast": {
+      "type": "boolean",
+      "default": false
+    },
+    "accessibility.reduceTransparency": {
+      "type": "boolean",
+      "default": false
+    },
+    "accessibility.focusWidth": {
+      "type": "number",
+      "default": 2,
+      "min": 2,
+      "max": 6
+    },
+    "menuFonts.home": {
+      "type": "font",
+      "default": "inherit"
+    },
+    "menuFonts.bookmarks": {
+      "type": "font",
+      "default": "inherit"
+    },
+    "menuFonts.sites": {
+      "type": "font",
+      "default": "inherit"
+    },
+    "menuFonts.search": {
+      "type": "font",
+      "default": "inherit"
+    },
+    "menuFonts.vault": {
+      "type": "font",
+      "default": "inherit"
+    },
+    "menuFonts.smart": {
+      "type": "font",
+      "default": "inherit"
+    },
+    "menuFonts.stars": {
+      "type": "font",
+      "default": "inherit"
+    },
+    "menuFonts.live": {
+      "type": "font",
+      "default": "inherit"
+    },
+    "menuFonts.continue": {
+      "type": "font",
+      "default": "inherit"
+    },
+    "menuFonts.downloads": {
+      "type": "font",
+      "default": "inherit"
+    },
+    "menuFonts.offline": {
+      "type": "font",
+      "default": "inherit"
+    },
+    "menuFonts.collections": {
+      "type": "font",
+      "default": "inherit"
+    },
+    "menuFonts.profile": {
+      "type": "font",
+      "default": "inherit"
+    },
+    "menuFonts.stats": {
+      "type": "font",
+      "default": "inherit"
+    },
+    "menuFonts.multi": {
+      "type": "font",
+      "default": "inherit"
+    },
+    "menuFonts.settings": {
+      "type": "font",
+      "default": "inherit"
+    },
+    "menuFonts.browse": {
+      "type": "font",
+      "default": "inherit"
+    },
+    "menuFonts.watch": {
+      "type": "font",
+      "default": "inherit"
+    }
+  },
+  "background": {
+    "mode": {
+      "type": "enum",
+      "default": "legacy",
+      "values": [
+        "legacy",
+        "inherit",
+        "color",
+        "gradient",
+        "image"
+      ]
+    },
+    "color": {
+      "type": "color",
+      "default": "#121418"
+    },
+    "start": {
+      "type": "color",
+      "default": "#172554"
+    },
+    "end": {
+      "type": "color",
+      "default": "#0f766e"
+    },
+    "angle": {
+      "type": "number",
+      "default": 135,
+      "min": 0,
+      "max": 360
+    },
+    "image": {
+      "type": "image",
+      "default": ""
+    },
+    "url": {
+      "type": "url",
+      "default": ""
+    },
+    "fit": {
+      "type": "enum",
+      "default": "cover",
+      "values": [
+        "cover",
+        "contain",
+        "stretch",
+        "original",
+        "tile"
+      ]
+    },
+    "x": {
+      "type": "number",
+      "default": 50,
+      "min": 0,
+      "max": 100
+    },
+    "y": {
+      "type": "number",
+      "default": 50,
+      "min": 0,
+      "max": 100
+    },
+    "zoom": {
+      "type": "number",
+      "default": 100,
+      "min": 50,
+      "max": 240
+    },
+    "opacity": {
+      "type": "number",
+      "default": 100,
+      "min": 10,
+      "max": 100
+    },
+    "dim": {
+      "type": "number",
+      "default": 65,
+      "min": 0,
+      "max": 90
+    },
+    "blur": {
+      "type": "number",
+      "default": 0,
+      "min": 0,
+      "max": 24
+    },
+    "panelOpacity": {
+      "type": "number",
+      "default": 100,
+      "min": 55,
+      "max": 100
+    },
+    "fixed": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "appearance": {
+    "bg": "#080807",
+    "panel": "#141310",
+    "aside": "#050505",
+    "line": "#3d3525",
+    "text": "#f4efe5",
+    "muted": "#b2a894",
+    "accent": "#d8b56a",
+    "grad2": "#1c170e",
+    "grad": false,
+    "photo": "",
+    "font": "Segoe UI",
+    "scale": 16,
+    "radius": 10,
+    "side": 268,
+    "card": 190,
+    "thumb": 110,
+    "layout": "left",
+    "density": "normal",
+    "gap": 12,
+    "lines": 4,
+    "shadow": true,
+    "lift": false,
+    "cardbg": "",
+    "hide": [],
+    "labels": {},
+    "showSearch": true,
+    "clock": false,
+    "shortcuts": 12
+  },
+  "project": {
+    "name": "Adult Client",
+    "creator": "emberhost"
+  }
+}

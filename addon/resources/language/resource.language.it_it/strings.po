@@ -1,0 +1,505 @@
+# Kodi Media Center language file
+msgid ""
+msgstr ""
+"Project-Id-Version: AdultHideout\n"
+"Language: it_IT\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgctxt "#30821"
+msgid "AdultHideout Diagnostics"
+msgstr "Diagnostica AdultHideout"
+
+msgctxt "#30823"
+msgid "AdultHideout Diagnostics is not installed. Install it now?"
+msgstr "AdultHideout Diagnostics non è installato. Installarlo ora?"
+
+msgctxt "#30824"
+msgid "Open diagnostics"
+msgstr "Apri diagnostica"
+
+msgctxt "#30825"
+msgid "Enable SpankBang"
+msgstr "Abilita SpankBang"
+
+msgctxt "#30826"
+msgid "Website Collections"
+msgstr "Raccolte di siti web"
+
+msgctxt "#30827"
+msgid "Add to Collection..."
+msgstr "Aggiungi alla raccolta..."
+
+msgctxt "#30828"
+msgid "New Collection"
+msgstr "Nuova raccolta"
+
+msgctxt "#30829"
+msgid "Enter Collection Name"
+msgstr "Inserisci il nome della raccolta"
+
+msgctxt "#30831"
+msgid "Added to Collection"
+msgstr "Aggiunto a '{}'"
+
+msgctxt "#30832"
+msgid "Error"
+msgstr "Errore"
+
+msgctxt "#30833"
+msgid "Delete"
+msgstr "Elimina"
+
+msgctxt "#30834"
+msgid "Delete collection '{}' ?"
+msgstr "Eliminare la raccolta '{}'?"
+
+msgctxt "#30835"
+msgid "Remove from Collection"
+msgstr "Rimuovi dalla raccolta"
+
+msgctxt "#30836"
+msgid "Delete Collection"
+msgstr "Elimina raccolta"
+
+msgctxt "#30837"
+msgid "Collection already exists"
+msgstr "La raccolta esiste già"
+
+msgctxt "#30838"
+msgid "Collection name cannot be empty"
+msgstr "Il nome della raccolta non può essere vuoto"
+
+msgctxt "#30839"
+msgid "Favorites"
+msgstr "Preferiti"
+
+msgctxt "#30840"
+msgid "My Top Sites"
+msgstr "I miei siti preferiti"
+
+msgctxt "#30841"
+msgid "Skin Integration"
+msgstr "Integrazione skin"
+
+msgctxt "#30842"
+msgid "Enable Website Collections"
+msgstr "Abilita raccolte di siti web"
+
+msgctxt "#30843"
+msgid "Manage Website Collections"
+msgstr "Gestisci raccolte di siti web"
+
+msgctxt "#30844"
+msgid "Installing diagnostics..."
+msgstr "Installazione della diagnostica..."
+
+msgctxt "#30845"
+msgid "Installation failed. Install AdultHideout Diagnostics from the AdultHideout Repository."
+msgstr "Installazione non riuscita. Installa AdultHideout Diagnostics dal repository AdultHideout."
+
+msgctxt "#30672"
+msgid "AdultHideout cannot write to the configured download folder."
+msgstr "AdultHideout non può scrivere nella cartella di download configurata."
+
+msgctxt "#30673"
+msgid "Download storage"
+msgstr "Archivio dei download"
+
+msgctxt "#30674"
+msgid "Choose another folder"
+msgstr "Scegli un'altra cartella"
+
+msgctxt "#30675"
+msgid "Use Kodi-safe storage"
+msgstr "Usa l'archivio sicuro di Kodi"
+
+msgctxt "#30676"
+msgid "Cancel"
+msgstr "Annulla"
+
+msgctxt "#30677"
+msgid "Kodi-safe download storage selected."
+msgstr "È stato selezionato l'archivio sicuro di Kodi."
+
+msgctxt "#30678"
+msgid "Kodi cannot write to this folder. Choose another folder or use Kodi-safe storage."
+msgstr "Kodi non può scrivere in questa cartella. Scegli un'altra cartella o usa l'archivio sicuro di Kodi."
+
+msgctxt "#30679"
+msgid "Could not refresh the download link: {}"
+msgstr "Impossibile aggiornare il link di download: {}"
+
+msgctxt "#30680"
+msgid "Interrupted download queued for continuation."
+msgstr "Il download interrotto è stato rimesso in coda per continuare."
+
+msgctxt "#30850"
+msgid "Rate item"
+msgstr "Valuta elemento"
+
+
+msgctxt "#30851"
+msgid "Rating"
+msgstr "Valutazione"
+
+
+msgctxt "#30852"
+msgid "Rating saved: {}/10"
+msgstr "Valutazione salvata: {}/10"
+
+
+msgctxt "#30853"
+msgid "Clear rating"
+msgstr "Cancella valutazione"
+
+
+msgctxt "#30854"
+msgid "Sort Items"
+msgstr "Ordina elementi"
+
+
+msgctxt "#30855"
+msgid "By Rating (Highest first)"
+msgstr "Per valutazione (Più alta prima)"
+
+
+msgctxt "#30856"
+msgid "By Date Added (Newest first)"
+msgstr "Per data di aggiunta (Più recente prima)"
+
+
+msgctxt "#30857"
+msgid "By Title (A-Z)"
+msgstr "Per titolo (A-Z)"
+
+msgctxt "#30860"
+msgid "Smart Streams (Beta)"
+msgstr "Smart Streams (Beta)"
+
+
+msgctxt "#30861"
+msgid "Vault Favorites Shuffle (24/7)"
+msgstr "Casuale preferiti del Vault (24/7)"
+
+
+msgctxt "#30862"
+msgid "Trending & Top-Rated Mix"
+msgstr "Mix tendenze e più votati"
+
+
+msgctxt "#30863"
+msgid "Mega Tube Shuffle (All Sites)"
+msgstr "Mega mix di tubi (Tutti i siti)"
+
+
+msgctxt "#30864"
+msgid "Ultra HD 4K / 1080p Theater"
+msgstr "Cinema Ultra HD 4K / 1080p"
+
+
+msgctxt "#30865"
+msgid "Hentai & Anime 24/7"
+msgstr "Hentai e Anime 24/7"
+
+
+msgctxt "#30866"
+msgid "JAV & Asian 24/7"
+msgstr "JAV e Asiatico 24/7"
+
+
+msgctxt "#30867"
+msgid "Trans / Shemale 24/7"
+msgstr "Trans / Shemale 24/7"
+
+
+msgctxt "#30868"
+msgid "Full Movies & Long Scenes"
+msgstr "Film completi e scene lunghe"
+
+
+msgctxt "#30869"
+msgid "Custom Smart Playlist..."
+msgstr "Playlist intelligente personalizzata..."
+
+
+msgctxt "#30870"
+msgid "Generating playlist ({} videos)..."
+msgstr "Generazione playlist ({} video)..."
+
+
+msgctxt "#30871"
+msgid "Smart Playlist started ({} videos)"
+msgstr "Playlist intelligente avviata ({} video)"
+
+
+msgctxt "#30872"
+msgid "No videos found for this playlist"
+msgstr "Nessun video trovato per questa playlist"
+
+
+msgctxt "#30873"
+msgid "Select Playlist Size"
+msgstr "Seleziona dimensione playlist"
+
+
+msgctxt "#30874"
+msgid "Select Playlist Source"
+msgstr "Seleziona sorgente playlist"
+
+
+msgctxt "#30875"
+msgid "Play as Smart Playlist"
+msgstr "Riproduci come playlist intelligente"
+
+msgctxt "#30876"
+msgid "Start 24/7 Auto-Play"
+msgstr "Avvia riproduzione continua 24/7"
+
+
+msgctxt "#30877"
+msgid "Refresh Channel Videos"
+msgstr "Aggiorna video del canale"
+
+msgctxt "#30878"
+msgid "Browse Channel Videos"
+msgstr "Sfoglia i video del canale"
+
+
+msgctxt "#30879"
+msgid "Long Scenes (20+ min)"
+msgstr "Scene lunghe (20+ min)"
+
+
+msgctxt "#30880"
+msgid "Full Movies & Feature Films (60+ Min)"
+msgstr "Film interi e lungometraggi (60+ min)"
+
+
+msgctxt "#30881"
+msgid "Retro & Vintage Classic Movies"
+msgstr "Film classici retrò e vintage"
+
+
+msgctxt "#30882"
+msgid "Zapping to Live Channel..."
+msgstr "Sintonizzazione canale live in corso..."
+
+msgctxt "#30883"
+msgid "Custom Smart Stream Builder"
+msgstr "Configuratore Smart Stream personalizzato"
+
+
+msgctxt "#30884"
+msgid "Enter Search Term (or leave empty)"
+msgstr "Inserisci termine di ricerca (o lascia vuoto)"
+
+
+msgctxt "#30885"
+msgid "Select Duration"
+msgstr "Seleziona durata"
+
+
+msgctxt "#30886"
+msgid "Select Sources"
+msgstr "Seleziona sorgenti"
+
+
+msgctxt "#30887"
+msgid "Save as Custom Smart Stream"
+msgstr "Salva come Smart Stream personalizzato"
+
+
+msgctxt "#30888"
+msgid "Enter Name for Custom Stream"
+msgstr "Inserisci nome per lo stream personalizzato"
+
+
+msgctxt "#30889"
+msgid "Delete Custom Stream"
+msgstr "Elimina Smart Stream personalizzato"
+
+msgctxt "#30900"
+msgid "Star Finder (Beta)"
+msgstr "Star Finder (Beta)"
+
+
+msgctxt "#30901"
+msgid "Search Performer..."
+msgstr "Cerca attore..."
+
+
+msgctxt "#30902"
+msgid "Popular & Trending Performers"
+msgstr "Attori popolari e di tendenza"
+
+
+msgctxt "#30903"
+msgid "Hall of Fame & Legends"
+msgstr "Hall of Fame e Leggende"
+
+
+msgctxt "#30904"
+msgid "A – Z Performer Index"
+msgstr "Indice A – Z degli attori"
+
+
+msgctxt "#30905"
+msgid "Categories & Demographics"
+msgstr "Categorie e sezioni"
+
+
+msgctxt "#30906"
+msgid "Favorite Performers"
+msgstr "I miei attori preferiti"
+
+
+msgctxt "#30907"
+msgid "Performers with"
+msgstr "Attori con"
+
+
+msgctxt "#30908"
+msgid "No performers found"
+msgstr "Nessun attore trovato"
+
+
+msgctxt "#30909"
+msgid "Remove from Favorites"
+msgstr "Rimuovi dai preferiti"
+
+
+msgctxt "#30910"
+msgid "Add to Favorites"
+msgstr "Aggiungi ai preferiti"
+
+
+msgctxt "#30911"
+msgid "Start 24/7 Smart Stream"
+msgstr "Avvia Smart Stream 24/7"
+
+
+msgctxt "#30912"
+msgid "Search Across All 272 Websites"
+msgstr "Cerca in tutti i 272 siti web"
+
+
+msgctxt "#30913"
+msgid "No favorite performers saved yet"
+msgstr "Nessun attore preferito salvato"
+
+
+msgctxt "#30914"
+msgid "added to favorites!"
+msgstr "aggiunto ai preferiti!"
+
+
+msgctxt "#30915"
+msgid "removed from favorites!"
+msgstr "rimosso dai preferiti!"
+
+msgctxt "#30916"
+msgid "Biography & Profile"
+msgstr "Visualizza biografia e profilo"
+msgctxt "#30940"
+msgid "Continue Watching"
+msgstr "Continua a guardare"
+
+msgctxt "#30941"
+msgid "Enable local playback history"
+msgstr "Abilita cronologia di riproduzione locale"
+
+msgctxt "#30942"
+msgid "More from this uploader"
+msgstr "Altri video di questo utente"
+
+msgctxt "#30943"
+msgid "Complete Backup / Restore"
+msgstr "Backup completo / Ripristino"
+
+msgctxt "#30944"
+msgid "Export complete backup"
+msgstr "Esporta backup completo"
+
+msgctxt "#30945"
+msgid "Restore complete backup"
+msgstr "Ripristina backup completo"
+
+msgctxt "#30946"
+msgid "Choose backup folder"
+msgstr "Scegli cartella di backup"
+
+msgctxt "#30947"
+msgid "Choose backup file"
+msgstr "Scegli file di backup"
+
+msgctxt "#30948"
+msgid "Complete backup exported"
+msgstr "Backup completo esportato"
+
+msgctxt "#30949"
+msgid "Complete backup restored"
+msgstr "Backup completo ripristinato"
+
+msgctxt "#30950"
+msgid "Invalid backup file"
+msgstr "File di backup non valido"
+
+msgctxt "#30951"
+msgid "Replace the backed-up AdultHideout data and settings?"
+msgstr "Sostituire i dati e le impostazioni AdultHideout salvati?"
+
+msgctxt "#30952"
+msgid "Reopen AdultHideout to apply all restored settings."
+msgstr "Riapri AdultHideout per applicare tutte le impostazioni."
+
+msgctxt "#30953"
+msgid "Add to Cam Favorites"
+msgstr "Aggiungi ai preferiti cam"
+
+msgctxt "#30954"
+msgid "Remove from Cam Favorites"
+msgstr "Rimuovi dai preferiti cam"
+
+msgctxt "#30955"
+msgid "Added to Cam Favorites"
+msgstr "Aggiunto ai preferiti cam"
+
+msgctxt "#30956"
+msgid "Removed from Cam Favorites"
+msgstr "Rimosso dai preferiti cam"
+
+msgctxt "#30957"
+msgid "Cam Favorites"
+msgstr "Preferiti cam"
+
+msgctxt "#30958"
+msgid "Online"
+msgstr "Online"
+
+msgctxt "#30959"
+msgid "Offline"
+msgstr "Offline"
+
+msgctxt "#30960"
+msgid "Recently Seen"
+msgstr "Visti di recente"
+
+msgctxt "#30961"
+msgid "Currently offline"
+msgstr "Attualmente offline"
+
+msgctxt "#30962"
+msgid "No Cam Favorites in this group"
+msgstr "Nessun preferito cam in questo gruppo"
+
+msgctxt "#30963"
+msgid "Public Playlists"
+msgstr "Playlist pubbliche"
+
+msgctxt "#30964"
+msgid "Play this playlist page"
+msgstr "Riproduci questa pagina della playlist"
+
+msgctxt "#30965"
+msgid "No public playlist videos found"
+msgstr "Nessun video trovato nella playlist pubblica"

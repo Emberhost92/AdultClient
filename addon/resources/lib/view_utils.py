@@ -1,0 +1,84 @@
+# -*- coding: utf-8 -*-
+
+import xbmc
+import xbmcgui
+import xbmcplugin
+import xbmcvfs
+import os
+import time
+
+ADDON_ID = "plugin.video.adulthideout"
+VIDEO_WINDOW_ID = 10025
+VIEW_MODES = [
+    50,   # List
+    51,   # Poster
+    55,   # Wide List
+    500,  # Wall
+    502,  # Fanart
+]
+
+
+def get_view_selection(addon, default_index=2):
+    try:
+        index = int(addon.getSetting("viewtype") or default_index)
+    except (TypeError, ValueError):
+        index = default_index
+    if index < 0 or index >= len(VIEW_MODES):
+        index = default_index
+    return index, VIEW_MODES[index]
+
+
+def get_view_mode(addon, default_index=2):
+    return get_view_selection(addon, default_index=default_index)[1]
+
+
+def get_content_type_for_view(addon, content_type="videos"):
+    return content_type
+
+
+def apply_view_mode(
+    addon,
+    reason="runtime",
+    content_type="",
+    persist=False,
+    schedule=False,
+    log_success=False,
+    view_mode=None,
+):
+    try:
+        if view_mode is None:
+            _, view_mode = get_view_selection(addon)
+        else:
+            view_mode = int(view_mode)
+            if view_mode not in VIEW_MODES:
+                view_mode = get_view_mode(addon)
+        if xbmc:
+            xbmc.executebuiltin(f"Container.SetViewMode({view_mode})")
+        return view_mode
+    except Exception:
+        return 55
+
+
+def end_directory_with_view(addon_handle, addon, content_type="videos", cache_to_disc=True, apply_view=False, view_mode=None):
+    try:
+        if xbmcplugin:
+            xbmcplugin.setContent(addon_handle, content_type)
+            xbmcplugin.endOfDirectory(addon_handle, cacheToDisc=cache_to_disc)
+    except Exception:
+        if xbmcplugin:
+            xbmcplugin.endOfDirectory(addon_handle)
+
+    if content_type == "videos" or apply_view:
+        try:
+            if view_mode is None:
+                _, view_mode = get_view_selection(addon)
+            else:
+                view_mode = int(view_mode)
+                if view_mode not in VIEW_MODES:
+                    view_mode = get_view_mode(addon)
+            xbmcgui.Window(10000).setProperty(
+                "AdultHideout.PendingViewRequest",
+                "{}:{}".format(time.time(), view_mode),
+            )
+        except Exception:
+            pass
