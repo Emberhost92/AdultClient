@@ -12,13 +12,130 @@ Videos ansehen, mehrere Streams im Blick behalten, Modelle entdecken und Medien 
 
 | Bereich / Area | Was du damit machen kannst / What you can do |
 | --- | --- |
-| **Tube & Player** | Anbieter durchsuchen, Videos abspielen und die Playergröße anpassen. / Browse providers, watch videos and resize the player. |
-| **Live & Multicam** | Einzelne Cams oder mehrere Streams gleichzeitig ansehen. / Watch a single cam or multiple streams together. |
-| **Star Finder** | Profile, Quellen, Bilder und Szeneninformationen entdecken; nach vorhandenen Tags und Merkmalen filtern. / Explore profiles, sources, images and scene information; filter by available tags and attributes. |
+| **Tube & Player** | Z. B. Pornhub, XVideos, XNXX, xHamster, YouPorn und Eporner: suchen, ansehen und Playergröße anpassen. / Search, watch and resize the player. |
+| **Live & Multicam** | Stripchat, Chaturbate, BongaCams, CamSoda, CAM4 und XloveCam – einzeln oder nebeneinander. / Watch one or several cams together. |
+| **Star Finder** | Biografien, Bilder, Merkmale, Studios, Filme/Szenen und belegte Tags; durchsuchbar und filterbar. / Search and filter biographies, images, attributes, studios, scenes and sourced tags. |
 | **Downloads & Offline** | Videos unterstützter Anbieter herunterladen und lokal abspielen. / Download videos from supported providers and play them locally. |
 | **Design & Updates** | Farben, Schriften und Sprache anpassen; Programm und Modelldaten separat aktualisieren. / Customize colours, fonts and language; update the program and model data separately. |
 
 <p><strong>Für den Einstieg / Get started:</strong> <a href="https://github.com/Emberhost92/AdultClient/releases/download/v0.3.1-beta.1/AdultClient-0.3.1-beta.1-Windows-Komplett.zip">Komplettpaket herunterladen / Download complete package</a> · <a href="#deutsch">Deutsche Anleitung</a> · <a href="#english">English guide</a></p>
+
+## Funktionen
+
+<details>
+<summary><strong>Deutsch – Tube-Anbieter, Live-Cams und Star Finder im Detail</strong></summary>
+
+### Welche Tube-Seiten sind eingebunden?
+
+Der mitgelieferte Anbieterkatalog enthält beispielsweise **Pornhub, XVideos, XNXX, xHamster, YouPorn, RedTube, SpankBang, Eporner, TXXX, Beeg und Tube8**. Weitere Anbieter findest du in der Oberfläche unter **Seiten**.
+
+- Videos eines Anbieters durchstöbern und suchen; Kategorien und Sortierungen nutzen, soweit der jeweilige Anbieter sie bereitstellt.
+- Videos im integrierten Player ansehen, die Playergröße anpassen und verfügbare Qualitätsstufen auswählen.
+- Nach einer Mindestqualität wie 480p oder 1080p filtern, wenn die geladene Videoliste eine genaue Auflösung liefert. Ein allgemeines „HD“ wird nicht automatisch als 1080p eingestuft.
+- Titel, Beschreibung, Uploader beziehungsweise Kanal, Laufzeit, Aufrufe, Tags und Upload-Datum anzeigen, soweit veröffentlicht. Uhrzeit und Zeitzone werden nur angezeigt, wenn die Quelle sie tatsächlich liefert.
+- Unterstützte Videos herunterladen und im Offline-Bereich lokal abspielen. **Multitube** ermöglicht mehrere Tube-Videos in einem gemeinsamen Arbeitsbereich.
+
+Die Anbindung eines Anbieters bedeutet nicht, dass jedes seiner Videos jederzeit verfügbar ist. Anbieteränderungen, entfernte Inhalte, regionale Einschränkungen und erforderliche Anmeldungen können einzelne Funktionen begrenzen.
+
+### Welche Live-Cam-Seiten gibt es?
+
+**Stripchat · Chaturbate · BongaCams · CamSoda · CAM4 · XloveCam**
+
+Du kannst öffentliche Räume entdecken, nach den verfügbaren Raum- und Modellmerkmalen filtern und einen Stream in der **Singlecam-Ansicht** öffnen. Die Playergröße lässt sich über einen Schieberegler anpassen. **Multicam** zeigt mehrere Cams nebeneinander; Modelle lassen sich in eigenen Gruppen und lokalen Favoriten organisieren. Raumstatus und weitere Angaben wie Zuschauerzahl, Sprache oder Land werden angezeigt, sofern der Anbieter sie liefert.
+
+Für die öffentliche Chaturbate-Liste benötigst du deinen **eigenen Affiliate-Kampagnencode (`wm`)**. Die Einrichtung ist in den Einstellungen bebildert erklärt. Persönliche Website-Konten und Following-Listen sind davon getrennt; die verfügbaren Kontofunktionen unterscheiden sich je Anbieter. Private oder kostenpflichtige Shows werden durch die Anwendung nicht automatisch freigeschaltet.
+
+### Was finde ich im Star Finder?
+
+Der **Star Finder ist eine lokale, durchsuchbare Modell- und Performer-Bibliothek**. Das herunterladbare Datenpaket bringt bereits gespeicherte Rechercheergebnisse mit. Je nach Profil und Quellenstand findest du:
+
+| Bereich | Beispiele für enthaltene Angaben |
+| --- | --- |
+| **Profil & Biografie** | Künstlername, weitere Namen/Aliasse, Originalbiografien und vorhandene deutsche Übersetzungen |
+| **Merkmale & Karriere** | Geburtsdatum beziehungsweise Alter, Land, Größe, Haar- und Augenfarbe, weitere veröffentlichte Merkmale, Karriereangaben und Auszeichnungen |
+| **Bilder** | Porträts und weitere veröffentlichte Bildverweise; Galerie mit Zoom, Vollbild und Diashow sowie Auswahl eines eigenen Covers |
+| **Filme & Szenen** | Gespeicherte Titel, Studios, Veröffentlichungsdaten, Laufzeiten, Besetzung, Beschreibungen und Original-Links, soweit vorhanden |
+| **Tags & Kategorien** | Profil-Tags und separat zugeordnete Inhalts-Tags aus Szenen; Quellkategorien und Szenenzahlen pro Tag |
+| **Herkunft der Angaben** | Quellenlinks, Abrufstände und abweichende Angaben unterschiedlicher Quellen |
+| **Eigene Organisation** | Lokale Favoriten, persönliche Notizen und gespeicherte Filteransichten |
+
+Die Einträge sind Recherche- und Metadaten. **Das Modelldatenpaket enthält keine Videodateien und keine vollständige Offline-Fotosammlung.** Bilder werden zunächst bei Bedarf geladen; den zusätzlichen Offline-Bilddownload kannst du in den Einstellungen starten.
+
+### Wie kann ich Modelle filtern?
+
+Suche nach **Name oder Alias** und kombiniere verfügbare Filter, zum Beispiel **Alter, Land, Körpergröße, Haarfarbe, Profilquelle, vorhandene Bilder oder Biografie, Profil-Tags, Szenen-Tags, Kategorien, Studios und Netzwerke**. Weitere Quellenmerkmale stehen zur Auswahl, wenn Daten dafür vorhanden sind.
+
+Bei den erweiterten Regeln kannst du Werte **einschließen oder ausschließen** und Bedingungen mit **UND/ODER** kombinieren. Häufig verwendete Kombinationen lassen sich als eigene Ansicht speichern. Im Profil führen anklickbare Studios und Merkmale zu passenden Modellen; zu einem Szenen-Tag kannst du die zugehörigen Szenenbelege ansehen. So lässt sich beispielsweise nach einem bestimmten Studio oder dem Quelltag **„4K Available“** suchen.
+
+Szenen-Tags beschreiben die Szene insgesamt. Sie belegen nicht automatisch, welche Handlung eine einzelne beteiligte Person ausführt oder welche persönlichen Vorlieben sie hat.
+
+### Aus welchen Quellen stammen die Profildaten?
+
+Die Anwendung besitzt Anbindungen für **StashDB, FansDB, ThePornDB, Data18, Babepedia, FreeOnes, IAFD und AnalVids** sowie **Wikidata, Wikipedia, Wikimedia Commons und Grokipedia**. Die Quellen erfüllen unterschiedliche Aufgaben: strukturierte Profile und Szenen, Biografien und Karriereangaben oder zusätzliche Fakten und Bilder. Grokipedia-Texte bleiben als KI-verfasste Quelle gekennzeichnet.
+
+**StashDB, FansDB und ThePornDB benötigen für neue API-Abrufe deinen eigenen passenden Schlüssel.** Die portable Version enthält keine Zugangsdaten des Herausgebers. Bereits im Datenpaket gespeicherte Ergebnisse kannst du ohne diese Schlüssel nutzen. Nicht jede Quelle stellt einen vollständigen Personenkatalog bereit; manche ergänzen nur zugeordnete Profile.
+
+Du kannst das veröffentlichte Datenpaket separat aktualisieren oder eigene Quellen einrichten und die Hintergrundrecherche freigeben. **„Jetzt vollständig aktualisieren“** fordert im geöffneten Profil einen priorisierten Abruf der eingerichteten Quellen mit Fortschrittsanzeige an. Das ist keine Garantie, dass jede Quelle zu jeder Person Angaben hat. Fehlende Informationen bleiben unbekannt; gespeicherte Quellen werden nicht als lückenlos oder immer aktuell ausgegeben.
+
+</details>
+
+<details>
+<summary><strong>English – tube providers, live cams and Star Finder in detail</strong></summary>
+
+### Which tube sites are included?
+
+The bundled provider catalogue includes, for example, **Pornhub, XVideos, XNXX, xHamster, YouPorn, RedTube, SpankBang, Eporner, TXXX, Beeg and Tube8**. You can find additional providers under **Sites** in the interface.
+
+- Browse and search a provider's videos, using categories and sorting options where the provider offers them.
+- Watch videos in the integrated player, adjust the player size and choose from available quality levels.
+- Filter by a minimum quality such as 480p or 1080p when the loaded video list supplies an exact resolution. A generic “HD” label is not automatically treated as 1080p.
+- View titles, descriptions, uploaders or channels, duration, views, tags and upload dates where published. Exact times and time zones are shown only when the source provides them.
+- Download supported videos and play them locally in the Offline section. **Multitube** provides a shared workspace for multiple tube videos.
+
+A provider integration does not mean every video is always available. Provider changes, removed content, regional restrictions and required sign-ins can limit individual features.
+
+### Which live-cam sites are available?
+
+**Stripchat · Chaturbate · BongaCams · CamSoda · CAM4 · XloveCam**
+
+Discover public rooms, filter using available room and model attributes, and open a stream in the **single-cam view**. A slider lets you resize the player. **Multicam** displays several cams side by side; you can organize models in your own groups and local favorites. Room status and details such as viewer count, language or country appear when supplied by the provider.
+
+The public Chaturbate list requires **your own affiliate campaign code (`wm`)**. A tutorial with screenshots is available in Settings. Personal website accounts and following lists use separate connections, and account features vary by provider. The application does not automatically unlock private or paid shows.
+
+### What can I find in Star Finder?
+
+**Star Finder is a local, searchable model and performer library.** The downloadable data package includes previously stored research results. Depending on the profile and available source data, you can find:
+
+| Area | Examples of available information |
+| --- | --- |
+| **Profile & biography** | Stage name, aliases, original biographies and existing German translations |
+| **Attributes & career** | Date of birth or age, country, height, hair and eye colour, other published attributes, career information and awards |
+| **Images** | Portraits and other published image references; a gallery with zoom, fullscreen and slideshow, plus a custom cover option |
+| **Films & scenes** | Stored titles, studios, release dates, duration, cast, descriptions and original links where available |
+| **Tags & categories** | Profile tags and separately linked scene-content tags, source categories and scene counts per tag |
+| **Sources** | Source links, retrieval information and differing claims from different sources |
+| **Personal organization** | Local favorites, private notes and saved filter views |
+
+These entries contain research and metadata. **The model package contains no video files and no complete offline photo collection.** Images initially load on demand; you can start an additional offline image download in Settings.
+
+### How can I filter models?
+
+Search by **name or alias** and combine available filters such as **age, country, height, hair colour, profile source, available images or biographies, profile tags, scene tags, categories, studios and networks**. Additional source attributes become selectable when corresponding data exists.
+
+Advanced rules let you **include or exclude** values and combine conditions with **AND/OR**. Save frequently used combinations as named views. Clickable studios and attributes in a profile open matching models; scene tags provide access to the associated scene records. For example, you can find models linked to a particular studio or the source tag **“4K Available”**.
+
+Scene tags describe the scene as a whole. They do not automatically establish an individual participant's actions or personal preferences.
+
+### Where does the profile information come from?
+
+The application has integrations for **StashDB, FansDB, ThePornDB, Data18, Babepedia, FreeOnes, IAFD and AnalVids**, plus **Wikidata, Wikipedia, Wikimedia Commons and Grokipedia**. Sources serve different purposes: structured profiles and scenes, biographies and career information, or supplementary facts and images. Grokipedia text remains identified as AI-authored source material.
+
+**New API requests to StashDB, FansDB and ThePornDB require your own appropriate key.** The portable application does not include the publisher's credentials. You can browse results already stored in the model package without these keys. Not every source provides a complete performer catalogue; some enrich matched profiles only.
+
+Update the published model package independently, or configure your own sources and enable background research. **“Fully update now”** in an open profile requests a prioritized refresh of the configured sources with a progress indicator. This does not guarantee that every source has information about every person. Missing values remain unknown; stored source data is not presented as exhaustive or permanently up to date.
+
+</details>
+
 
 <details>
 <summary><strong>Screenshots ansehen / View screenshots</strong></summary>
