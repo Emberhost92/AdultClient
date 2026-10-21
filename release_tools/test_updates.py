@@ -76,6 +76,30 @@ class UpdateTests(unittest.TestCase):
             restarted=Portable(None,Path(folder),Path(folder))
             self.assertFalse(restarted.preferences['automatic'])
 
+    def test_automatic_startup_check_even_with_recent_cache_and_daily_interval(self):
+        with tempfile.TemporaryDirectory() as folder:
+            c=self.setup_controller(folder)
+            now=time.time()
+            c.check_state['checked']=now
+            # Run the worker inline with simulated timer ticks; no real network/sleep.
+            c.updater_stop.wait=Mock(side_effect=[False,False,False,True])
+            def checked():
+                c.check_state['checked']=now
+            with patch('update_engine.threading.Thread') as worker, patch('update_engine.time.time',side_effect=[now+1,now+86401]), patch.object(c,'check_updates',side_effect=checked) as check:
+                c.start_update_checks()
+                worker.call_args.kwargs['target']()
+                self.assertEqual(check.call_count,2)
+
+    def test_automatic_check_respects_disabled_preference(self):
+        with tempfile.TemporaryDirectory() as folder:
+            c=self.setup_controller(folder)
+            c.preferences['automatic']=False
+            c.updater_stop.wait=Mock(side_effect=[False,False,True])
+            with patch('update_engine.threading.Thread') as worker, patch.object(c,'check_updates') as check:
+                c.start_update_checks()
+                worker.call_args.kwargs['target']()
+                check.assert_not_called()
+
     def test_discovery_failure_is_background_and_preserves_installed_version(self):
         with tempfile.TemporaryDirectory() as folder:
             c=self.setup_controller(folder)

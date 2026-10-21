@@ -267,8 +267,10 @@ class Updates:
     def start_update_checks(self):
         def loop():
             # Never block startup, playback or navigation on a remote request.
+            startup = True
             while not self.updater_stop.wait(15):
-                if self.preferences.get('automatic') and self.config.get('repository') and time.time() - self.check_state['checked'] >= 86400:
+                if self.preferences.get('automatic') and self.config.get('repository') and (startup or time.time() - self.check_state['checked'] >= 86400):
+                    startup = False
                     self.check_updates()
         threading.Thread(target=loop, daemon=True).start()
 

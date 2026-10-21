@@ -62,17 +62,28 @@
   }
   function openUpdates(){
     document.querySelector('[data-view="settings"]')?.click();
-    setTimeout(()=>{
-      for(const b of document.querySelectorAll('#view-settings button'))if(/Updates.*(?:Modellbilder|model images)/i.test(b.textContent)){b.click();break;}
-      section?.scrollIntoView({behavior:'smooth',block:'start'});
-    },100);
+    const deadline=Date.now()+15000;
+    const open=()=>{
+      if(document.getElementById('view-settings')?.classList.contains('hidden'))return;
+      const tab=document.getElementById('ds-tab-updates');
+      // On first launch the settings schema may still be loading.
+      if(!tab||!window.SettingsStudio?.ready){if(Date.now()<deadline)setTimeout(open,100);return;}
+      tab.click();section?.scrollIntoView({behavior:'smooth',block:'start'});
+    };
+    open();
   }
   function renderNotice(){
     if(!state)return;
-    const available=Object.values(state.available||{}).some(c=>c?.available);
+    const kinds=['program','data'].filter(kind=>state.available?.[kind]?.available);
     const pending=state.program_pending||state.pending;
-    notice.hidden=!(available||pending||state.install_result?.ok===false);
-    notice.textContent=state.install_result?.ok===false?t('Update fehlgeschlagen – Details','Update failed – details'):pending?t('Update bereit – Details','Update ready – details'):t('Update verfügbar – Details','Update available – details');
+    const failed=state.install_result?.ok===false;
+    notice.hidden=!(kinds.length||pending||failed);
+    const title=failed?t('Update fehlgeschlagen','Update failed'):pending?t('Update bereit','Update ready'):t('Update verfügbar','Update available');
+    const detail=kinds.map(kind=>kind==='program'?t('Programm','Program'):t('Modelldaten','Model data')).join(' + ');
+    const text=title+(detail?' · '+detail:'');
+    // Status polling must not repeatedly mutate the live region or observer tree.
+    if(notice.textContent!==text)notice.textContent=text;
+    notice.title=text+' – '+t('Updates öffnen','Open updates');
   }
   function checkbox(de,english,key){
     const label=el('label');label.style.cssText='display:flex;gap:.6rem;align-items:center;margin:.7rem 0';
@@ -127,7 +138,7 @@
     content.append(row);
   }
   async function request(op,extra={}){
-    if(busy)return;busy=true;
+    if(busy)return;busy=true;lastRead=Date.now();
     try{
       const response=await fetch('/api/distribution',op?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({op,...extra})}:{});
       const data=await response.json();if(!data.ok)throw Error(data.error);
@@ -138,15 +149,20 @@
     finally{busy=false;}
   }
   function mount(){
+    const settings=document.querySelector('#ac-main-menu nav [data-id="settings"]');
+    if(settings&&settings.nextElementSibling!==notice)settings.after(notice);
     const panel=document.getElementById('ds-panel-updates');
     if(!panel||section?.isConnected)return;
     section=el('section');section.className='ds-section';section.dataset.i18nContent='';
     content=el('div');content.setAttribute('aria-live','polite');section.append(content);panel.append(section);render();request();
   }
   notice=el('button');notice.type='button';notice.hidden=true;notice.dataset.i18nContent='';notice.id='portable-update-notice';
-  notice.style.cssText='position:fixed;right:20px;top:12px;z-index:5000;padding:10px 16px;box-shadow:0 3px 18px #0005';notice.onclick=openUpdates;document.body.append(notice);
+  notice.style.cssText='white-space:normal;text-align:left;line-height:1.4;border:1px solid var(--accent,#d9b763);border-left-width:4px;margin-top:6px;font-weight:600';
+  notice.setAttribute('aria-live','polite');notice.setAttribute('aria-atomic','true');notice.onclick=openUpdates;
   new MutationObserver(mount).observe(document.body,{childList:true,subtree:true});mount();request();
   addEventListener('ui-language-change',render);
+  addEventListener('focus',()=>request());
+  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')request();});
   setInterval(()=>{if(document.visibilityState!=='visible')return;
     const visible=section?.isConnected&&!section.closest('[hidden],.hidden');
     const delay=(state?.update.running||state?.check.running)?1500:visible?5000:45000;
