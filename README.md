@@ -12,8 +12,8 @@ Eine Suche über mehrere oder alle verfügbaren Suchquellen, deine Lieblings-Cam
 
 | Bereich / Area | Was du damit machen kannst / What you can do |
 | --- | --- |
-| **Tube & Player** | **376 Quellen mit Videoinhalten**, z. B. Pornhub, XVideos, XNXX, xHamster, YouPorn und Eporner. Eine gemeinsame Suche statt jede Seite einzeln zu öffnen. / **376 video sources** with cross-provider search. |
-| **Live & Multicam** | **6 Plattformen:** Stripchat, Chaturbate, BongaCams, CamSoda, CAM4 und XloveCam. Lieblings-Cams verschiedener Hoster in Multicam, Gruppen und Favoriten bündeln. / Combine favorite cams across providers. |
+| **Tube & Player** | **376 Quellen mit Videoinhalten**, z. B.:<br><img src="docs/images/tube-providers.svg" alt="Pornhub, XVideos, XNXX, xHamster, YouPorn, RedTube, SpankBang, Eporner, TXXX, Beeg, Tube8"><br> Eine gemeinsame Suche statt jede Seite einzeln zu öffnen. / **376 video sources** with cross-provider search. |
+| **Live & Multicam** | **6 Plattformen:**<br><img src="docs/images/cam-providers.svg" alt="Stripchat, Chaturbate, BongaCams, CamSoda, CAM4, XloveCam"><br> Lieblings-Cams verschiedener Hoster in Multicam, Gruppen und Favoriten bündeln. / Combine favorite cams across providers. |
 | **Star Finder** | **178.151 Modell-/Performereinträge:** Biografien, Bilder, Studios und Szenen; nach Tags, Kategorien und Merkmalen filtern. Separate Datenbank-Updates. / **178,151 model/performer entries**, tag and category filters, independent database updates. |
 | **Downloads & Offline** | Videos unterstützter Anbieter herunterladen und lokal abspielen. / Download videos from supported providers and play them locally. |
 | **Design & Updates** | Passe die Oberfläche an deine Bedürfnisse an: Farben, Schriften, Sprache und Darstellung individuell gestalten. Programm und Modelldaten separat aktualisieren. / Tailor the interface to your needs: customize colours, fonts, language and appearance. Update the program and model data separately. |
@@ -31,7 +31,11 @@ Eine Suche über mehrere oder alle verfügbaren Suchquellen, deine Lieblings-Cam
 
 **Du hast Zugriff auf 406 Medienanbieter in einer Oberfläche, davon 376 mit Videoinhalten.** Dazu kommen die sechs Live-Cam-Plattformen im eigenen Live-Bereich. Die Zahl umfasst Tube- und weitere Videoquellen; zusätzliche Anbieter liefern beispielsweise Bilder oder Galerien.
 
-Der mitgelieferte Anbieterkatalog enthält beispielsweise **Pornhub, XVideos, XNXX, xHamster, YouPorn, RedTube, SpankBang, Eporner, TXXX, Beeg und Tube8**. Weitere Anbieter findest du in der Oberfläche unter **Seiten**.
+Der mitgelieferte Anbieterkatalog enthält beispielsweise:
+
+<img src="docs/images/tube-providers.svg" alt="Pornhub, XVideos, XNXX, xHamster, YouPorn, RedTube, SpankBang, Eporner, TXXX, Beeg, Tube8">
+
+Weitere Anbieter findest du in der Oberfläche unter **Seiten**.
 
 - **Eine Suche für viele Seiten:** Durchsuche mehrere ausgewählte Anbieter oder alle verfügbaren Suchquellen mit einer einzigen Suchanfrage. Die globale Suche führt Treffer verschiedener Quellen zusammen; du musst nicht jede Website einzeln öffnen.
 - Videos eines Anbieters durchstöbern und suchen; Kategorien und Sortierungen nutzen, soweit der jeweilige Anbieter sie bereitstellt.
@@ -44,7 +48,7 @@ Die Anbindung eines Anbieters bedeutet nicht, dass jedes seiner Videos jederzeit
 
 ### Welche Live-Cam-Seiten gibt es?
 
-**Stripchat · Chaturbate · BongaCams · CamSoda · CAM4 · XloveCam**
+<img src="docs/images/cam-providers.svg" alt="Stripchat, Chaturbate, BongaCams, CamSoda, CAM4, XloveCam">
 
 **Bündle deine bevorzugten Cams aus allen sechs Hostern:** Kombiniere beispielsweise eine Stripchat-Cam mit Chaturbate oder BongaCams in derselben Multicam-Ansicht. Lege hosterübergreifende Gruppen und lokale Favoriten an, damit deine Lieblingsmodelle gemeinsam erreichbar sind. So organisierst du deine Auswahl zentral, statt auf jeder Plattform getrennt danach zu suchen.
 
@@ -99,7 +103,11 @@ Du kannst das veröffentlichte Datenpaket separat aktualisieren oder eigene Quel
 
 **Access 406 media providers in one interface, including 376 with video content.** Six live-cam platforms are available in the separate Live area. This includes tube sites and other video sources; additional providers offer images or galleries, for example.
 
-The bundled provider catalogue includes, for example, **Pornhub, XVideos, XNXX, xHamster, YouPorn, RedTube, SpankBang, Eporner, TXXX, Beeg and Tube8**. You can find additional providers under **Sites** in the interface.
+The bundled provider catalogue includes, for example:
+
+<img src="docs/images/tube-providers.svg" alt="Pornhub, XVideos, XNXX, xHamster, YouPorn, RedTube, SpankBang, Eporner, TXXX, Beeg, Tube8">
+
+You can find additional providers under **Sites** in the interface.
 
 - **One search across many sites:** Search several selected providers or all available search sources with a single query. Global search combines results from different sources, so you do not have to open each website separately.
 - Browse and search a provider's videos, using categories and sorting options where the provider offers them.
@@ -112,7 +120,7 @@ A provider integration does not mean every video is always available. Provider c
 
 ### Which live-cam sites are available?
 
-**Stripchat · Chaturbate · BongaCams · CamSoda · CAM4 · XloveCam**
+<img src="docs/images/cam-providers.svg" alt="Stripchat, Chaturbate, BongaCams, CamSoda, CAM4, XloveCam">
 
 **Bring together your favorite cams from all six providers:** Combine a Stripchat cam with Chaturbate or BongaCams in the same Multicam view, for example. Build cross-provider groups and local favorites to keep your preferred models together. Organize your selection centrally instead of searching separately on each platform.
 
@@ -392,3 +400,4 @@ Use **Settings → Updates & model images → Quit program** to stop the applica
 If the interface does not open, first check that the ZIP was fully extracted and all included subfolders are present. Initial preparation can take longer when installing model data. If the application is already running, double-clicking `AdultClient.exe` again opens its interface. Startup error details may be available in `userdata\startup-error.txt` or `userdata\startup.log`. Check these files for personal information before sharing them.
 
 </details>
+
