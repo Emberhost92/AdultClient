@@ -16,7 +16,7 @@ Eine Suche über mehrere oder alle verfügbaren Suchquellen, deine Lieblings-Cam
 | **Live & Multicam** | **6 Plattformen:** Stripchat, Chaturbate, BongaCams, CamSoda, CAM4 und XloveCam. Lieblings-Cams verschiedener Hoster in Multicam, Gruppen und Favoriten bündeln. / Combine favorite cams across providers. |
 | **Star Finder** | **178.151 Modell-/Performereinträge:** Biografien, Bilder, Studios und Szenen; nach Tags, Kategorien und Merkmalen filtern. Separate Datenbank-Updates. / **178,151 model/performer entries**, tag and category filters, independent database updates. |
 | **Downloads & Offline** | Videos unterstützter Anbieter herunterladen und lokal abspielen. / Download videos from supported providers and play them locally. |
-| **Design & Updates** | Farben, Schriften und Sprache anpassen; Programm und Modelldaten separat aktualisieren. / Customize colours, fonts and language; update the program and model data separately. |
+| **Design & Updates** | Passe die Oberfläche an deine Bedürfnisse an: Farben, Schriften, Sprache und Darstellung individuell gestalten. Programm und Modelldaten separat aktualisieren. / Tailor the interface to your needs: customize colours, fonts, language and appearance. Update the program and model data separately. |
 
 <p><strong>Für den Einstieg / Get started:</strong> <a href="https://github.com/Emberhost92/AdultClient/releases/download/v0.3.1-beta.1/AdultClient-0.3.1-beta.1-Windows-Komplett.zip">Komplettpaket herunterladen / Download complete package</a> · <a href="#deutsch">Deutsche Anleitung</a> · <a href="#english">English guide</a></p>
 
