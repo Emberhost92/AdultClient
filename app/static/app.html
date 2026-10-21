@@ -1067,9 +1067,11 @@ function ensureHls() {
 ensureHls();
 const $ = (id) => document.getElementById(id);
 const state = { catalog: null, ui: null, prefs: null, stack: [], site: "", items: [], view: "home", menu: "home", starName: "", starId: "", starSite: "all", starTag: "Alle", starProfile: null, starFind: { q: "", letter: "", gender: "", hair: "", country: "", ethnicity: "", cup: "", sort: "rank", photo: false, fame: false, fav: false, page: 1 } };
-const MEDIA = "http://127.0.0.1:8766";
+// Portable installations choose a free UI port; media listeners follow it.
+const MEDIA_BASE_PORT = Number(window.location.port) + 1;
+const MEDIA = "http://127.0.0.1:" + MEDIA_BASE_PORT;
 const MULTI_ORIGINS = [];
-for (let port = 8767; port <= 8786; port += 1) MULTI_ORIGINS.push("http://127.0.0.1:" + port);
+for (let index = 1; index <= 20; index += 1) MULTI_ORIGINS.push("http://127.0.0.1:" + (MEDIA_BASE_PORT + index));
 function mediaOrigin(slot) {
   if (slot === undefined || slot === null || slot === "") return MEDIA;
   return MULTI_ORIGINS[Number(slot) % MULTI_ORIGINS.length];
@@ -1077,7 +1079,7 @@ function mediaOrigin(slot) {
 function mediaSrc(src, slot) {
   if (!src) return "";
   if (src.startsWith("/api/image") || src.startsWith("/api/stream")) return mediaOrigin(slot) + src;
-  if (slot !== undefined && slot !== null && slot !== "") return src.replace("http://127.0.0.1:8766", mediaOrigin(slot));
+  if (slot !== undefined && slot !== null && slot !== "" && src.startsWith(MEDIA + "/")) return mediaOrigin(slot) + src.slice(MEDIA.length);
   return src;
 }
 const ahEvents = [];

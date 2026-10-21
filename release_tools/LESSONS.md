@@ -1,5 +1,11 @@
 # Prüfungen unter Windows
 
+Beim Kopieren einer portablen Testinstallation nur den obersten `data`-Ordner
+auslassen. Ein Ausschluss aller Ordner dieses Namens entfernt auch
+`addon/resources/data` mit dem Basis-Profilindex und verfälscht sichtbare
+Bestandszahlen. Veröffentlichte Zahlen am unveränderten Paket mit separatem
+Profil und dem tatsächlichen Katalogcode prüfen.
+
 `with sqlite3.connect(...)` beendet eine Transaktion, schließt die Verbindung
 aber nicht. Testdatenbanken zusätzlich mit `contextlib.closing` schließen;
 sonst können alle Funktionsprüfungen bestehen und das anschließende Entfernen

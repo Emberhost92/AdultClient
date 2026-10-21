@@ -16,7 +16,7 @@ async function run(){
  browser=await chromium.launch({headless:true,executablePath:['C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe','C:/Program Files/Google/Chrome/Application/chrome.exe'].find(fs.existsSync)});
  const page=await browser.newPage({viewport:{width:1440,height:1100}});page.on('pageerror',e=>errors.push(e.message));
  await page.route('https://**/*',r=>r.abort());
- await page.goto(base);await page.waitForFunction(()=>window.SettingsStudio?.instance?.saved);
+ await page.goto(base);await page.waitForFunction(()=>window.SettingsStudio?.instance?.saved,{},{timeout:90000}).catch(async error=>{console.log(JSON.stringify({errors,title:await page.title(),body:(await page.locator('body').innerText()).slice(0,500)}));throw error});
  await page.locator('nav [data-id="settings"]').click();await page.locator('#ds-tab-live').click();
  const input=page.locator('#set-cam-key');await input.fill('UNSAVED-EXAMPLE');
  // Actual input form, without any stored user credential; do not publish the tutorial button recursively.
