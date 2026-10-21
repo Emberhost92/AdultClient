@@ -4,21 +4,23 @@
 
 # Adult Client
 
-**Tube-Videos, Live-Cams und deine Modellbibliothek – in einer Oberfläche auf deinem Windows-PC.**
+**406 Medienanbieter, darunter 376 Tube-/Videoquellen, 6 Live-Cam-Plattformen und 178.151 Modell-/Performereinträge – in einer Oberfläche auf deinem Windows-PC.**
 
-Videos ansehen, mehrere Streams im Blick behalten, Modelle entdecken und Medien lokal organisieren. Portable Windows-App mit deutscher und englischer Oberfläche.
+Eine Suche über mehrere oder alle verfügbaren Suchquellen, deine Lieblings-Cams verschiedener Hoster kombinieren und Modelle nach Tags, Kategorien und Merkmalen entdecken. Portable Windows-App mit deutscher und englischer Oberfläche.
 
-**Tube videos, live cams and your model library in one local Windows app.** Watch videos, follow multiple streams, discover models and organize your media. Available in German and English.
+**406 media providers, including 376 tube/video sources, 6 live-cam platforms and 178,151 model/performer entries in one local Windows app.** Search multiple or all available search sources with one query, combine your favorite cams across providers, and find models by tags, categories and attributes. Available in German and English.
 
 | Bereich / Area | Was du damit machen kannst / What you can do |
 | --- | --- |
-| **Tube & Player** | Z. B. Pornhub, XVideos, XNXX, xHamster, YouPorn und Eporner: suchen, ansehen und Playergröße anpassen. / Search, watch and resize the player. |
-| **Live & Multicam** | Stripchat, Chaturbate, BongaCams, CamSoda, CAM4 und XloveCam – einzeln oder nebeneinander. / Watch one or several cams together. |
-| **Star Finder** | Biografien, Bilder, Merkmale, Studios, Filme/Szenen und belegte Tags; durchsuchbar und filterbar. / Search and filter biographies, images, attributes, studios, scenes and sourced tags. |
+| **Tube & Player** | **376 Quellen mit Videoinhalten**, z. B. Pornhub, XVideos, XNXX, xHamster, YouPorn und Eporner. Eine gemeinsame Suche statt jede Seite einzeln zu öffnen. / **376 video sources** with cross-provider search. |
+| **Live & Multicam** | **6 Plattformen:** Stripchat, Chaturbate, BongaCams, CamSoda, CAM4 und XloveCam. Lieblings-Cams verschiedener Hoster in Multicam, Gruppen und Favoriten bündeln. / Combine favorite cams across providers. |
+| **Star Finder** | **178.151 Modell-/Performereinträge:** Biografien, Bilder, Studios und Szenen; nach Tags, Kategorien und Merkmalen filtern. Separate Datenbank-Updates. / **178,151 model/performer entries**, tag and category filters, independent database updates. |
 | **Downloads & Offline** | Videos unterstützter Anbieter herunterladen und lokal abspielen. / Download videos from supported providers and play them locally. |
 | **Design & Updates** | Farben, Schriften und Sprache anpassen; Programm und Modelldaten separat aktualisieren. / Customize colours, fonts and language; update the program and model data separately. |
 
 <p><strong>Für den Einstieg / Get started:</strong> <a href="https://github.com/Emberhost92/AdultClient/releases/download/v0.3.1-beta.1/AdultClient-0.3.1-beta.1-Windows-Komplett.zip">Komplettpaket herunterladen / Download complete package</a> · <a href="#deutsch">Deutsche Anleitung</a> · <a href="#english">English guide</a></p>
+
+**Stand / Snapshot:** 21.10.2026 · Programm / Program 0.3.1-beta.1 · Datenpaket / Data package 2026-10-21. Gezählt sind Katalogeinträge; Quellprofile derselben Person können getrennt vorkommen. / Counts refer to catalogue entries; the same person may have separate source profiles.
 
 ## Funktionen
 
@@ -27,8 +29,11 @@ Videos ansehen, mehrere Streams im Blick behalten, Modelle entdecken und Medien 
 
 ### Welche Tube-Seiten sind eingebunden?
 
+**Du hast Zugriff auf 406 Medienanbieter in einer Oberfläche, davon 376 mit Videoinhalten.** Dazu kommen die sechs Live-Cam-Plattformen im eigenen Live-Bereich. Die Zahl umfasst Tube- und weitere Videoquellen; zusätzliche Anbieter liefern beispielsweise Bilder oder Galerien.
+
 Der mitgelieferte Anbieterkatalog enthält beispielsweise **Pornhub, XVideos, XNXX, xHamster, YouPorn, RedTube, SpankBang, Eporner, TXXX, Beeg und Tube8**. Weitere Anbieter findest du in der Oberfläche unter **Seiten**.
 
+- **Eine Suche für viele Seiten:** Durchsuche mehrere ausgewählte Anbieter oder alle verfügbaren Suchquellen mit einer einzigen Suchanfrage. Die globale Suche führt Treffer verschiedener Quellen zusammen; du musst nicht jede Website einzeln öffnen.
 - Videos eines Anbieters durchstöbern und suchen; Kategorien und Sortierungen nutzen, soweit der jeweilige Anbieter sie bereitstellt.
 - Videos im integrierten Player ansehen, die Playergröße anpassen und verfügbare Qualitätsstufen auswählen.
 - Nach einer Mindestqualität wie 480p oder 1080p filtern, wenn die geladene Videoliste eine genaue Auflösung liefert. Ein allgemeines „HD“ wird nicht automatisch als 1080p eingestuft.
@@ -41,13 +46,15 @@ Die Anbindung eines Anbieters bedeutet nicht, dass jedes seiner Videos jederzeit
 
 **Stripchat · Chaturbate · BongaCams · CamSoda · CAM4 · XloveCam**
 
+**Bündle deine bevorzugten Cams aus allen sechs Hostern:** Kombiniere beispielsweise eine Stripchat-Cam mit Chaturbate oder BongaCams in derselben Multicam-Ansicht. Lege hosterübergreifende Gruppen und lokale Favoriten an, damit deine Lieblingsmodelle gemeinsam erreichbar sind. So organisierst du deine Auswahl zentral, statt auf jeder Plattform getrennt danach zu suchen.
+
 Du kannst öffentliche Räume entdecken, nach den verfügbaren Raum- und Modellmerkmalen filtern und einen Stream in der **Singlecam-Ansicht** öffnen. Die Playergröße lässt sich über einen Schieberegler anpassen. **Multicam** zeigt mehrere Cams nebeneinander; Modelle lassen sich in eigenen Gruppen und lokalen Favoriten organisieren. Raumstatus und weitere Angaben wie Zuschauerzahl, Sprache oder Land werden angezeigt, sofern der Anbieter sie liefert.
 
 Für die öffentliche Chaturbate-Liste benötigst du deinen **eigenen Affiliate-Kampagnencode (`wm`)**. Die Einrichtung ist in den Einstellungen bebildert erklärt. Persönliche Website-Konten und Following-Listen sind davon getrennt; die verfügbaren Kontofunktionen unterscheiden sich je Anbieter. Private oder kostenpflichtige Shows werden durch die Anwendung nicht automatisch freigeschaltet.
 
 ### Was finde ich im Star Finder?
 
-Der **Star Finder ist eine lokale, durchsuchbare Modell- und Performer-Bibliothek**. Das herunterladbare Datenpaket bringt bereits gespeicherte Rechercheergebnisse mit. Je nach Profil und Quellenstand findest du:
+Der **Star Finder ist eine lokale, durchsuchbare Modell- und Performer-Bibliothek mit aktuell 178.151 Katalogeinträgen im veröffentlichten Paket** (Stand 21.10.2026). Das herunterladbare Datenpaket bringt bereits gespeicherte Rechercheergebnisse mit. Die Zahl zählt Profil- und Quelleneinträge; sie ist keine Zusage über ebenso viele eindeutig unterschiedliche Personen. Je nach Profil und Quellenstand findest du:
 
 | Bereich | Beispiele für enthaltene Angaben |
 | --- | --- |
@@ -60,6 +67,12 @@ Der **Star Finder ist eine lokale, durchsuchbare Modell- und Performer-Bibliothe
 | **Eigene Organisation** | Lokale Favoriten, persönliche Notizen und gespeicherte Filteransichten |
 
 Die Einträge sind Recherche- und Metadaten. **Das Modelldatenpaket enthält keine Videodateien und keine vollständige Offline-Fotosammlung.** Bilder werden zunächst bei Bedarf geladen; den zusätzlichen Offline-Bilddownload kannst du in den Einstellungen starten.
+
+### Regelmäßige Datenpflege und Datenbank-Updates
+
+Die Modellbibliothek lässt sich unabhängig vom Programm regelmäßig aktualisieren. **Neue veröffentlichte Datenstände findest und lädst du direkt unter Einstellungen → Updates & Modellbilder**. Die automatische Updateprüfung kann beim Start und einmal täglich nach neuen Veröffentlichungen suchen. Nach deiner Bestätigung wird ein Datenpaket heruntergeladen und beim nächsten normalen Start übernommen; deine Favoriten und Notizen bleiben erhalten. Du musst dafür nicht manuell auf GitHub nachsehen oder die gesamte Anwendung neu installieren.
+
+Mit eigenen eingerichteten Quellen kann außerdem die Hintergrundrecherche neue Profile und zusätzliche Informationen laufend ergänzen, solange die Anwendung läuft. Der Stand deiner Installation kann dadurch über den hier genannten Paketstand hinauswachsen.
 
 ### Wie kann ich Modelle filtern?
 
@@ -84,8 +97,11 @@ Du kannst das veröffentlichte Datenpaket separat aktualisieren oder eigene Quel
 
 ### Which tube sites are included?
 
+**Access 406 media providers in one interface, including 376 with video content.** Six live-cam platforms are available in the separate Live area. This includes tube sites and other video sources; additional providers offer images or galleries, for example.
+
 The bundled provider catalogue includes, for example, **Pornhub, XVideos, XNXX, xHamster, YouPorn, RedTube, SpankBang, Eporner, TXXX, Beeg and Tube8**. You can find additional providers under **Sites** in the interface.
 
+- **One search across many sites:** Search several selected providers or all available search sources with a single query. Global search combines results from different sources, so you do not have to open each website separately.
 - Browse and search a provider's videos, using categories and sorting options where the provider offers them.
 - Watch videos in the integrated player, adjust the player size and choose from available quality levels.
 - Filter by a minimum quality such as 480p or 1080p when the loaded video list supplies an exact resolution. A generic “HD” label is not automatically treated as 1080p.
@@ -98,13 +114,15 @@ A provider integration does not mean every video is always available. Provider c
 
 **Stripchat · Chaturbate · BongaCams · CamSoda · CAM4 · XloveCam**
 
+**Bring together your favorite cams from all six providers:** Combine a Stripchat cam with Chaturbate or BongaCams in the same Multicam view, for example. Build cross-provider groups and local favorites to keep your preferred models together. Organize your selection centrally instead of searching separately on each platform.
+
 Discover public rooms, filter using available room and model attributes, and open a stream in the **single-cam view**. A slider lets you resize the player. **Multicam** displays several cams side by side; you can organize models in your own groups and local favorites. Room status and details such as viewer count, language or country appear when supplied by the provider.
 
 The public Chaturbate list requires **your own affiliate campaign code (`wm`)**. A tutorial with screenshots is available in Settings. Personal website accounts and following lists use separate connections, and account features vary by provider. The application does not automatically unlock private or paid shows.
 
 ### What can I find in Star Finder?
 
-**Star Finder is a local, searchable model and performer library.** The downloadable data package includes previously stored research results. Depending on the profile and available source data, you can find:
+**Star Finder is a local, searchable model and performer library with 178,151 catalogue entries in the published package** (as of October 21, 2026). The downloadable data package includes previously stored research results. This counts profile and source entries, not necessarily the same number of distinct people. Depending on the profile and available source data, you can find:
 
 | Area | Examples of available information |
 | --- | --- |
@@ -117,6 +135,12 @@ The public Chaturbate list requires **your own affiliate campaign code (`wm`)**.
 | **Personal organization** | Local favorites, private notes and saved filter views |
 
 These entries contain research and metadata. **The model package contains no video files and no complete offline photo collection.** Images initially load on demand; you can start an additional offline image download in Settings.
+
+### Regular data maintenance and database updates
+
+Update the model library regularly and independently of the application. **Find and download newly published data packages directly in Settings → Updates & model images.** Automatic update checks can look for new releases on startup and once a day. After your confirmation, a data package downloads and is applied at the next normal startup, preserving your favorites and notes. You do not need to check GitHub manually or reinstall the entire application.
+
+With your own configured sources, background research can also keep adding new profiles and information while the application is running. Your local collection can therefore grow beyond the package snapshot listed here.
 
 ### How can I filter models?
 
