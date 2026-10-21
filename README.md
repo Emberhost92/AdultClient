@@ -4,18 +4,18 @@
 
 # Adult Client
 
-**406 Medienanbieter, darunter 376 Tube-/Videoquellen, 6 Live-Cam-Plattformen und 178.151 Modell-/Performereinträge – in einer Oberfläche auf deinem Windows-PC.**
+**406 Pornoanbieter, darunter 376 Porno- und Sexvideo-Quellen, 6 Live-Cam-Plattformen und 178.151 Modell-/Performereinträge – in einer Oberfläche auf deinem Windows-PC.**
 
 Eine Suche über mehrere oder alle verfügbaren Suchquellen, deine Lieblings-Cams verschiedener Hoster kombinieren und Modelle nach Tags, Kategorien und Merkmalen entdecken. Portable Windows-App mit deutscher und englischer Oberfläche.
 
-**406 media providers, including 376 tube/video sources, 6 live-cam platforms and 178,151 model/performer entries in one local Windows app.** Search multiple or all available search sources with one query, combine your favorite cams across providers, and find models by tags, categories and attributes. Available in German and English.
+**406 porn providers, including 376 porn and sex-video sources, 6 live-cam platforms and 178,151 model/performer entries in one local Windows app.** Search multiple or all available search sources with one query, combine your favorite cams across providers, and find models by tags, categories and attributes. Available in German and English.
 
 | Bereich / Area | Was du damit machen kannst / What you can do |
 | --- | --- |
-| **Tube & Player** | **376 Quellen mit Videoinhalten**, z. B. Pornhub, XVideos, XNXX, xHamster, YouPorn und Eporner. Eine gemeinsame Suche statt jede Seite einzeln zu öffnen. / **376 video sources** with cross-provider search. |
+| **Tube & Player** | **376 Quellen mit Sexvideos**, z. B. Pornhub, XVideos, XNXX, xHamster, YouPorn und Eporner. Eine gemeinsame Suche statt jede Seite einzeln zu öffnen. / **376 sources of sex videos** with cross-provider search. |
 | **Live & Multicam** | **6 Plattformen:** Stripchat, Chaturbate, BongaCams, CamSoda, CAM4 und XloveCam. Lieblings-Cams verschiedener Hoster in Multicam, Gruppen und Favoriten bündeln. / Combine favorite cams across providers. |
-| **Star Finder** | **178.151 Modell-/Performereinträge:** Biografien, Bilder, Studios und Szenen; nach Tags, Kategorien und Merkmalen filtern. Separate Datenbank-Updates. / **178,151 model/performer entries**, tag and category filters, independent database updates. |
-| **Downloads & Offline** | Videos unterstützter Anbieter herunterladen und lokal abspielen. / Download videos from supported providers and play them locally. |
+| **Star Finder** | **178.151 Pornostar- und Performereinträge:** Biografien, Bilder, Studios und Szenen; nach Tags, Kategorien und Merkmalen filtern. Separate Datenbank-Updates. / **178,151 porn star and performer entries**, tag and category filters, independent database updates. |
+| **Downloads & Offline** | Sexvideos unterstützter Anbieter herunterladen und lokal abspielen. / Download sex videos from supported providers and play them locally. |
 | **Design & Updates** | Passe die Oberfläche an deine Bedürfnisse an: Farben, Schriften, Sprache und Darstellung individuell gestalten. Programm und Modelldaten separat aktualisieren. / Tailor the interface to your needs: customize colours, fonts, language and appearance. Update the program and model data separately. |
 
 <p><strong>Für den Einstieg / Get started:</strong> <a href="https://github.com/Emberhost92/AdultClient/releases/download/v0.3.1-beta.1/AdultClient-0.3.1-beta.1-Windows-Komplett.zip">Komplettpaket herunterladen / Download complete package</a> · <a href="#deutsch">Deutsche Anleitung</a> · <a href="#english">English guide</a></p>
@@ -29,16 +29,16 @@ Eine Suche über mehrere oder alle verfügbaren Suchquellen, deine Lieblings-Cam
 
 ### Welche Tube-Seiten sind eingebunden?
 
-**Du hast Zugriff auf 406 Medienanbieter in einer Oberfläche, davon 376 mit Videoinhalten.** Dazu kommen die sechs Live-Cam-Plattformen im eigenen Live-Bereich. Die Zahl umfasst Tube- und weitere Videoquellen; zusätzliche Anbieter liefern beispielsweise Bilder oder Galerien.
+**Du hast Zugriff auf 406 Pornoanbieter in einer Oberfläche, davon 376 mit Sexvideos.** Dazu kommen die sechs Live-Cam-Plattformen im eigenen Live-Bereich. Die Zahl umfasst Porno- und weitere Videoquellen; zusätzliche Anbieter liefern beispielsweise Bilder oder Galerien.
 
 Der mitgelieferte Anbieterkatalog enthält beispielsweise **Pornhub, XVideos, XNXX, xHamster, YouPorn, RedTube, SpankBang, Eporner, TXXX, Beeg und Tube8**. Weitere Anbieter findest du in der Oberfläche unter **Seiten**.
 
 - **Eine Suche für viele Seiten:** Durchsuche mehrere ausgewählte Anbieter oder alle verfügbaren Suchquellen mit einer einzigen Suchanfrage. Die globale Suche führt Treffer verschiedener Quellen zusammen; du musst nicht jede Website einzeln öffnen.
-- Videos eines Anbieters durchstöbern und suchen; Kategorien und Sortierungen nutzen, soweit der jeweilige Anbieter sie bereitstellt.
-- Videos im integrierten Player ansehen, die Playergröße anpassen und verfügbare Qualitätsstufen auswählen.
+- Sexvideos eines Anbieters durchstöbern und suchen; Kategorien und Sortierungen nutzen, soweit der jeweilige Anbieter sie bereitstellt.
+- Sexvideos im integrierten Player ansehen, die Playergröße anpassen und verfügbare Qualitätsstufen auswählen.
 - Nach einer Mindestqualität wie 480p oder 1080p filtern, wenn die geladene Videoliste eine genaue Auflösung liefert. Ein allgemeines „HD“ wird nicht automatisch als 1080p eingestuft.
 - Titel, Beschreibung, Uploader beziehungsweise Kanal, Laufzeit, Aufrufe, Tags und Upload-Datum anzeigen, soweit veröffentlicht. Uhrzeit und Zeitzone werden nur angezeigt, wenn die Quelle sie tatsächlich liefert.
-- Unterstützte Videos herunterladen und im Offline-Bereich lokal abspielen. **Multitube** ermöglicht mehrere Tube-Videos in einem gemeinsamen Arbeitsbereich.
+- Unterstützte Sexvideos herunterladen und im Offline-Bereich lokal abspielen. **Multitube** ermöglicht mehrere Sexvideos in einem gemeinsamen Arbeitsbereich.
 
 Die Anbindung eines Anbieters bedeutet nicht, dass jedes seiner Videos jederzeit verfügbar ist. Anbieteränderungen, entfernte Inhalte, regionale Einschränkungen und erforderliche Anmeldungen können einzelne Funktionen begrenzen.
 
@@ -54,7 +54,7 @@ Für die öffentliche Chaturbate-Liste benötigst du deinen **eigenen Affiliate-
 
 ### Was finde ich im Star Finder?
 
-Der **Star Finder ist eine lokale, durchsuchbare Modell- und Performer-Bibliothek mit aktuell 178.151 Katalogeinträgen im veröffentlichten Paket** (Stand 21.10.2026). Das herunterladbare Datenpaket bringt bereits gespeicherte Rechercheergebnisse mit. Die Zahl zählt Profil- und Quelleneinträge; sie ist keine Zusage über ebenso viele eindeutig unterschiedliche Personen. Je nach Profil und Quellenstand findest du:
+Der **Star Finder ist eine lokale, durchsuchbare Bibliothek für Pornostars und Performer mit aktuell 178.151 Katalogeinträgen im veröffentlichten Paket** (Stand 21.10.2026). Das herunterladbare Datenpaket bringt bereits gespeicherte Rechercheergebnisse mit. Die Zahl zählt Profil- und Quelleneinträge; sie ist keine Zusage über ebenso viele eindeutig unterschiedliche Personen. Je nach Profil und Quellenstand findest du:
 
 | Bereich | Beispiele für enthaltene Angaben |
 | --- | --- |
@@ -97,16 +97,16 @@ Du kannst das veröffentlichte Datenpaket separat aktualisieren oder eigene Quel
 
 ### Which tube sites are included?
 
-**Access 406 media providers in one interface, including 376 with video content.** Six live-cam platforms are available in the separate Live area. This includes tube sites and other video sources; additional providers offer images or galleries, for example.
+**Access 406 porn providers in one interface, including 376 with sex videos.** Six live-cam platforms are available in the separate Live area. This includes porn and other video sources; additional providers offer images or galleries, for example.
 
 The bundled provider catalogue includes, for example, **Pornhub, XVideos, XNXX, xHamster, YouPorn, RedTube, SpankBang, Eporner, TXXX, Beeg and Tube8**. You can find additional providers under **Sites** in the interface.
 
 - **One search across many sites:** Search several selected providers or all available search sources with a single query. Global search combines results from different sources, so you do not have to open each website separately.
-- Browse and search a provider's videos, using categories and sorting options where the provider offers them.
-- Watch videos in the integrated player, adjust the player size and choose from available quality levels.
+- Browse and search a provider's sex videos, using categories and sorting options where the provider offers them.
+- Watch sex videos in the integrated player, adjust the player size and choose from available quality levels.
 - Filter by a minimum quality such as 480p or 1080p when the loaded video list supplies an exact resolution. A generic “HD” label is not automatically treated as 1080p.
 - View titles, descriptions, uploaders or channels, duration, views, tags and upload dates where published. Exact times and time zones are shown only when the source provides them.
-- Download supported videos and play them locally in the Offline section. **Multitube** provides a shared workspace for multiple tube videos.
+- Download supported sex videos and play them locally in the Offline section. **Multitube** provides a shared workspace for multiple sex videos.
 
 A provider integration does not mean every video is always available. Provider changes, removed content, regional restrictions and required sign-ins can limit individual features.
 
@@ -122,7 +122,7 @@ The public Chaturbate list requires **your own affiliate campaign code (`wm`)**.
 
 ### What can I find in Star Finder?
 
-**Star Finder is a local, searchable model and performer library with 178,151 catalogue entries in the published package** (as of October 21, 2026). The downloadable data package includes previously stored research results. This counts profile and source entries, not necessarily the same number of distinct people. Depending on the profile and available source data, you can find:
+**Star Finder is a local, searchable library of porn stars and performers with 178,151 catalogue entries in the published package** (as of October 21, 2026). The downloadable data package includes previously stored research results. This counts profile and source entries, not necessarily the same number of distinct people. Depending on the profile and available source data, you can find:
 
 | Area | Examples of available information |
 | --- | --- |
@@ -172,7 +172,7 @@ Farben, Schriften und Lesbarkeit nach deinem Geschmack. / Adjust colours, typogr
 
 ### Star Finder
 
-Die lokale Profilbibliothek mit Suche, Quellenübersicht und Filtern. / The local profile library with search, source information and filters.
+Die lokale Bibliothek der Pornostars, mit Suche, Quellenübersicht und Filtern. / The local library of porn stars, with search, source information and filters.
 
 ![Adult Client: Star Finder mit Suche und Filtern / Star Finder search and filters](docs/images/star-finder.png)
 
