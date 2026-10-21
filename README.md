@@ -18,7 +18,7 @@ Eine Suche über mehrere oder alle verfügbaren Suchquellen, deine Lieblings-Cam
 | **Downloads & Offline** | Download sex videos from supported providers and play them locally. / Sexvideos unterstützter Anbieter herunterladen und lokal abspielen. |
 | **Design & Updates** | Tailor the interface to your needs: customize colours, fonts, language and appearance. Update the program and model data separately. / Passe die Oberfläche an deine Bedürfnisse an: Farben, Schriften, Sprache und Darstellung individuell gestalten. Programm und Modelldaten separat aktualisieren. |
 
-<p><strong>Get started / Für den Einstieg:</strong> <a href="https://github.com/Emberhost92/AdultClient/releases/download/v0.3.2-beta.1/AdultClient-0.3.2-beta.1-Windows-Komplett.zip">Download complete package / Komplettpaket herunterladen</a> · <a href="#english">English guide</a> · <a href="#deutsch">Deutsche Anleitung</a></p>
+<p><strong>Get started / Für den Einstieg:</strong> <a href="https://github.com/Emberhost92/AdultClient/releases/download/v0.3.3-beta.1/AdultClient-0.3.3-beta.1-Windows-Komplett.zip">Download complete package / Komplettpaket herunterladen</a> · <a href="#english">English guide</a> · <a href="#deutsch">Deutsche Anleitung</a></p>
 
 **Snapshot / Stand:** 21.10.2026 · Program / Programm 0.3.1-beta.1 · Data package / Datenpaket 2026-10-21. Counts refer to catalogue entries; the same person may have separate source profiles. / Gezählt sind Katalogeinträge; Quellprofile derselben Person können getrennt vorkommen.
 
@@ -182,7 +182,7 @@ A provider integration does not mean every video is always available. Provider c
 
 Discover public rooms, filter using available room and model attributes, and open a stream in the **single-cam view**. A slider lets you resize the player. **Multicam** displays several cams side by side; you can organize models in your own groups and local favorites. Room status and details such as viewer count, language or country appear when supplied by the provider.
 
-The public Chaturbate list requires **your own affiliate campaign code (`wm`)**. A tutorial with screenshots is available in Settings. Personal website accounts and following lists use separate connections, and account features vary by provider. The application does not automatically unlock private or paid shows.
+The public Chaturbate list requires **your own affiliate campaign code (`wm`)**. If the code is missing, the Live area displays a clear setup notice with direct access to the illustrated guide and code input. Personal website accounts and following lists use separate connections, and account features vary by provider. The application does not automatically unlock private or paid shows.
 
 ### What can I find in Star Finder?
 
@@ -250,7 +250,7 @@ Die Anbindung eines Anbieters bedeutet nicht, dass jedes seiner Videos jederzeit
 
 Du kannst öffentliche Räume entdecken, nach den verfügbaren Raum- und Modellmerkmalen filtern und einen Stream in der **Singlecam-Ansicht** öffnen. Die Playergröße lässt sich über einen Schieberegler anpassen. **Multicam** zeigt mehrere Cams nebeneinander; Modelle lassen sich in eigenen Gruppen und lokalen Favoriten organisieren. Raumstatus und weitere Angaben wie Zuschauerzahl, Sprache oder Land werden angezeigt, sofern der Anbieter sie liefert.
 
-Für die öffentliche Chaturbate-Liste benötigst du deinen **eigenen Affiliate-Kampagnencode (`wm`)**. Die Einrichtung ist in den Einstellungen bebildert erklärt. Persönliche Website-Konten und Following-Listen sind davon getrennt; die verfügbaren Kontofunktionen unterscheiden sich je Anbieter. Private oder kostenpflichtige Shows werden durch die Anwendung nicht automatisch freigeschaltet.
+Für die öffentliche Chaturbate-Liste benötigst du deinen **eigenen Affiliate-Kampagnencode (`wm`)**. Fehlt der Code, zeigt der Live-Bereich einen gut sichtbaren Hinweis mit direktem Zugang zur bebilderten Anleitung und zum Eingabefeld. Persönliche Website-Konten und Following-Listen sind davon getrennt; die verfügbaren Kontofunktionen unterscheiden sich je Anbieter. Private oder kostenpflichtige Shows werden durch die Anwendung nicht automatisch freigeschaltet.
 
 ### Was finde ich im Star Finder?
 
@@ -321,12 +321,12 @@ Screenshots from version 0.3.1-beta.1. / Screenshots aus Version 0.3.1-beta.1.
 
 | Download | Contents / Inhalt | Size / Größe |
 | --- | --- | --- |
-| **[Windows-Komplett.zip](https://github.com/Emberhost92/AdultClient/releases/download/v0.3.2-beta.1/AdultClient-0.3.2-beta.1-Windows-Komplett.zip)** | Program + model data / Programm + Modelldaten | approx. / ca. 405 MB |
-| **[Windows.zip](https://github.com/Emberhost92/AdultClient/releases/download/v0.3.2-beta.1/AdultClient-0.3.2-beta.1-Windows.zip)** | Program only / Nur das Programm | approx. / ca. 36 MB |
+| **[Windows-Komplett.zip](https://github.com/Emberhost92/AdultClient/releases/download/v0.3.3-beta.1/AdultClient-0.3.3-beta.1-Windows-Komplett.zip)** | Program + model data / Programm + Modelldaten | approx. / ca. 405 MB |
+| **[Windows.zip](https://github.com/Emberhost92/AdultClient/releases/download/v0.3.3-beta.1/AdultClient-0.3.3-beta.1-Windows.zip)** | Program only / Nur das Programm | approx. / ca. 36 MB |
 | **[star-data.sqlite3.gz](https://github.com/Emberhost92/AdultClient/releases/download/data-2026-10-21/star-data.sqlite3.gz)** | Separate model data package / Separates Modelldatenpaket | approx. / ca. 369 MB |
 | **[star-data.sqlite3.json](https://github.com/Emberhost92/AdultClient/releases/download/data-2026-10-21/star-data.sqlite3.json)** | Data package metadata and checksum / Beschreibung und Prüfsumme des Datenpakets | less than / kleiner als 1 KB |
 
-[All releases / Alle Veröffentlichungen](https://github.com/Emberhost92/AdultClient/releases) · [Current program release / Aktuelles Programm-Release](https://github.com/Emberhost92/AdultClient/releases/tag/v0.3.2-beta.1) · [Model data release / Modelldaten-Release](https://github.com/Emberhost92/AdultClient/releases/tag/data-2026-10-21)
+[All releases / Alle Veröffentlichungen](https://github.com/Emberhost92/AdultClient/releases) · [Current program release / Aktuelles Programm-Release](https://github.com/Emberhost92/AdultClient/releases/tag/v0.3.3-beta.1) · [Model data release / Modelldaten-Release](https://github.com/Emberhost92/AdultClient/releases/tag/data-2026-10-21)
 
 </details>
 
@@ -523,4 +523,5 @@ Beende das Programm über **Einstellungen → Updates & Modellbilder → Program
 Wenn sich die Oberfläche nicht öffnet: Prüfe zuerst, ob die ZIP vollständig entpackt ist und alle Unterordner vorhanden sind. Beim ersten Start mit Modelldaten kann die Vorbereitung länger dauern. Läuft das Programm bereits, öffnet ein erneuter Doppelklick auf `AdultClient.exe` seine Oberfläche. Bei einem Startfehler stehen Details gegebenenfalls unter `userdata\startup-error.txt` oder `userdata\startup.log`. Teile solche Dateien nur nach Prüfung auf persönliche Informationen.
 
 </details>
+
 
