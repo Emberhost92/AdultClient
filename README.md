@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="app/static/adult-client-logo.jpg" alt="Adult Client" width="540">
+  <img src="docs/images/adult-client-logo.gif" alt="Adult Client" width="540">
 </p>
 
 # Adult Client
@@ -392,3 +392,4 @@ Use **Settings → Updates & model images → Quit program** to stop the applica
 If the interface does not open, first check that the ZIP was fully extracted and all included subfolders are present. Initial preparation can take longer when installing model data. If the application is already running, double-clicking `AdultClient.exe` again opens its interface. Startup error details may be available in `userdata\startup-error.txt` or `userdata\startup.log`. Check these files for personal information before sharing them.
 
 </details>
+
