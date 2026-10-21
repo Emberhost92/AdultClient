@@ -18,9 +18,9 @@ Eine Suche über mehrere oder alle verfügbaren Suchquellen, deine Lieblings-Cam
 | **Downloads & Offline** | Download sex videos from supported providers and play them locally. / Sexvideos unterstützter Anbieter herunterladen und lokal abspielen. |
 | **Design & Updates** | Tailor the interface to your needs: customize colours, fonts, language and appearance. Update the program and model data separately. / Passe die Oberfläche an deine Bedürfnisse an: Farben, Schriften, Sprache und Darstellung individuell gestalten. Programm und Modelldaten separat aktualisieren. |
 
-<p><strong>Get started / Für den Einstieg:</strong> <a href="https://github.com/Emberhost92/AdultClient/releases/download/v0.3.3-beta.1/AdultClient-0.3.3-beta.1-Windows-Komplett.zip">Download complete package / Komplettpaket herunterladen</a> · <a href="#english">English guide</a> · <a href="#deutsch">Deutsche Anleitung</a></p>
+<p><strong>Get started / Für den Einstieg:</strong> <a href="https://github.com/Emberhost92/AdultClient/releases/download/v0.3.4-beta.1/AdultClient-0.3.4-beta.1-Windows-Komplett.zip">Download complete package / Komplettpaket herunterladen</a> · <a href="#english">English guide</a> · <a href="#deutsch">Deutsche Anleitung</a></p>
 
-**Snapshot / Stand:** 21.10.2026 · Program / Programm 0.3.1-beta.1 · Data package / Datenpaket 2026-10-21. Counts refer to catalogue entries; the same person may have separate source profiles. / Gezählt sind Katalogeinträge; Quellprofile derselben Person können getrennt vorkommen.
+**Snapshot / Stand:** 21.10.2026 · Program / Programm 0.3.4-beta.1 · Data package / Datenpaket 2026-10-21. Counts refer to catalogue entries; the same person may have separate source profiles. / Gezählt sind Katalogeinträge; Quellprofile derselben Person können getrennt vorkommen.
 
 ## Features / Funktionen
 
@@ -316,17 +316,17 @@ Screenshots from version 0.3.1-beta.1. / Screenshots aus Version 0.3.1-beta.1.
 
 ## Downloads
 
-**Current program version / Aktuelle Programmversion: 0.3.1-beta.1**  
+**Current program version / Aktuelle Programmversion: 0.3.4-beta.1**  
 **Model data / Modelldaten: 2026-10-21**
 
 | Download | Contents / Inhalt | Size / Größe |
 | --- | --- | --- |
-| **[Windows-Komplett.zip](https://github.com/Emberhost92/AdultClient/releases/download/v0.3.3-beta.1/AdultClient-0.3.3-beta.1-Windows-Komplett.zip)** | Program + model data / Programm + Modelldaten | approx. / ca. 405 MB |
-| **[Windows.zip](https://github.com/Emberhost92/AdultClient/releases/download/v0.3.3-beta.1/AdultClient-0.3.3-beta.1-Windows.zip)** | Program only / Nur das Programm | approx. / ca. 36 MB |
+| **[Windows-Komplett.zip](https://github.com/Emberhost92/AdultClient/releases/download/v0.3.4-beta.1/AdultClient-0.3.4-beta.1-Windows-Komplett.zip)** | Program + model data / Programm + Modelldaten | approx. / ca. 405 MB |
+| **[Windows.zip](https://github.com/Emberhost92/AdultClient/releases/download/v0.3.4-beta.1/AdultClient-0.3.4-beta.1-Windows.zip)** | Program only / Nur das Programm | approx. / ca. 36 MB |
 | **[star-data.sqlite3.gz](https://github.com/Emberhost92/AdultClient/releases/download/data-2026-10-21/star-data.sqlite3.gz)** | Separate model data package / Separates Modelldatenpaket | approx. / ca. 369 MB |
 | **[star-data.sqlite3.json](https://github.com/Emberhost92/AdultClient/releases/download/data-2026-10-21/star-data.sqlite3.json)** | Data package metadata and checksum / Beschreibung und Prüfsumme des Datenpakets | less than / kleiner als 1 KB |
 
-[All releases / Alle Veröffentlichungen](https://github.com/Emberhost92/AdultClient/releases) · [Current program release / Aktuelles Programm-Release](https://github.com/Emberhost92/AdultClient/releases/tag/v0.3.3-beta.1) · [Model data release / Modelldaten-Release](https://github.com/Emberhost92/AdultClient/releases/tag/data-2026-10-21)
+[All releases / Alle Veröffentlichungen](https://github.com/Emberhost92/AdultClient/releases) · [Current program release / Aktuelles Programm-Release](https://github.com/Emberhost92/AdultClient/releases/tag/v0.3.4-beta.1) · [Model data release / Modelldaten-Release](https://github.com/Emberhost92/AdultClient/releases/tag/data-2026-10-21)
 
 </details>
 
@@ -405,7 +405,7 @@ Open **Settings → Updates & model images → Check for updates**. Your install
 | **Model data** | **Download model data** → wait for verification → **Apply model data and restart** |
 
 - Enable **Include beta releases** to receive the current program betas.
-- Enable **Check for updates automatically on startup and once a day** to be notified about updates. You still start downloads and installation yourself by clicking the corresponding button.
+- Enable **Check for updates automatically on startup and once a day** to be notified about updates. A notice directly below Settings shows new program versions or model data; click it to open the update page. You still start downloads and installation yourself by clicking the corresponding button.
 - A program update does not require downloading the large model database again. A model data update does not replace the application.
 - If both updates are ready, install the program first, then apply the model data using its separate restart button.
 - Personal settings, API keys, cookies, notes, favorites, history and downloads are preserved. Program updates continue using your existing `userdata` folder.
@@ -502,7 +502,7 @@ AdultClient/
 | **Modelldaten** | **Modelldaten herunterladen** → Prüfung abwarten → **Modelldaten übernehmen und neu starten** |
 
 - Aktiviere **Auch Betaversionen anbieten**, um die aktuellen Programm-Betas zu erhalten.
-- Die Option **Automatisch beim Start und einmal täglich nach Updates suchen** informiert über verfügbare Updates. Herunterladen und Installieren startest du selbst per Button.
+- Die Option **Automatisch beim Start und einmal täglich nach Updates suchen** informiert über verfügbare Updates. Direkt unter Einstellungen erscheint ein Hinweis auf neue Programmversionen oder Modelldaten; ein Klick öffnet die Update-Seite. Herunterladen und Installieren startest du selbst per Button.
 - Für ein Programmupdate musst du die große Modelldatenbank nicht erneut herunterladen. Ein Datenupdate tauscht umgekehrt nicht das Programm aus.
 - Wenn beides bereitliegt, installiere zuerst das Programm und übernimm danach die Modelldaten über deren eigenen Neustartbutton.
 - Eigene Einstellungen, API-Schlüssel, Cookies, Notizen, Favoriten, Verlauf und Downloads bleiben erhalten. Ein Programmupdate verwendet weiterhin deinen bisherigen `userdata`-Ordner.
@@ -523,5 +523,3 @@ Beende das Programm über **Einstellungen → Updates & Modellbilder → Program
 Wenn sich die Oberfläche nicht öffnet: Prüfe zuerst, ob die ZIP vollständig entpackt ist und alle Unterordner vorhanden sind. Beim ersten Start mit Modelldaten kann die Vorbereitung länger dauern. Läuft das Programm bereits, öffnet ein erneuter Doppelklick auf `AdultClient.exe` seine Oberfläche. Bei einem Startfehler stehen Details gegebenenfalls unter `userdata\startup-error.txt` oder `userdata\startup.log`. Teile solche Dateien nur nach Prüfung auf persönliche Informationen.
 
 </details>
-
-
