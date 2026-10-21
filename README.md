@@ -1,10 +1,46 @@
+<p align="center">
+  <img src="app/static/adult-client-logo.jpg" alt="Adult Client" width="540">
+</p>
+
 # Adult Client
 
-Eine portable Windows-Oberfläche für Tube-Seiten, Live-Cams und den Star Finder mit separat aktualisierbarer Modelldatenbank.
+**Tube-Videos, Live-Cams und deine Modellbibliothek – in einer Oberfläche auf deinem Windows-PC.**
 
-A portable Windows interface for tube sites, live cams and the Star Finder, with an independently updatable model database.
+Videos ansehen, mehrere Streams im Blick behalten, Modelle entdecken und Medien lokal organisieren. Portable Windows-App mit deutscher und englischer Oberfläche.
 
-**[Deutsch: Installation und Updates](#deutsch)** · **[English: Installation and updates](#english)**
+**Tube videos, live cams and your model library in one local Windows app.** Watch videos, follow multiple streams, discover models and organize your media. Available in German and English.
+
+| Bereich / Area | Was du damit machen kannst / What you can do |
+| --- | --- |
+| **Tube & Player** | Anbieter durchsuchen, Videos abspielen und die Playergröße anpassen. / Browse providers, watch videos and resize the player. |
+| **Live & Multicam** | Einzelne Cams oder mehrere Streams gleichzeitig ansehen. / Watch a single cam or multiple streams together. |
+| **Star Finder** | Profile, Quellen, Bilder und Szeneninformationen entdecken; nach vorhandenen Tags und Merkmalen filtern. / Explore profiles, sources, images and scene information; filter by available tags and attributes. |
+| **Downloads & Offline** | Videos unterstützter Anbieter herunterladen und lokal abspielen. / Download videos from supported providers and play them locally. |
+| **Design & Updates** | Farben, Schriften und Sprache anpassen; Programm und Modelldaten separat aktualisieren. / Customize colours, fonts and language; update the program and model data separately. |
+
+<p><strong>Für den Einstieg / Get started:</strong> <a href="https://github.com/Emberhost92/AdultClient/releases/download/v0.3.1-beta.1/AdultClient-0.3.1-beta.1-Windows-Komplett.zip">Komplettpaket herunterladen / Download complete package</a> · <a href="#deutsch">Deutsche Anleitung</a> · <a href="#english">English guide</a></p>
+
+<details>
+<summary><strong>Screenshots ansehen / View screenshots</strong></summary>
+
+### Oberfläche gestalten / Customize the interface
+
+Farben, Schriften und Lesbarkeit nach deinem Geschmack. / Adjust colours, typography and readability.
+
+![Adult Client: Oberfläche und Design-Einstellungen / Interface and appearance settings](docs/images/appearance.png)
+
+### Star Finder
+
+Die lokale Profilbibliothek mit Suche, Quellenübersicht und Filtern. / The local profile library with search, source information and filters.
+
+![Adult Client: Star Finder mit Suche und Filtern / Star Finder search and filters](docs/images/star-finder.png)
+
+Screenshots aus Version 0.3.1-beta.1. / Screenshots from version 0.3.1-beta.1.
+
+</details>
+
+<details>
+<summary><strong>Alle Downloads und Dateigrößen / All downloads and file sizes</strong></summary>
 
 ## Downloads
 
@@ -20,7 +56,12 @@ A portable Windows interface for tube sites, live cams and the Star Finder, with
 
 [Alle Veröffentlichungen / All releases](https://github.com/Emberhost92/AdultClient/releases) · [Aktuelles Programm-Release / Current program release](https://github.com/Emberhost92/AdultClient/releases/tag/v0.3.1-beta.1) · [Modelldaten-Release / Model data release](https://github.com/Emberhost92/AdultClient/releases/tag/data-2026-10-21)
 
+</details>
+
 ## Deutsch
+
+<details>
+<summary><strong>Installationsanleitung öffnen: Komplettpaket, getrennte Installation und Updates</strong></summary>
 
 ### 1. Voraussetzungen
 
@@ -112,7 +153,12 @@ Beende das Programm über **Einstellungen → Updates & Modellbilder → Program
 
 Wenn sich die Oberfläche nicht öffnet: Prüfe zuerst, ob die ZIP vollständig entpackt ist und alle Unterordner vorhanden sind. Beim ersten Start mit Modelldaten kann die Vorbereitung länger dauern. Läuft das Programm bereits, öffnet ein erneuter Doppelklick auf `AdultClient.exe` seine Oberfläche. Bei einem Startfehler stehen Details gegebenenfalls unter `userdata\startup-error.txt` oder `userdata\startup.log`. Teile solche Dateien nur nach Prüfung auf persönliche Informationen.
 
+</details>
+
 ## English
+
+<details>
+<summary><strong>Open installation guide: complete package, separate installation and updates</strong></summary>
 
 ### 1. Requirements
 
@@ -203,3 +249,5 @@ Open **Settings → Updates & model images → Check for updates**. Your install
 Use **Settings → Updates & model images → Quit program** to stop the application. Closing the browser window alone does not stop the local background service.
 
 If the interface does not open, first check that the ZIP was fully extracted and all included subfolders are present. Initial preparation can take longer when installing model data. If the application is already running, double-clicking `AdultClient.exe` again opens its interface. Startup error details may be available in `userdata\startup-error.txt` or `userdata\startup.log`. Check these files for personal information before sharing them.
+
+</details>
