@@ -14308,6 +14308,11 @@ class Handler(BaseHTTPRequestHandler):
             self._cors()
             self.end_headers()
             return
+        if parsed.path in ("/static/chaturbate_tutorial.js", "/static/tutorials/chaturbate-tools.png", "/static/tutorials/chaturbate-settings.png"):
+            filename = os.path.join(ROOT, parsed.path.lstrip("/"))
+            with open(filename, "rb") as handle:
+                self._send(200, handle.read(), "image/png" if filename.endswith(".png") else "text/javascript; charset=utf-8", -1)
+            return
         if parsed.path == "/static/adult-client-logo.jpg":
             with open(os.path.join(ROOT, "static", "adult-client-logo.jpg"), "rb") as handle:
                 self._send(200, handle.read(), "image/jpeg", -1)

@@ -53,10 +53,11 @@ def queue_data(profile):
 def run_case(parent, name, bad=False, data_only=False, interrupted=False):
     root=parent/name
     shutil.copytree(RELEASE,root,ignore=shutil.ignore_patterns('data','userdata','build-source','__pycache__'))
-    config=read(root/'release.json');config['version']='0.2.9';save(root/'release.json',config)
+    config=read(root/'release.json');config['version']='0.3.0-beta.1';save(root/'release.json',config)
     profile=root/'userdata';profile.mkdir()
     save(profile/'update-settings.json',{'automatic':False,'beta':True})
     (profile/'private-cookie.txt').write_text('PRIVATE-SENTINEL')
+    save(profile/'cam.json',{'wm':'TEST-PRIVATE-CODE'})
     (profile/'downloads').mkdir();(profile/'downloads'/'keep.mp4').write_bytes(b'PERSONAL-DOWNLOAD')
     if not data_only:
         staged=profile/'updates'/'program-staging';staged.mkdir(parents=True)
@@ -67,7 +68,7 @@ def run_case(parent, name, bad=False, data_only=False, interrupted=False):
     env=os.environ.copy();env.update(AC_TEST_PROFILE=str(profile),AC_TEST_NO_BROWSER='1')
     process=subprocess.Popen([str(root/'runtime'/'pythonw.exe'),str(root/'app'/'portable_entry.py')],env=env,cwd=root)
     try:
-        instance,state=await_state(profile,lambda s:s['version']=='0.2.9')
+        instance,state=await_state(profile,lambda s:s['version']=='0.3.0-beta.1')
         with closing(sqlite3.connect(profile/'star_data.sqlite3')) as db,db:
             db.execute("INSERT OR REPLACE INTO records VALUES(?,?,?)",('notes','update-test',json.dumps({'text':'KEEP-MY-NOTE'})))
         if data_only or not bad:queue_data(profile)
@@ -84,7 +85,7 @@ def run_case(parent, name, bad=False, data_only=False, interrupted=False):
             subprocess.Popen([str(root/'AdultClient.exe')],env=env,cwd=root)
         else:
             api(instance['url'],{'op':'restart' if data_only else 'install-program'})
-        expected='0.2.9' if bad or data_only else MANIFEST['version']
+        expected='0.3.0-beta.1' if bad or data_only else MANIFEST['version']
         instance,state=await_state(profile,lambda s:s['version']==expected and s.get('install_result') is not None,180)
         result=state['install_result']
         assert result['ok'] is not bad,result
@@ -99,6 +100,7 @@ def run_case(parent, name, bad=False, data_only=False, interrupted=False):
             instance,state=await_state(profile,lambda s:s['version']==expected and s.get('install_result',{}).get('at',0)>previous_at,180)
             assert not state['pending']
         assert (profile/'private-cookie.txt').read_text()=='PRIVATE-SENTINEL'
+        assert read(profile/'cam.json')['wm']=='TEST-PRIVATE-CODE'
         assert (profile/'downloads'/'keep.mp4').read_bytes()==b'PERSONAL-DOWNLOAD'
         with closing(sqlite3.connect(profile/'star_data.sqlite3')) as db,db:
             assert 'KEEP-MY-NOTE' in db.execute("SELECT payload FROM records WHERE bucket='notes' AND key='update-test'").fetchone()[0]
@@ -120,4 +122,6 @@ if __name__=='__main__':
     if os.name!='nt':raise SystemExit('Windows only')
     with tempfile.TemporaryDirectory(prefix='ac-update-test-',dir=BASE/'distribution') as folder:
         for name,bad,data_only,interrupted in [('program-success',False,False,False),('program-rollback',True,False,False),('data-only',False,True,False),('interrupted-recovery',True,False,True)]:
+            if '--program-only' in sys.argv and name!='program-success':continue
             run_case(Path(folder),name,bad,data_only,interrupted)
+

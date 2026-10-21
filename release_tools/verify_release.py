@@ -6,7 +6,7 @@ import sys
 import zipfile
 
 BASE=Path(__file__).resolve().parent.parent
-ROOT=BASE/'distribution'/'AdultClient-0.3.0-beta.1'
+ROOT=BASE/'distribution'/('AdultClient-'+(sys.argv[1] if len(sys.argv)>1 else '0.3.1-beta.1'))
 
 
 def digest(path):
@@ -44,7 +44,7 @@ def verify():
     sums=[]
     for file in [*archives,ROOT.parent/'program-update.json',ROOT/'data'/'star-data.sqlite3.gz',ROOT/'data'/'star-data.sqlite3.json']:
         sums.append(digest(file)+'  '+file.relative_to(ROOT.parent).as_posix())
-    (ROOT.parent/'SHA256SUMS-0.3.0.txt').write_text('\n'.join(sums)+'\n',encoding='utf-8')
+    (ROOT.parent/('SHA256SUMS-'+manifest['version']+'.txt')).write_text('\n'.join(sums)+'\n',encoding='utf-8')
     print(json.dumps({'passed':True,'archives':[{'file':p.name,'bytes':p.stat().st_size} for p in archives],
                       'program_manifest':True,'source_files_match':True,'no_userdata_or_publisher_keys':True,'model_package_hash':True}))
 

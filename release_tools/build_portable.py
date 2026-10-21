@@ -15,7 +15,7 @@ import zipfile
 HERE=Path(__file__).resolve().parent
 WORKSPACE=HERE.parent
 APP=WORKSPACE/'AdultHideoutWeb'
-VERSION='0.3.0-beta.1'
+VERSION='0.3.1-beta.1'
 
 
 def copy_tree(source,target):

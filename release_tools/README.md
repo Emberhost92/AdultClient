@@ -1,7 +1,7 @@
 # Adult Client – portable Windows-Beta
 
-Lokal vorbereitet. Updateziel: `Emberhost92/AdultClient`. Das Repository und
-Veröffentlichungen wurden noch nicht angelegt oder hochgeladen.
+Veröffentlicht unter https://github.com/Emberhost92/AdultClient.
+Programm und Modelldaten werden getrennt aktualisiert.
 
 ## Starten
 
