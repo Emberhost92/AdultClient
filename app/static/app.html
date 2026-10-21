@@ -520,6 +520,7 @@ body.no-act-save [data-action="save"], body.no-act-group [data-action="group"], 
       </div>
       <button type="button" id="ac-live-nav-toggle" aria-controls="cam-views" aria-expanded="true">▴ Live-Menüs</button>
       </div>
+      <section id="chaturbate-setup-notice" hidden role="status" aria-live="polite" data-i18n-content=""></section>
       <div id="cam-panel-rooms">
         <div id="cam-discover-root" hidden></div>
         <div id="cam-room-legacy">
@@ -1164,7 +1165,10 @@ function show(name, menu) {
   document.body.classList.toggle("mt-open",name === "multi");
   if (name !== "multi") window.MultiTube?.leave();
   if (window.MediaLibrary && name !== "browse" && name !== "bookmarks") window.MediaLibrary.leave();
-  if (name === "live") window.LiveCamAnalytics?.start().catch(() => {});
+  if (name === "live") {
+    window.LiveCamAnalytics?.start().catch(() => {});
+    window.ChaturbateHelp?.refresh();
+  }
   if (name !== "live" && window.LiveCamUser) window.LiveCamUser.leave();
   if (name !== "live" && window.LiveCamModels) window.LiveCamModels.leave();
   if (name !== "live") window.LiveCamGroups?.leave();
@@ -8525,6 +8529,7 @@ async function saveCamKey(wm, note, clear) {
     data = null;
   }
   const text = (data && data.error) || (data && data.has_key ? "Schlüssel ist gespeichert." : "Noch kein Schlüssel.");
+  if (data && data.ok) window.ChaturbateHelp?.setStatus(data);
   if (note) note.textContent = text;
   const liveNote = $("cam-key-note");
   const setNote = $("set-cam-key-note");

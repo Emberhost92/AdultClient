@@ -4,6 +4,53 @@
   const trigger = document.getElementById('chaturbate-tutorial-open');
   if (!trigger) return;
   const t = (de, en) => window.AppI18n?.language === 'en' ? en : de;
+  const notice = document.getElementById('chaturbate-setup-notice');
+  let returnFocus = trigger, hasKey = null, statusFailed = false, pending = null, revision = 0;
+  function open(source = trigger) {
+    returnFocus = source;
+    render();
+    if (!dialog.open) dialog.showModal();
+    dialog.returnValue = '';
+    dialog.scrollTop = 0;
+  }
+  function enterCode() {
+    show('settings', 'settings');
+    document.getElementById('ds-tab-live')?.click();
+    const input = document.getElementById('set-cam-key');
+    input?.scrollIntoView({block:'center'});
+    input?.focus({preventScroll:true});
+  }
+  function renderNotice() {
+    if (!notice) return;
+    notice.hidden = hasKey !== false && !statusFailed;
+    if (notice.hidden) return;
+    notice.innerHTML = `<h3>${statusFailed ? t('Chaturbate-Zugang konnte nicht geprüft werden', 'Could not check Chaturbate setup') : t('Chaturbate fehlt? Zuerst den Affiliate-Code einrichten', 'Missing Chaturbate? Set up your affiliate code first')}</h3><p>${statusFailed ? t('Bitte prüfe den Zugangsstatus erneut. Die Anleitung und das Eingabefeld kannst du direkt hier öffnen.', 'Please check the setup status again. You can open the guide and code field directly here.') : t('Ohne deinen eigenen Chaturbate-Affiliate-Code (wm) kann Adult Client keine aktuelle Chaturbate-Raumliste abrufen. Deshalb fehlen neue Chaturbate-Ergebnisse. Andere Cam-Anbieter kannst du unabhängig davon nutzen.', 'Without your own Chaturbate affiliate code (wm), Adult Client cannot retrieve the current Chaturbate room list. This is why new Chaturbate results are missing. Other cam providers work independently of this setup.')}</p><div><button type="button" data-guide>${t('Chaturbate jetzt einrichten · Anleitung', 'Set up Chaturbate now · Guide')}</button><button type="button" data-code>${t('Ich habe einen Code · Jetzt eingeben', 'I have a code · Enter it now')}</button>${statusFailed ? `<button type="button" data-retry>${t('Status erneut prüfen', 'Check status again')}</button>` : ''}</div>`;
+    notice.querySelector('[data-guide]').onclick = e => open(e.currentTarget);
+    notice.querySelector('[data-code]').onclick = enterCode;
+    notice.querySelector('[data-retry]')?.addEventListener('click', refresh);
+  }
+  function setStatus(data) {
+    if (typeof data?.has_key !== 'boolean') return;
+    revision++;
+    hasKey = data.has_key;
+    statusFailed = false;
+    renderNotice();
+  }
+  function refresh() {
+    if (pending) return pending;
+    const requestRevision = revision;
+    pending = (async () => {
+      try {
+        const response = await fetch('/api/cam-key', {cache:'no-store',signal:AbortSignal.timeout(8000)});
+        const data = await response.json();
+        if (!response.ok || !data.ok || typeof data.has_key !== 'boolean') throw Error('status');
+        if (revision === requestRevision) setStatus(data);
+      } catch {
+        if (revision === requestRevision) { statusFailed = true; renderNotice(); }
+      } finally { pending = null; }
+    })();
+    return pending;
+  }
   const dialog = document.createElement('dialog');
   dialog.id = 'chaturbate-tutorial';
   dialog.setAttribute('data-i18n-content', '');
@@ -11,6 +58,7 @@
   const style = document.createElement('style');
   style.textContent = `#chaturbate-tutorial{box-sizing:border-box;width:min(900px,94vw);max-height:90dvh;overflow:auto;background:var(--panel,#37332c);color:var(--text,#f7efe0);border:1px solid #a18a59;border-radius:16px;padding:24px}#chaturbate-tutorial::backdrop{background:#000a}#chaturbate-tutorial header{display:flex;align-items:center;justify-content:space-between;gap:16px}#chaturbate-tutorial h2{margin:0}#chaturbate-tutorial section{border-top:1px solid #8b795c66;margin-top:20px;padding-top:16px}#chaturbate-tutorial p{line-height:1.6}#chaturbate-tutorial a{color:#f5ce78;text-decoration:underline}#chaturbate-tutorial img{display:block;max-width:100%;height:auto;border-radius:8px;margin:12px 0;background:white}#chaturbate-tutorial code{overflow-wrap:anywhere;background:#0004;padding:4px}#chaturbate-tutorial figcaption{font-size:.9em}#chaturbate-tutorial figure{margin:12px 0}`;
   document.head.append(style);
+  style.textContent += `#chaturbate-setup-notice[hidden]{display:none!important}#chaturbate-setup-notice{margin:16px 0 22px;padding:18px 20px;border:1px solid var(--accent,#d8b56a);border-left-width:5px;border-radius:12px;background:color-mix(in srgb,var(--accent,#d8b56a) 12%,var(--panel,#37332c));color:var(--text)}#chaturbate-setup-notice h3{margin:0 0 8px;font-size:1.1rem}#chaturbate-setup-notice p{margin:0 0 14px;line-height:1.6;max-width:1000px}#chaturbate-setup-notice>div{display:flex;flex-wrap:wrap;gap:10px}#chaturbate-setup-notice [data-guide]{font-weight:700}@media(max-width:600px){#chaturbate-setup-notice{padding:14px}#chaturbate-setup-notice button{width:100%}}`;
   document.body.append(dialog);
   function render() {
     const top = dialog.scrollTop;
@@ -26,9 +74,11 @@
     dialog.querySelector('[data-input]').onclick = () => { dialog.returnValue = 'input'; dialog.close('input'); };
     dialog.scrollTop = top;
   }
-  trigger.addEventListener('click', () => { render(); dialog.returnValue = ''; dialog.showModal(); dialog.scrollTop = 0; });
-  dialog.addEventListener('close', () => (dialog.returnValue === 'input' ? document.getElementById('set-cam-key') : trigger)?.focus());
-  window.addEventListener('ui-language-change', render);
+  trigger.addEventListener('click', () => open(trigger));
+  dialog.addEventListener('close', () => { if (dialog.returnValue === 'input') enterCode(); else returnFocus?.focus(); });
+  window.addEventListener('ui-language-change', () => { render(); renderNotice(); });
+  window.addEventListener('focus', () => { if (!document.getElementById('view-live')?.classList.contains('hidden')) refresh(); });
+  window.ChaturbateHelp = {open, refresh, setStatus};
   render();
   trigger.disabled = false;
 })();
