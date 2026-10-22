@@ -40,6 +40,9 @@ body aside #brand img { max-width:100%; }
 body aside #brand .brand-logo { width:100%; max-height:134px; object-fit:contain; border-radius:8px; }
 body #brand.ds-brand { margin:0 0 20px; align-items:center; }
 body #brand.ds-brand img { display:block; max-width:100%; }
+/* Use the menu's spare side padding for the official transparent artwork. */
+body aside #brand:has(.official-brand-logo) { margin-inline:-10px; max-width:calc(100% + 20px); padding-top:18px; overflow:hidden; }
+body aside #brand img:is(.brand-logo.official-brand-logo,.official-brand-default-size) { display:block; width:100%!important; height:auto!important; max-width:100%; max-height:none; padding:0!important; object-fit:contain; }
 body nav { gap:5px; }
 body nav button { padding:9px 12px; border:1px solid transparent; color:var(--muted); box-shadow:none; background:transparent; }
 body nav button:hover:not(:disabled) { color:var(--text); border-color:var(--line); background:var(--brand-soft); }

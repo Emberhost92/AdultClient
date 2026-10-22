@@ -2101,6 +2101,9 @@
             if (source) {
               const img = el("img", {
                 src: source,
+                class: source === "/static/adult-client-logo.png"
+                  ? "official-brand-logo" + (b.width === 240 && b.height === 120 && [0, 10].includes(b.padding) ? " official-brand-default-size" : "")
+                  : "",
                 alt: b.name,
                 style: `width:${b.width}px;height:${b.height}px;object-fit:${b.fit};object-position:${b.positionX}% ${b.positionY}%;padding:${b.padding}px;border-radius:${b.shape === "circle" ? "50%" : b.shape === "rounded" ? "12px" : "0"};background:${{ panel: theme.panel, accent: theme.accent, white: "#fff", black: "#000" }[b.background] || "transparent"}`,
               });
