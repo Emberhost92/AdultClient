@@ -1,0 +1,40 @@
+{
+  "label": "portable",
+  "url": "http://127.0.0.1:18765",
+  "first_cards_ms": 1022,
+  "cards": 36,
+  "controlled_slow_provider": {
+    "calls": [
+      {
+        "site": "stripchat",
+        "ms": 0.3999999985098839
+      },
+      {
+        "site": "chaturbate",
+        "ms": 0.5
+      },
+      {
+        "site": "bongacams",
+        "ms": 0.5
+      },
+      {
+        "site": "camsoda",
+        "ms": 0.5
+      },
+      {
+        "site": "cam4",
+        "ms": 0.5
+      },
+      {
+        "site": "xlovecam",
+        "ms": 0.5
+      }
+    ],
+    "paints": [
+      301.29999999701977,
+      2284.5
+    ],
+    "total": 2284.60000000149
+  },
+  "errors": []
+}

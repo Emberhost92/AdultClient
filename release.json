@@ -1,5 +1,5 @@
 {
-  "version": "0.3.9-beta.1",
+  "version": "0.3.12-beta.1",
   "repository": "Emberhost92/AdultClient",
   "channel": "beta",
   "data_asset": "star-data.sqlite3.gz"

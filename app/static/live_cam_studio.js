@@ -357,7 +357,7 @@
         clearTimeout(this.previewHideTimer);
         if(this.previewPinned||this.dragging||this.hoverIdentity===identity&&(this.previewHoverTimer||this.previewIdentity===identity))return;
         clearTimeout(this.previewHoverTimer);this.hoverIdentity=identity;
-        this.previewHoverTimer=setTimeout(()=>{this.previewHoverTimer=0;if(node.isConnected&&!this.previewPinned&&!this.dragging)this.previewStart(identity,node,false);},90);
+        this.previewHoverTimer=setTimeout(()=>{this.previewHoverTimer=0;if(node.isConnected&&!this.previewPinned&&!this.dragging)this.previewStart(identity,node,false);},0);
       };
       node.addEventListener('pointerenter',hover);node.addEventListener('pointermove',hover);
       node.addEventListener('pointerleave',()=>{clearTimeout(this.previewHoverTimer);this.previewHoverTimer=0;this.hoverIdentity=null;if(!this.previewPinned)this.previewHideTimer=setTimeout(()=>this.previewClose(true),250);});
@@ -482,7 +482,7 @@
     }
     releaseWarmPreview(){clearTimeout(this.warmPreviewTimer);const warm=this.warmPreview;this.warmPreview=null;if(warm){warm.player.previewCleanup?.();this.ctx.destroyPlayer(warm.player);warm.popup.remove();}}
     previewClose(keepWarm=false){clearTimeout(this.previewHoverTimer);this.previewHoverTimer=0;clearTimeout(this.previewHideTimer);if(!keepWarm)this.releaseWarmPreview();if(this.previewPlayer){const p=this.previewPlayer;clearTimeout(p.previewTimer);
-      if(keepWarm&&p.phase==='playing'&&p.hls){this.releaseWarmPreview();p.hls.stopLoad();p.video.pause();p.phase='paused';p.paused=true;this.previewPopup.hidden=true;this.warmPreview={identity:this.previewIdentity,player:p,popup:this.previewPopup};this.warmPreviewTimer=setTimeout(()=>this.releaseWarmPreview(),8000);}
+      if(keepWarm&&p.phase==='playing'&&(p.hls||p.video.readyState>=2)){this.releaseWarmPreview();p.hls?.stopLoad();p.video.pause();p.phase='paused';p.paused=true;this.previewPopup.hidden=true;this.warmPreview={identity:this.previewIdentity,player:p,popup:this.previewPopup};this.warmPreviewTimer=setTimeout(()=>this.releaseWarmPreview(),8000);}
       else{p.previewCleanup?.();this.ctx.destroyPlayer(p);this.previewPopup?.remove();}this.previewPlayer=null;
     }else this.previewPopup?.remove();this.previewPopup=null;this.previewIdentity=null;this.previewPinned=false;this.hoverIdentity=null;}
     holdPreview(identity){

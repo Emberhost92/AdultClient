@@ -2911,6 +2911,17 @@ def plugin_query(url):
 
 
 def _execute_plugin(query):
+    params = dict(urllib.parse.parse_qsl(query, keep_blank_values=True))
+    if params.get('mode') == '4':
+        # Preserve the original master and all variants. Kodi's helper flattens
+        # masters to the last listed rendition, which may be only 360p.
+        try:
+            from resources.lib import proxy_utils
+        except ImportError:
+            pass
+        else:
+            from multitube_backend import install_worker_proxy_exports
+            install_worker_proxy_exports(proxy_utils)
     main = addon_main()
     xbmcplugin._reset()
     xbmc._player_state.update(playing=False, file="")
@@ -9841,7 +9852,7 @@ def catalog_payload():
 
 def _site_preview_cached(query):
     params = dict(urllib.parse.parse_qsl(query))
-    key = cache_key("v19-quality|" + query + "|cv=" + website_cache_version(params.get("website")) + "|depth=1")
+    key = cache_key("v20-quality|" + query + "|cv=" + website_cache_version(params.get("website")) + "|depth=1")
     payload = read_list_cache(key, 300)
     return payload if payload and not _signed_media_stale(payload) else None
 
@@ -11901,6 +11912,7 @@ def _cam_models_hub():
 
 _cam_lib_cache = None
 _cam_lib_written = 0.0
+_cam_lib_flush_pending = False
 
 
 def _cam_site(value):
@@ -11931,7 +11943,9 @@ def _cam_json_write(path, data):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     temp = path + ".tmp"
     with open(temp, "w", encoding="utf-8") as handle:
-        json.dump(data, handle, ensure_ascii=False, separators=(",", ":"))
+        # dumps uses the C encoder; dump iterates millions of tiny Python writes
+        # for a full live catalogue and holds its save lock for several seconds.
+        handle.write(json.dumps(data, ensure_ascii=False, separators=(",", ":")))
     os.replace(temp, path)
 
 
@@ -11960,6 +11974,34 @@ def _cam_library_load():
 
 
 def _cam_library_save(force=False):
+    global _cam_lib_flush_pending, _cam_models_epoch, _cam_epoch_at
+    if force:
+        return _cam_library_save_sync(True)
+    with _cam_lib_lock:
+        if _cam_lib_cache is None:
+            return
+        now = time.time()
+        if now - _cam_epoch_at >= 3:
+            _cam_models_epoch += 1
+            _cam_epoch_at = now
+        if _cam_lib_flush_pending or now - _cam_lib_written < 60:
+            return
+        _cam_lib_flush_pending = True
+    def flush():
+        global _cam_lib_flush_pending, _cam_lib_written
+        try:
+            _cam_library_save_sync(False)
+        except OSError:
+            with _cam_lib_lock:
+                _cam_lib_written = 0
+            debug_log('server', 'cam', 'katalog-speichern-fehlgeschlagen', {})
+        finally:
+            with _cam_lib_lock:
+                _cam_lib_flush_pending = False
+    threading.Thread(target=flush, name='cam-catalog-save', daemon=True).start()
+
+
+def _cam_library_save_sync(force=False):
     global _cam_lib_written, _cam_models_epoch, _cam_epoch_at
     from copy import deepcopy
     snapshot = None
@@ -11970,8 +12012,8 @@ def _cam_library_save(force=False):
             now = time.time()
             # Publishing every room touch rebuilt the whole catalog index and
             # stalled the Live page. The open view reads a fresh epoch at most
-            # every 20 seconds; the file itself is written at most once a minute.
-            if force or now - _cam_epoch_at >= 20:
+            # every 3 seconds; the file itself is written at most once a minute.
+            if force or now - _cam_epoch_at >= 3:
                 _cam_models_epoch += 1
                 _cam_epoch_at = now
             if force or now - _cam_lib_written >= 60:
@@ -14375,7 +14417,7 @@ class Handler(BaseHTTPRequestHandler):
                 self._send(200, json.dumps(_download_library.browse(query)), "application/json; charset=utf-8", -1)
                 return
             cacheable = mode not in ("4", "6", "21")
-            key = cache_key("v19-quality|" + encoded + "|cv=" + website_cache_version(query.get("website")) + "|depth=" + str(depth or ""))
+            key = cache_key("v20-quality|" + encoded + "|cv=" + website_cache_version(query.get("website")) + "|depth=" + str(depth or ""))
             ttl = 30 * 24 * 3600 if mode == "60" and query.get("action") not in ("filmography_batch",) else LIST_TTL
             if cacheable and not fresh:
                 cached = read_list_cache(key, ttl)

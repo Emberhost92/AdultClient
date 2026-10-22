@@ -892,7 +892,7 @@ body.no-act-save [data-action="save"], body.no-act-group [data-action="group"], 
           </select></label>
         </div>
         <p class="muted">Die kleine Vorschau nutzt die Bilder, die die Videoseite mitliefert. Gibt es keine, bleibt der normale Balken. Das gilt für den Player und für jede Multitube-Zelle.</p>
-        <p class="muted">Niedrig, Standard und Hoch werden beim nächsten Video genommen, wenn die Quelle diese Stufe anbietet. Standard sucht die Stufe um 720p. Automatisch lässt die Seite entscheiden. Die Wahl bleibt in den Einstellungen gespeichert.</p>
+        <p class="muted">Niedrig, Standard und Hoch werden beim nächsten Video genommen, wenn die Quelle diese Stufe anbietet. Standard sucht die Stufe um 720p. Automatisch startet mit der besten verfügbaren Qualität. Im Player kannst du die adaptive Automatik separat wählen. Die Wahl bleibt in den Einstellungen gespeichert.</p>
         <div class="row">
           <label>Download-Ordner <input id="set-download-folder" spellcheck="false" placeholder="C:\Videos\Adult Client"></label>
         </div>
@@ -5833,21 +5833,22 @@ function proxySrc(path, slot) {
 }
 function qualityScore(label) {
   const text = String(label || "").toLowerCase();
+  const dimensions = text.match(/(\d{2,5})\s*[x×]\s*(\d{2,5})/);
+  if (dimensions) return Number(dimensions[2]);
   const match = text.match(/(\d{3,4})\s*p?/);
   if (match) return Number(match[1]);
   if (/4k|2160|uhd/.test(text)) return 2160;
   if (/1080|full hd/.test(text)) return 1080;
-  if (/\bhd\b|720/.test(text)) return 720;
+  if (/\bhd\b|720|\bhigh\b|\bhoch\b/.test(text)) return 720;
   if (/480|\bsd\b/.test(text)) return 480;
   if (/360/.test(text)) return 360;
   if (/240|low/.test(text)) return 240;
   return 0;
 }
-function preferredIndex(items, read) {
-  const pref = activeTheme().quality || "auto";
+function preferredIndex(items, read, preference) {
+  const pref = preference || activeTheme().quality || "auto";
   const count = items.length;
   if (!count) return 0;
-  if (pref === "auto") return count - 1;
   const ordered = items.map((item, index) => ({ index: index, score: Number(read(item)) || 0 }));
   const ranked = ordered.some(item => item.score > 0);
   ordered.sort((a, b) => (a.score - b.score) || (a.index - b.index));
@@ -5857,7 +5858,7 @@ function preferredIndex(items, read) {
     return Math.floor((count - 1) / 2);
   }
   if (pref === "low") return ordered[0].index;
-  if (pref === "high") return ordered[ordered.length - 1].index;
+  if (pref === "high" || pref === "auto") return ordered[ordered.length - 1].index;
   let best = ordered[0];
   for (const item of ordered) {
     if (Math.abs(item.score - 720) < Math.abs(best.score - 720)) best = item;
@@ -5867,6 +5868,10 @@ function preferredIndex(items, read) {
 function fillQualities(select, levels, files) {
   select.innerHTML = "";
   if (levels && levels.length) {
+    const best = document.createElement("option");
+    best.value = "-2";
+    best.textContent = "Beste Qualität";
+    select.append(best);
     const auto = document.createElement("option");
     auto.value = "-1";
     auto.textContent = "Automatisch";
@@ -5874,10 +5879,10 @@ function fillQualities(select, levels, files) {
     levels.forEach((level, index) => {
       const option = document.createElement("option");
       option.value = String(index);
-      option.textContent = level.height ? level.height + "p" : ("Stufe " + (index + 1));
+      option.textContent = level.height ? level.height + "p" : level.bitrate ? Math.round(level.bitrate / 1000) + " kbit/s" : "Originalstream";
       select.append(option);
     });
-    select.value = "-1";
+    select.value = "-2";
     return;
   }
   const list = files && files.length ? files : [];
@@ -5900,7 +5905,7 @@ function applyQuality(video, select, handle) {
   if (handle.selectSource && !handle.hls) { handle.selectSource(Number(value)); return; }
   if (handle.hls) {
     if (handle.liveCam) handle.hls.loadLevel = Number(value);
-    else handle.hls.currentLevel = Number(value);
+    else handle.hls.currentLevel = Number(value) === -2 ? preferredIndex(handle.hls.levels, level => level.height || qualityScore(level.name || "") || Number(level.bitrate) / 1000000, "high") : Number(value);
     return;
   }
   const source = (handle.sources || [])[Number(value)];
@@ -5920,9 +5925,17 @@ function attachStream(video, select, resolved, autoplay, slot) {
   const tried=new Set();let guard=null,lastTime=0,resumeAt=0,shouldPlay=!!autoplay;
   const clearGuard=()=>{if(guard!==null)clearTimeout(guard);guard=null;};
   const armGuard=()=>{if(handle.liveCam||handle.disposed||guard!==null)return;guard=setTimeout(()=>{guard=null;if(!handle.disposed)useFile(lowerThan(handle.using));},30000);};
-  const events={waiting:armGuard,stalled:armGuard,playing:()=>{clearGuard();armGuard();},ended:clearGuard,pause:()=>{if(video.readyState>=2)clearGuard();},timeupdate:()=>{if(video.currentTime>lastTime){lastTime=video.currentTime;clearGuard();if(!video.paused)armGuard();}},loadedmetadata:()=>{if(resumeAt>0&&Number.isFinite(video.duration))video.currentTime=Math.min(resumeAt,Math.max(0,video.duration-.1));resumeAt=0;if(!shouldPlay)clearGuard();}};
+  const events={waiting:armGuard,stalled:armGuard,playing:()=>{clearGuard();armGuard();},ended:clearGuard,pause:()=>{if(video.readyState>=2)clearGuard();},timeupdate:()=>{if(video.currentTime>lastTime){lastTime=video.currentTime;clearGuard();if(!video.paused)armGuard();}},loadedmetadata:()=>{if(resumeAt>0&&Number.isFinite(video.duration))video.currentTime=Math.min(resumeAt,Math.max(0,video.duration-.1));resumeAt=0;if(!shouldPlay)clearGuard();measuredQuality();}};
   for(const [event,fn]of Object.entries(events))video.addEventListener(event,fn);
   handle.dispose=()=>{handle.disposed=true;handle.generation++;clearGuard();for(const [event,fn]of Object.entries(events))video.removeEventListener(event,fn);if(handle.hls){handle.hls.destroy();handle.hls=null;}};
+  const measuredQuality=()=>{
+    if(handle.disposed||!video.videoHeight)return;
+    const levels=handle.hls?.levels;
+    if(levels?.length===1&&!levels[0].height){const selected=select.value;fillQualities(select,[{...levels[0],height:video.videoHeight}],null);select.value=selected;}
+    else if(!handle.hls&&select.selectedOptions?.[0])select.selectedOptions[0].textContent=video.videoHeight+'p';
+    window.TubePlayer?.refreshTechnical();
+  };
+  events.resize=measuredQuality;video.addEventListener('resize',measuredQuality);
   const files = (resolved.sources && resolved.sources.length ? resolved.sources : [{ label: "Original", path: resolved.path }]);
   handle.sources = files.filter(file=>file.path).map(file => ({ label: file.label, src: proxySrc(file.path, slot), path:file.path.split("|")[0],mime:file.mime||file.mimetype||file.type||(file.path===resolved.path?resolved.mime:"")||"" }));
   const playlist=file=>/mpegurl/i.test(file.mime)||/\.m3u8(?:[?#]|$)/i.test(file.path);
@@ -6007,12 +6020,12 @@ function attachStream(video, select, resolved, autoplay, slot) {
       if(handle.disposed||generation!==handle.generation||engine!==handle.hls)return;
       const levels = engine.levels || [];
       fillQualities(select, levels, null);
-      const pref = activeTheme().quality;
-      if (pref !== "auto" && levels.length) {
-        const level = preferredIndex(levels, item => item.height || qualityScore(item.name || ""));
+      const pref = activeTheme().quality || "auto";
+      if (levels.length) {
+        const level = preferredIndex(levels, item => item.height || qualityScore(item.name || "") || Number(item.bitrate) / 1000000);
         if (handle.liveCam) handle.hls.loadLevel = level;
         else handle.hls.currentLevel = level;
-        select.value = String(level);
+        select.value = pref === "auto" || pref === "high" ? "-2" : String(level);
       }
     });
     handle.hls.on(Hls.Events.ERROR, (_, data) => {
@@ -6036,7 +6049,7 @@ function attachStream(video, select, resolved, autoplay, slot) {
     useFile(lowerThan(handle.using));
   };
   const pref = activeTheme().quality;
-  const picked = pref === "auto" ? handle.sources.length - 1 : preferredIndex(handle.sources, file => qualityScore(file.label));
+  const picked = preferredIndex(handle.sources, file => playlist(file) && !qualityScore(file.label) ? 100000 : qualityScore(file.label));
   useFile(handle.sources[picked] || handle.sources[handle.sources.length - 1]);
   return handle;
 }
@@ -6312,6 +6325,8 @@ let camHoverSeq = 0;
 let camHoverTimer = 0;
 let camHoverPlayer = null;
 let camHoverRequest = null;
+let camHoverWarm = null;
+let camHoverWarmTimer = 0;
 const CAM_CONNECT_TIMEOUT = 26000;
 const CAM_CONNECT_CONCURRENCY = 48;
 const CAM_PREVIEW_LIMITS = [1, 2, 3, 4, 6, 12, 18, 24, 36, 48, 60, 90, 120];
@@ -6785,13 +6800,15 @@ async function camAttachMuted(video, path, slot) {
   if (src.indexOf(".m3u8") >= 0 && !window.Hls) await ensureHls();
   if (window.Hls && Hls.isSupported() && src.indexOf(".m3u8") >= 0) {
     const hls = new Hls({
-      maxBufferLength: 6,
-      maxMaxBufferLength: 12,
+      maxBufferLength: 3,
+      maxMaxBufferLength: 6,
+      maxBufferSize: 2 * 1024 * 1024,
       backBufferLength: 0,
       capLevelToPlayerSize: true,
       startLevel: camPreviewState().quality === "high" ? -1 : 0,
-      startFragPrefetch: false,
-      liveSyncDurationCount: 3,
+      startFragPrefetch: true,
+      testBandwidth: false,
+      liveSyncDurationCount: 2,
       liveMaxLatencyDurationCount: 6,
       maxLiveSyncPlaybackRate: 1.1,
       manifestLoadingMaxRetry: 1,
@@ -6847,6 +6864,7 @@ function camPreviewDrop(entry) {
   camPreviewPlayers = camPreviewPlayers.filter(item => item !== entry);
 }
 function camPreviewDropCard(card) {
+  if (camHoverWarm?.card === card) camHoverReleaseWarm();
   if (card && card._camPlayAbort) card._camPlayAbort.abort();
   if (card) {
     card._camPlayAbort = null;
@@ -6858,14 +6876,39 @@ function camPreviewDropCard(card) {
     if (entry.card === card) camPreviewDrop(entry);
   }
 }
-function camHoverStop() {
+function camHoverReleaseWarm() {
+  clearTimeout(camHoverWarmTimer);
+  const entry = camHoverWarm;
+  camHoverWarm = null;
+  if (entry) camHoverDispose(entry);
+}
+function camHoverDispose(entry) {
+  if (!entry || entry.closed) return;
+  entry.closed = true;
+  try { entry.hls?.destroy(); } catch (err) { /* schon zu */ }
+  entry.video.onerror = null;
+  entry.video.pause();
+  entry.video.removeAttribute("src");
+  try { entry.video.load(); } catch (err) { /* schon weg */ }
+  entry.video.remove();
+}
+function camHoverStop(keepWarm = false) {
   clearTimeout(camHoverTimer);
   camHoverTimer = 0;
   if (camHoverRequest) camHoverRequest.controller.abort();
   camHoverRequest = null;
   const entry = camHoverPlayer;
   camHoverPlayer = null;
+  camHoverReleaseWarm();
   if (!entry || entry.closed) return;
+  if (keepWarm && entry.card.isConnected && entry.video.readyState >= 2 && !entry.video.error && !camHoverBlocked(entry.card, entry.card._camRoom)) {
+    entry.hls?.stopLoad();
+    entry.video.pause();
+    entry.video.hidden = true;
+    camHoverWarm = entry;
+    camHoverWarmTimer = setTimeout(camHoverReleaseWarm, 8000);
+    return;
+  }
   entry.closed = true;
   if (entry.hls) {
     try { entry.hls.destroy(); } catch (err) { /* schon zu */ }
@@ -6922,7 +6965,7 @@ function camPreviewWanted() {
   const cards = camGridCards().filter(card => {
     const room = card._camRoom;
     const retryAt = Number(card.dataset.camRetry || 0);
-    const hoverOwns = card.dataset.camHover === "1" && card.dataset.camPlay !== "1";
+    const hoverOwns = camHoverRequest?.card === card || camHoverPlayer?.card === card;
     return (!card.dataset.lmStatus || card.dataset.lmStatus === "live") && camPreviewPicture() && camPreviewVisible(card) && !hoverOwns && retryAt <= Date.now() && room && room.show !== "privat" && room.online !== false;
   });
   if (!cards.length) return [];
@@ -6947,6 +6990,7 @@ async function camPreviewMount(card, room, slot, seq) {
 }
 async function camPreviewConnect(card, room, slot, seq) {
   if (!card || !room || card.dataset.camPlay === "1" || card.dataset.camPlay === "wait") return;
+  if (camHoverWarm?.card === card) camHoverReleaseWarm();
   card.dataset.camPlay = "wait";
   card.dataset.camSlot = String(slot);
   const controller = new AbortController();
@@ -7167,7 +7211,11 @@ function camHoverEnter(card, room) {
   }
   if (!stateNow.hover || !camPreviewPicture() || !room || camHoverBlocked(card, room)) return;
   const playing = card.querySelector(".cam-open video.cam-live");
-  if (card.dataset.camPlay === "1" && playing && !playing.paused && playing.readyState >= 2) return;
+  if (card.dataset.camPlay === "wait" || card.dataset.camPlay === "1" && playing) {
+    const entry = camPreviewPlayers.find(item => item.card === card);
+    if (entry) camSetPaused(entry, false);
+    return;
+  }
   const seq = ++camHoverSeq;
   camHoverTimer = setTimeout(() => {
     if (seq !== camHoverSeq || card.dataset.camHover !== "1") return;
@@ -7181,12 +7229,25 @@ function camHoverLeave(card) {
   card.style.removeProperty("--cam-hover-x");
   camHoverSeq += 1;
   clearTimeout(camHoverTimer);
-  if ((camHoverPlayer && camHoverPlayer.card === card) || (camHoverRequest && camHoverRequest.card === card)) camHoverStop();
+  if ((camHoverPlayer && camHoverPlayer.card === card) || (camHoverRequest && camHoverRequest.card === card)) camHoverStop(true);
 }
 async function camHoverStart(card, room, seq) {
-  if (seq !== camHoverSeq || !card.isConnected || document.hidden || card.dataset.camHover !== "1") return;
+  if (seq !== camHoverSeq || !card.isConnected || document.hidden || card.dataset.camHover !== "1" || camHoverBlocked(card, room)) return;
   const playing = card.querySelector(".cam-open video.cam-live");
-  if (card.dataset.camPlay === "1" && playing && !playing.paused && playing.readyState >= 2) return;
+  if (card.dataset.camPlay === "wait" || card.dataset.camPlay === "1" && playing) return;
+  if (camHoverWarm?.card === card && !camHoverWarm.video.error && !camHoverWarm.closed && !camHoverBlocked(card, room)) {
+    const entry = camHoverWarm;
+    camHoverWarm = null;
+    clearTimeout(camHoverWarmTimer);
+    camHoverStop();
+    camHoverPlayer = entry;
+    entry.video.hidden = false;
+    const edge = entry.hls?.liveSyncPosition;
+    if (Number.isFinite(edge) && entry.video.currentTime < edge - 1) entry.video.currentTime = edge;
+    entry.hls?.startLoad(-1);
+    entry.video.play().catch(() => { if (camHoverPlayer === entry) camHoverStop(); });
+    return;
+  }
   camPreviewDropCard(card);
   camHoverStop();
   const controller = new AbortController();
@@ -7219,11 +7280,13 @@ async function camHoverStart(card, room, seq) {
   if (hls) {
     hls.on(Hls.Events.ERROR, (_, info) => {
       if (entry.closed || !info || !info.fatal) return;
+      if (camHoverWarm === entry) { camHoverReleaseWarm(); return; }
       if (camHoverPlayer !== entry) return;
       camHoverStop();
     });
   }
   video.addEventListener("error", () => {
+    if (camHoverWarm === entry) { camHoverReleaseWarm(); return; }
     if (entry.closed || camHoverPlayer !== entry) return;
     camHoverStop();
   });

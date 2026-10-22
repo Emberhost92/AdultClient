@@ -1,0 +1,41 @@
+{
+  "at": "2026-10-22T19:00:36.147Z",
+  "reports": [
+    {
+      "site": "stripchat",
+      "first_frame": true,
+      "first_frame_ms": 2105,
+      "return_frame_ms": 79
+    },
+    {
+      "site": "chaturbate",
+      "first_frame": true,
+      "first_frame_ms": 1805,
+      "return_frame_ms": 45
+    },
+    {
+      "site": "bongacams",
+      "first_frame": true,
+      "first_frame_ms": 560,
+      "return_frame_ms": 48
+    },
+    {
+      "site": "camsoda",
+      "first_frame": true,
+      "first_frame_ms": 3128,
+      "return_frame_ms": 87
+    },
+    {
+      "site": "cam4",
+      "first_frame": true,
+      "first_frame_ms": 3352,
+      "return_frame_ms": 80
+    },
+    {
+      "site": "xlovecam",
+      "first_frame": true,
+      "first_frame_ms": 1241,
+      "return_frame_ms": 90
+    }
+  ]
+}

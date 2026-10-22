@@ -103,7 +103,7 @@ class LibrarySync:
             self.thread.join(timeout=20)
 
     def run(self):
-        with concurrent.futures.ThreadPoolExecutor(max_workers=4, thread_name_prefix='cam-library-job') as pool:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=len(self.sites)+2, thread_name_prefix='cam-library-job') as pool:
             self.pool = pool
             while not self.stop.wait(0.75):
                 if not self.active():
@@ -118,9 +118,9 @@ class LibrarySync:
                 self.was_active=True
                 now = self.clock()
                 with self.lock:
-                    # Two catalog jobs, one profile job and one biography job. Stream
-                    # resolution retains its own, independent request budget.
-                    available = 2 - sum(k.startswith('catalog:') for k in self.busy)
+                    # Each provider owns one lane. A stalled host cannot queue the
+                    # other five behind it; enrichment retains two separate slots.
+                    available = len(self.sites) - sum(k.startswith('catalog:') for k in self.busy)
                     ready = sorted((s for s, r in self.sites.items()
                                     if r['next'] <= now and 'catalog:' + s not in self.busy),
                                    key=lambda s: self.sites[s]['next'])[:available]
@@ -168,7 +168,7 @@ class LibrarySync:
                 offset = 0 if head else row['offset']
             result = self.b['cam_rooms']({'site': site, 'gender': gender, 'offset': str(offset)})
             with self.lock:
-                row['next'] = self.clock() + (18 if result.get('ok') else 120)
+                row['next'] = self.clock() + (5 if result.get('ok') else 120)
                 row['error'] = '' if result.get('ok') else str(result.get('error') or 'Quelle derzeit nicht erreichbar.')[:240]
                 if result.get('ok'):
                     row['last'] = int(time.time() * 1000)

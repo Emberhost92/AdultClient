@@ -1,0 +1,43 @@
+{
+  "label": "before",
+  "source": "real HLS decoding; simulated 450 ms provider resolution; no real accounts",
+  "reports": [
+    {
+      "site": "stripchat",
+      "first_frame_ms": 676,
+      "return_frame_ms": 542,
+      "resolver_calls": 2
+    },
+    {
+      "site": "chaturbate",
+      "first_frame_ms": 548,
+      "return_frame_ms": 583,
+      "resolver_calls": 2
+    },
+    {
+      "site": "bongacams",
+      "first_frame_ms": 549,
+      "return_frame_ms": 574,
+      "resolver_calls": 2
+    },
+    {
+      "site": "camsoda",
+      "first_frame_ms": 564,
+      "return_frame_ms": 564,
+      "resolver_calls": 2
+    },
+    {
+      "site": "cam4",
+      "first_frame_ms": 564,
+      "return_frame_ms": 575,
+      "resolver_calls": 2
+    },
+    {
+      "site": "xlovecam",
+      "first_frame_ms": 565,
+      "return_frame_ms": 580,
+      "resolver_calls": 2
+    }
+  ],
+  "errors": []
+}

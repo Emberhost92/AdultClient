@@ -1,0 +1,40 @@
+{
+  "label": "local",
+  "url": "http://127.0.0.1:8765",
+  "first_cards_ms": 1987,
+  "cards": 36,
+  "controlled_slow_provider": {
+    "calls": [
+      {
+        "site": "stripchat",
+        "ms": 0.29999999701976776
+      },
+      {
+        "site": "chaturbate",
+        "ms": 0.29999999701976776
+      },
+      {
+        "site": "bongacams",
+        "ms": 0.29999999701976776
+      },
+      {
+        "site": "camsoda",
+        "ms": 0.29999999701976776
+      },
+      {
+        "site": "cam4",
+        "ms": 0.29999999701976776
+      },
+      {
+        "site": "xlovecam",
+        "ms": 0.29999999701976776
+      }
+    ],
+    "paints": [
+      1594,
+      2814.1999999955297
+    ],
+    "total": 2814.39999999851
+  },
+  "errors": []
+}

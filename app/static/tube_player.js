@@ -34,7 +34,9 @@
     const heading=document.createElement('h4');heading.textContent='Aktuelle Wiedergabe';const technical=document.createElement('p');technical.id='watch-technical-info';technical.className='muted';section.append(heading,technical);box.append(section);refreshTechnical();
   }
   function refreshTechnical(){
-    if(typeof document==='undefined')return;const target=document.getElementById('watch-technical-info'),video=document.getElementById('video');if(!target||!video)return;
+    if(typeof document==='undefined')return;const target=document.getElementById('watch-technical-info'),video=document.getElementById('video');if(!video)return;
+    const actual=document.getElementById('quality-actual');if(actual)actual.textContent=video.videoWidth&&video.videoHeight?video.videoWidth+' × '+video.videoHeight+' px':'';
+    if(!target)return;
     const parts=[];if(video.videoWidth&&video.videoHeight)parts.push('Bild: '+video.videoWidth+' × '+video.videoHeight+' Pixel');
     if(Number.isFinite(video.duration)&&video.duration>0){const seconds=Math.round(video.duration);parts.push('Dauer: '+Math.floor(seconds/60)+':'+String(seconds%60).padStart(2,'0'));}
     const quality=document.getElementById('quality')?.selectedOptions?.[0]?.textContent;if(quality)parts.push('Qualität: '+quality);
@@ -42,6 +44,7 @@
   }
   function mount(){
     const video=document.getElementById('video'),frame=video?.parentElement,host=document.getElementById('tube-size-controls');if(!host||!frame)return;
+    const quality=document.getElementById('quality');if(quality){const actual=document.createElement('strong');actual.id='quality-actual';actual.setAttribute('aria-live','polite');quality.after(actual);}
     let raw={};try{raw=JSON.parse(localStorage.getItem('adultclient.tube-player')||'{}');}catch{}
     let prefs=preferences(raw),ratio=16/9;
     const save=()=>{try{localStorage.setItem('adultclient.tube-player',JSON.stringify(prefs));}catch{}};

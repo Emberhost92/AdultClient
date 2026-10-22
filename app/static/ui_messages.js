@@ -24,3 +24,5 @@ Object.assign(globalThis.AppUIMessages.messages, {
   "Verbindungsfehler · Raumstatus nicht bestätigt":"Connection error · room status unconfirmed",
   "Raumstatus unbekannt":"Room status unknown"
 });
+
+Object.assign(globalThis.AppUIMessages.messages, {"Beste Qualität":"Best quality", "Originalstream":"Original stream", "Niedrig, Standard und Hoch werden beim nächsten Video genommen, wenn die Quelle diese Stufe anbietet. Standard sucht die Stufe um 720p. Automatisch startet mit der besten verfügbaren Qualität. Im Player kannst du die adaptive Automatik separat wählen. Die Wahl bleibt in den Einstellungen gespeichert.":"Low, Standard and High apply to the next video when available. Standard aims for 720p. The default starts with the best available quality. Adaptive automatic selection can be chosen separately in the player. Your preference is saved."});

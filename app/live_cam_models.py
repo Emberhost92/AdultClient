@@ -171,7 +171,7 @@ def clean_filters(value, sites):
 
 class ModelsHub:
     def __init__(self, backend):
-        self.b=backend;self.lock=threading.RLock();self.queries={};self.metrics={};self.undo={};self.index=None;self.index_epoch=-1;self.projection=None;self.config_epoch=0;self.playback={}
+        self.b=backend;self.lock=threading.RLock();self.queries={};self.metrics={};self.undo={};self.index=None;self.index_epoch=-1;self.projection=None;self.config_epoch=0;self.playback={};self.facets_cache={}
         self.path=os.path.join(backend['PROFILE'],'cam_models_state.json')
         self.config=backend['_cam_json_read'](self.path) or {'version':1,'collections':[],'rules':[],'profiles':{},'notices':[]}
         if self.config.get('version')!=1:raise ValueError('Neuere Modeldaten bleiben geschützt. Bitte die passende Anwendung verwenden.')
@@ -346,20 +346,34 @@ class ModelsHub:
             known.sort(key=lambda r:r['id'].casefold())
             known.sort(key=lambda r:r[field].casefold() if isinstance(r[field],str) else r[field],reverse=reverse);matched=known+sorted(unknown,key=lambda r:r['id'].casefold())
         query=uuid.uuid4().hex;self.queries[query]=(time.monotonic()+600,matched,size)
-        personal_n=fav_n=watch_n=notes_n=live_n=0;countries=set();public_tags=Counter();local_tags=Counter();local_seen=set()
-        for r in all_rows:
-            p=r['personal'];fav=r.get('fav');groups=r.get('groupIds')
-            if fav or groups or p.get('saved') or p.get('bookmarked') or p.get('notes') or p.get('tags') or p.get('rating') or p.get('priority') or p.get('archived') or p.get('hiddenUntil') or p.get('pauseUntil') or p.get('suggestionHidden'):personal_n+=1
-            fav_n+=bool(fav);watch_n+=bool(p.get('bookmarked'));notes_n+=bool(p.get('notes'));live_n+=r['status']=='live'
-            if r.get('country'):countries.add(r['country'])
-            for tag in r.get('tags') or ():public_tags[tag]+=1
-            own=p.get('tags') or ()
-            if own:
-                local_seen.update(own)
-                for tag in own:local_tags[tag]+=1
-        summary={'total':len(rows),'providers':dict(Counter(r['site'] for r in rows)),'selectedTotal':len(all_rows),
-                 'personal':personal_n,'favorites':fav_n,'watchlist':watch_n,'notes':notes_n,'localTags':len(local_seen),'live':live_n}
-        facets={'countries':sorted(countries),'publicTags':public_tags.most_common(150),'localTags':local_tags.most_common(150)}
+        # Facets describe the selected catalogue, not the current search. Reuse
+        # them across searches/pages while retaining live state on every query.
+        facet_key=(self.index_epoch,self.config_epoch,body.get('metrics',''),self.metrics.get(body.get('metrics',''),(0,))[0],tuple(sorted(chosen_sites)),prepared is not None)
+        reusable=scope is None and project is None and not any(g.get('kind')=='smart' for g in groups)
+        cached=self.facets_cache.get(facet_key) if reusable else None
+        if cached is not None:
+            summary,facets=cached
+            summary=dict(summary)
+        else:
+            personal_n=fav_n=watch_n=notes_n=0;countries=set();public_tags=Counter();local_tags=Counter();local_seen=set()
+            for r in all_rows:
+                p=r['personal'];fav=r.get('fav');groups=r.get('groupIds')
+                if fav or groups or p.get('saved') or p.get('bookmarked') or p.get('notes') or p.get('tags') or p.get('rating') or p.get('priority') or p.get('archived') or p.get('hiddenUntil') or p.get('pauseUntil') or p.get('suggestionHidden'):personal_n+=1
+                fav_n+=bool(fav);watch_n+=bool(p.get('bookmarked'));notes_n+=bool(p.get('notes'))
+                if r.get('country'):countries.add(r['country'])
+                for tag in r.get('tags') or ():public_tags[tag]+=1
+                own=p.get('tags') or ()
+                if own:
+                    local_seen.update(own)
+                    for tag in own:local_tags[tag]+=1
+            summary={'total':len(rows),'providers':dict(Counter(r['site'] for r in rows)),'selectedTotal':len(all_rows),
+                     'personal':personal_n,'favorites':fav_n,'watchlist':watch_n,'notes':notes_n,'localTags':len(local_seen),'live':0}
+            facets={'countries':sorted(countries),'publicTags':public_tags.most_common(150),'localTags':local_tags.most_common(150)}
+            if reusable:
+                if len(self.facets_cache)>=16:self.facets_cache.clear()
+                self.facets_cache[facet_key]=(summary,facets)
+            summary=dict(summary)
+        summary['live']=sum(r['status']=='live' for r in all_rows)
         result=self.page({'query':query,'page':body.get('page',0)})
         result.update(summary=summary,facets=facets,groups=[{k:g[k] for k in ('id','name','kind','systemRole','archived','parent','count','revision') if k in g} for g in groups],config={k:copy.deepcopy(self.config[k]) if include_config else [] for k in ('collections','rules','notices')})
         for item in result['config']['collections']:
