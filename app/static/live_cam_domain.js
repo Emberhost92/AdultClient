@@ -130,6 +130,8 @@
   function stateOf(model) {
     if (!model) return 'unknown';
     if (['privat','private','group'].includes(model.show) || ['private','group'].includes(model.roomState)) return 'private';
+    if (['hidden','restricted'].includes(model.show) || ['hidden','restricted'].includes(model.roomState)) return 'restricted';
+    if (model.show==='away') return 'away';
     if (['away','denied'].includes(model.roomState)) return model.roomState;
     if (model.online === false || model.roomState === 'offline') return 'offline';
     if (model.online === true || model.roomState === 'public') return 'online';

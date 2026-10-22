@@ -8,3 +8,19 @@ Object.assign(globalThis.AppUIMessages.messages, {
   "Salbei · Gold":"Sage · Gold",
   "Aubergine · Gold":"Aubergine · Gold"
 });
+Object.assign(globalThis.AppUIMessages.messages, {
+  "Private Show · öffentliche Wiedergabe ist derzeit nicht verfügbar.":"Private show · public playback is currently unavailable.",
+  "Gruppenshow · öffentliche Wiedergabe ist derzeit nicht verfügbar.":"Group show · public playback is currently unavailable.",
+  "Das Model ist derzeit offline.":"The model is currently offline.",
+  "Das Model ist derzeit abwesend.":"The model is currently away.",
+  "Der Raum ist derzeit verborgen. Der Anbieter nennt keinen öffentlichen Stream.":"The room is currently hidden. The provider supplies no public stream.",
+  "Der Raum ist passwortgeschützt. Öffentliche Wiedergabe ist nicht verfügbar.":"The room is password protected. Public playback is unavailable.",
+  "Status erneut prüfen":"Check status again",
+  "Öffentlich live":"Public live stream",
+  "Öffentlicher Stream · lädt …":"Public stream · loading …",
+  "Raumstatus wird geprüft …":"Checking room status …",
+  "Zugriff eingeschränkt":"Restricted access",
+  "Nicht öffentlich":"Not public",
+  "Verbindungsfehler · Raumstatus nicht bestätigt":"Connection error · room status unconfirmed",
+  "Raumstatus unbekannt":"Room status unknown"
+});

@@ -13537,6 +13537,42 @@ _CB_CLOSED = ("private", "hidden", "offline", "away", "group", "password protect
 _CB_PLAY_HOST = re.compile(r"(^|\.)(mmcdn\.com|highwebmedia\.com)$", re.I)
 
 
+def _cb_closed_result(room_status):
+    states = {
+        "private": ("private", "Private Show · öffentliche Wiedergabe ist derzeit nicht verfügbar."),
+        "group": ("private", "Gruppenshow · öffentliche Wiedergabe ist derzeit nicht verfügbar."),
+        "offline": ("offline", "Das Model ist derzeit offline."),
+        "away": ("away", "Das Model ist derzeit abwesend."),
+        "hidden": ("restricted", "Der Raum ist derzeit verborgen. Der Anbieter nennt keinen öffentlichen Stream."),
+        "password protected": ("denied", "Der Raum ist passwortgeschützt. Öffentliche Wiedergabe ist nicht verfügbar."),
+    }
+    phase, message = states[room_status]
+    return {"ok": False, "status": phase, "room_status": room_status,
+            "error": message, "retryable": False, "observed_at": int(time.time() * 1000)}
+
+
+def _cb_page_room_status(text, name):
+    # Only inspect the target room's dossier. A page can contain statuses of
+    # suggested rooms, which must never override a successful public edge reply.
+    match = re.search(r'''initialRoomDossier\s*=\s*("(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*')''', text or "")
+    if not match:
+        return ""
+    try:
+        literal = match.group(1)
+        if literal.startswith('"'):
+            raw = json.loads(literal)
+        else:
+            raw = re.sub(r"\\u([a-fA-F0-9]{4})", lambda m: chr(int(m.group(1), 16)), literal[1:-1])
+            raw = raw.replace("\\'", "'").replace('\\"', '"').replace("\\/", "/")
+        data = json.loads(raw)
+        owner = str(data.get("broadcaster_username") or data.get("room_slug") or data.get("username") or "")
+        if owner and owner.casefold() != name.casefold():
+            return ""
+        return str(data.get("room_status") or "").strip().lower()
+    except (ValueError, TypeError, AttributeError):
+        return ""
+
+
 def _cb_csrf(jar):
     for cookie in jar:
         value = str(cookie.value or "")
@@ -13629,7 +13665,7 @@ def _cb_play(name):
     # The playlist address works once. The player must be the first reader.
     edge_status, edge_url = _cb_edge(name, jar)
     if edge_status in _CB_CLOSED:
-        return {"ok": False, "error": "Der Raum ist nicht öffentlich."}
+        return _cb_closed_result(edge_status)
     headers = {"User-Agent": _CAM_UA, "Accept": "text/html", "Accept-Language": "de,en;q=0.8", "Referer": "https://chaturbate.com/"}
     # The edge address is enough to start. The room page only checks status and age,
     # so a ready edge URL must not wait on the full document.
@@ -13637,9 +13673,9 @@ def _cb_play(name):
     status, body = _cam_open("https://chaturbate.com/%s/" % urllib.parse.quote(name), headers, page_timeout, page_limit, jar)
     text = body.decode("utf-8", "replace") if status == 200 else ""
     if text:
-        room_status = _cb_field(text, "room_status").lower()
-        if room_status in _CB_CLOSED:
-            return {"ok": False, "error": "Der Raum ist nicht öffentlich."}
+        room_status = _cb_page_room_status(text, name)
+        if not edge_status and room_status in _CB_CLOSED:
+            return _cb_closed_result(room_status)
         age = re.search(r'"age"\s*:\s*(\d{1,3})\b', text) or re.search(r'\\"age\\"\s*:\s*(\d{1,3})\b', text)
         if age and not _cam_age_ok(age.group(1)):
             return {"ok": False, "error": "Der Raum wird nicht geöffnet."}
@@ -13668,7 +13704,7 @@ def _cb_play(name):
     if cookie_text:
         pack["Cookie"] = cookie_text
     path = _cam_pack(candidates[0], pack)
-    return {"ok": True, "title": name, "path": path, "sources": [{"label": "Live", "path": path}], "facts": {"site": "Chaturbate"}}
+    return {"ok": True, "status": "online", "room_status": "public", "observed_at": int(time.time() * 1000), "title": name, "path": path, "sources": [{"label": "Live", "path": path}], "facts": {"site": "Chaturbate"}}
 
 
 def _sc_media_ok(text, playlist_url, headers):
