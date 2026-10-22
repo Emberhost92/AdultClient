@@ -143,7 +143,9 @@
       const response=await fetch('/api/distribution',op?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({op,...extra})}:{});
       const data=await response.json();if(!data.ok)throw Error(data.error);
       const changed=JSON.stringify(data)!==JSON.stringify(state);
-      state=data;lastRead=Date.now();actionError='';if(changed||op)render();
+      state=data;
+      if(window.AdultClientRelease?.version!==data.version){window.AdultClientRelease={version:data.version};dispatchEvent(new Event('adult-client-release'));}
+      lastRead=Date.now();actionError='';if(changed||op)render();
       if(op==='restart'||op==='install-program')content.append(el('p',t('Der Dienst startet neu. Die neue Version öffnet sich nach dem Start im Browser.','The service is restarting. The new version will open in your browser.')));
     }catch(error){actionError=error.message;if(content)render();}
     finally{busy=false;}

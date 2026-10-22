@@ -37,6 +37,7 @@
       "Designprofile",
       "Eigene Vorlagen, Sicherungen und Wiederherstellung",
     ],
+    ["feedback", "Feedback & Hilfe", "Fehler melden, Wünsche und Anregungen über GitHub"],
     ["about", "Über Adult Client", "Projekt, Ersteller und Herkunft"],
     ["help", "Hilfe", "Anleitung für alle Bereiche und Einstellungen"],
   ];
@@ -844,7 +845,7 @@
       host.addEventListener("input", (e) => {
         if (
           e.target === this.searchInput ||
-          e.target.closest(".ds-profile-name")
+          e.target.closest(".ds-profile-name, #ac-feedback")
         )
           return;
         this.record(e.target.id || "legacy");
@@ -852,7 +853,7 @@
       host.addEventListener("change", (e) => {
         if (
           e.target === this.searchInput ||
-          e.target.closest(".ds-profile-name")
+          e.target.closest(".ds-profile-name, #ac-feedback")
         )
           return;
         this.record(e.target.id || "legacy");
@@ -2340,3 +2341,92 @@
     },
   };
 })(globalThis);
+
+/* GitHub feedback: only user-entered text and the visible, optional build/browser details. */
+(() => {
+  'use strict';
+  const repo='https://github.com/Emberhost92/AdultClient';
+  const t=(de,en)=>window.AppI18n?.language==='en'?en:de;
+  const make=(tag,text)=>{const n=document.createElement(tag);if(text)n.textContent=text;return n;};
+  const kinds=[['bug','Fehler melden','Report a bug','bug','Bug'],['wish','Wunsch vorschlagen','Suggest a feature','enhancement','Feature'],['feedback','Allgemeines Feedback','General feedback','feedback','Feedback']];
+  const areas=[['general','Allgemein','General'],['live','Live & Einzelcam','Live & single cam'],['multicam','Multicam','Multicam'],['tube','Tube & Player','Tube & player'],['stars','Star Finder','Star Finder'],['downloads','Downloads & Offline','Downloads & offline'],['updates','Updates','Updates'],['design','Design & Sprache','Design & language']];
+  let section,form,link,status,context,copyButton;
+  const values=()=>form?Object.fromEntries(new FormData(form)):{};
+  const build=()=>window.AdultClientRelease?.version||'development';
+  function browser(){
+    const ua=navigator.userAgent;
+    const found=['Edg','OPR','Firefox','Chrome','Version'].map(name=>ua.match(new RegExp('('+name+')/(\\d+)'))).find(Boolean);
+    return found?({'Edg':'Edge','OPR':'Opera','Version':'Safari'}[found[1]]||found[1])+' '+found[2]:'Unknown';
+  }
+  function report(){
+    const data=values(),kind=kinds.find(k=>k[0]===data.kind)||kinds[0],area=areas.find(a=>a[0]===data.area)||areas[0];
+    const title='['+kind[4]+']['+area[0]+'] '+(data.title||'').trim();
+    const parts=['### '+t('Art und Bereich','Type and area'),t(kind[1],kind[2])+' · '+t(area[1],area[2]),'### '+t('Beschreibung','Description'),(data.description||'').trim()];
+    if(data.steps?.trim())parts.push('### '+t('Schritte zum Nachstellen / Beispiel','Steps to reproduce / example'),data.steps.trim());
+    if(data.expected?.trim())parts.push('### '+t('Erwartetes Ergebnis','Expected result'),data.expected.trim());
+    if(data.environment)parts.push('### '+t('Programm und Browser','Program and browser'),'Adult Client: '+build()+'\nBrowser: '+browser());
+    return {title,body:parts.join('\n\n'),template:{bug:'bug_report.md',wish:'feature_request.md',feedback:'feedback.md'}[kind[0]]};
+  }
+  function update(){
+    for(const name of ['title','description']){const input=form.elements.namedItem(name);input.setCustomValidity(input.value.trim()?'':t('Bitte dieses Feld ausfüllen.','Please fill out this field.'));}
+    const data=report(),url=new URL(repo+'/issues/new');
+    // Labels come from repository templates, so ordinary users need no label permissions.
+    url.searchParams.set('title',data.title);url.searchParams.set('template',data.template);url.searchParams.set('body',data.body);
+    const long=url.href.length>7800;
+    if(long)url.searchParams.delete('body');
+    link.href=url.href;
+    link.textContent=long?t('GitHub öffnen · Text dort einfügen','Open GitHub · paste the text there'):t('Meldung auf GitHub vorbereiten','Prepare report on GitHub');
+    context.textContent=values().environment?'Adult Client: '+build()+' · Browser: '+browser():t('Keine technischen Angaben beigefügt.','No technical details included.');
+    status.textContent=long?t('Der Text ist für einen direkten Link zu lang. Klicke zuerst auf „Text kopieren“ und füge ihn anschließend auf GitHub in die Beschreibung ein.','This report is too long for a direct link. Click “Copy text” first, then paste it into the description on GitHub.'):'';
+  }
+  function render(){
+    if(!section)return;
+    const saved=values();section.replaceChildren();
+    const tab=document.getElementById('ds-tab-feedback');
+    if(tab){tab.setAttribute('data-i18n-content','');tab.textContent=t('Feedback & Hilfe','Feedback & help');}
+    const panel=section.parentElement;
+    const description=t('Fehler melden, Wünsche und Anregungen über GitHub','Report bugs, requests and suggestions on GitHub');
+    panel.dataset.description=description;
+    const intro=panel.querySelector('.ds-description');if(intro){intro.setAttribute('data-i18n-content','');intro.textContent=description;}
+    section.append(make('h2',t('Feedback & Hilfe','Feedback & help')));
+    section.append(make('p',t('Melde Fehler oder schlage Verbesserungen vor. GitHub sammelt die Meldungen nach Art; der betroffene Bereich steht im Titel.','Report bugs or suggest improvements. GitHub groups reports by type; the affected area appears in the title.')));
+    const note=make('p',t('Du benötigst ein GitHub-Konto. Der Button öffnet einen Entwurf auf GitHub; erst dort veröffentlichst du ihn. Meldungen sind öffentlich. Keine API-Schlüssel, Cookies, Passwörter oder privaten Inhalte einfügen. Bilder kannst du auf GitHub selbst anhängen.','You need a GitHub account. The button opens a draft on GitHub; you publish it there. Reports are public. Do not include API keys, cookies, passwords or private content. You can attach images on GitHub.'));
+    note.className='ac-feedback-note';section.append(note);
+    form=make('form');form.id='ac-feedback-form';form.noValidate=false;
+    const field=(name,label,node)=>{const wrap=make('label');wrap.append(make('span',label));node.name=name;node.id='feedback-'+name;wrap.htmlFor=node.id;wrap.append(node);form.append(wrap);return node;};
+    const select=(name,label,options)=>{const node=make('select');for(const row of options){const o=make('option',t(row[1],row[2]));o.value=row[0];node.append(o);}return field(name,label,node);};
+    select('kind',t('Art der Meldung','Report type'),kinds);
+    select('area',t('Betroffener Bereich','Affected area'),areas);
+    const title=field('title',t('Kurzer Titel *','Short title *'),make('input'));title.required=true;title.maxLength=100;
+    const details=field('description',t('Beschreibung *','Description *'),make('textarea'));details.required=true;details.maxLength=1800;details.rows=6;
+    const steps=field('steps',t('Schritte zum Nachstellen oder ein Beispiel (optional)','Steps to reproduce or an example (optional)'),make('textarea'));steps.maxLength=1000;steps.rows=3;
+    const expected=field('expected',t('Erwartetes Ergebnis (optional)','Expected result (optional)'),make('textarea'));expected.maxLength=500;expected.rows=2;
+    const check=make('input');check.type='checkbox';check.value='yes';check.checked=true;
+    const checkbox=field('environment',t('Programmversion und Browser beifügen','Include program version and browser'),check);checkbox.parentElement.className='ac-feedback-check';
+    context=make('p');context.className='muted';form.append(context);
+    for(const [name,value] of Object.entries(saved)){const node=form.elements.namedItem(name);if(node&&node.type!=='checkbox')node.value=value;}
+    if(Object.keys(saved).length)check.checked=!!saved.environment;
+    const row=make('div');row.className='ac-feedback-actions';
+    link=make('a');link.target='_blank';link.rel='noopener noreferrer';link.className='ac-feedback-primary';
+    link.onclick=e=>{if(!form.reportValidity()){e.preventDefault();return;}status.textContent=t('Den Entwurf auf GitHub prüfen und dort auf „Create“ klicken. Hier wurde noch keine Meldung abgeschickt.','Review the draft on GitHub and click “Create” there. No report has been submitted here.');};
+    copyButton=make('button',t('Text kopieren','Copy text'));copyButton.type='button';
+    copyButton.onclick=async()=>{
+      if(!form.reportValidity())return;
+      const data=report(),text=data.title+'\n\n'+data.body;
+      try{await navigator.clipboard.writeText(text);status.textContent=t('Text kopiert. Du kannst ihn auf GitHub einfügen.','Text copied. You can paste it on GitHub.');}
+      catch{const fallback=make('textarea');fallback.value=text;fallback.readOnly=true;fallback.setAttribute('aria-label',t('Meldung zum manuellen Kopieren','Report for manual copying'));status.replaceChildren(make('span',t('Bitte den markierten Text selbst kopieren:','Please copy the selected text:')),fallback);fallback.focus();fallback.select();}
+    };
+    const existing=make('a',t('Vorhandene Meldungen ansehen','View existing reports'));existing.href=repo+'/issues';existing.target='_blank';existing.rel='noopener noreferrer';
+    row.append(link,copyButton,existing);form.append(row);status=make('p');status.setAttribute('role','status');form.append(status);
+    form.oninput=update;form.onchange=update;form.onsubmit=e=>{e.preventDefault();if(form.reportValidity())link.click();};
+    section.append(form);update();
+  }
+  function mount(){
+    const panel=document.getElementById('ds-panel-feedback');if(!panel||section?.isConnected)return;
+    section=make('section');section.id='ac-feedback';section.className='ds-section';section.setAttribute('data-i18n-content','');panel.append(section);render();
+  }
+  const style=make('style');style.textContent='#ac-feedback{max-width:900px}#ac-feedback form>label{display:flex;flex-direction:column;gap:6px;margin:16px 0}#ac-feedback input:not([type=checkbox]),#ac-feedback select,#ac-feedback textarea{box-sizing:border-box;width:100%;max-width:100%;font:inherit}#ac-feedback textarea{resize:vertical}#ac-feedback .ac-feedback-check{flex-direction:row;align-items:center;gap:12px}#ac-feedback .ac-feedback-check input{width:auto}#ac-feedback p{line-height:1.6;overflow-wrap:anywhere}.ac-feedback-note{padding:12px 16px;border-left:3px solid var(--accent,#d8b56a);background:color-mix(in srgb,var(--accent,#d8b56a) 9%,transparent)}.ac-feedback-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.ac-feedback-actions a{color:var(--text);text-decoration:underline}.ac-feedback-actions .ac-feedback-primary{display:inline-block;padding:10px 15px;border:1px solid var(--accent,#d8b56a);border-radius:10px;text-decoration:none;font-weight:600}';document.head.append(style);
+  new MutationObserver(mount).observe(document.body,{childList:true,subtree:true});mount();
+  addEventListener('ui-language-change',render);
+  addEventListener('adult-client-release',()=>{if(form)update();});
+})();

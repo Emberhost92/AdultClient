@@ -116,6 +116,22 @@ Exportierbarkeit ist keine pauschale Weiterveröffentlichungserlaubnis für
 fremde Texte, Fotos oder Datenbanken. Vor einer öffentlichen Veröffentlichung
 bleibt die Prüfung der jeweiligen Quellenbedingungen und Assetlizenzen offen.
 
+## Feedback über GitHub / Feedback via GitHub
+
+Unter Einstellungen → Feedback & Hilfe lassen sich Fehler, Wünsche und allgemeine
+Rückmeldungen vorbereiten. Ein Klick öffnet den Entwurf im öffentlichen GitHub-Projekt;
+erst dort wird er mit dem eigenen GitHub-Konto veröffentlicht. Die Kategorien sind
+`bug`, `enhancement` und `feedback`; der betroffene Bereich steht zusätzlich im Titel.
+Programmversion und Browser können optional beigefügt werden. Es werden keine
+Zugangsdaten, Protokolle, Favoriten oder Verlaufsdaten automatisch übernommen.
+Bei langen Meldungen „Text kopieren“ verwenden und die Beschreibung auf GitHub einfügen.
+
+Settings → Feedback & help prepares bug reports, feature requests and general feedback.
+The button opens a public GitHub draft; publishing requires your own GitHub account
+and a separate click on GitHub. Program version and browser are optional. Credentials,
+logs, favorites and history are never collected automatically. Use “Copy text” and
+paste the report on GitHub if it exceeds the direct-link length limit.
+
 ## Erneut bauen (Herausgeber)
 
 `python release_tools/build_portable.py distribution/AdultClient-NEUE-VERSION`
