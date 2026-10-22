@@ -18,9 +18,9 @@ Eine Suche über mehrere oder alle verfügbaren Suchquellen, deine Lieblings-Cam
 | **Downloads & Offline** | Download sex videos from supported providers and play them locally. / Sexvideos unterstützter Anbieter herunterladen und lokal abspielen. |
 | **Design & Updates** | Tailor the interface to your needs: customize colours, fonts, language and appearance. Update the program and model data separately. / Passe die Oberfläche an deine Bedürfnisse an: Farben, Schriften, Sprache und Darstellung individuell gestalten. Programm und Modelldaten separat aktualisieren. |
 
-<p><strong>Get started / Für den Einstieg:</strong> <a href="https://github.com/Emberhost92/AdultClient/releases/download/v0.3.4-beta.1/AdultClient-0.3.4-beta.1-Windows-Komplett.zip">Download complete package / Komplettpaket herunterladen</a> · <a href="#english">English guide</a> · <a href="#deutsch">Deutsche Anleitung</a></p>
+<p><strong>Get started / Für den Einstieg:</strong> <a href="https://github.com/Emberhost92/AdultClient/releases/download/v0.3.5-beta.1/AdultClient-0.3.5-beta.1-Windows-Komplett.zip">Download complete package / Komplettpaket herunterladen</a> · <a href="#english">English guide</a> · <a href="#deutsch">Deutsche Anleitung</a></p>
 
-**Snapshot / Stand:** 21.10.2026 · Program / Programm 0.3.4-beta.1 · Data package / Datenpaket 2026-10-21. Counts refer to catalogue entries; the same person may have separate source profiles. / Gezählt sind Katalogeinträge; Quellprofile derselben Person können getrennt vorkommen.
+**Snapshot / Stand:** 22.10.2026 · Program / Programm 0.3.5-beta.1 · Data package / Datenpaket 2026-10-21. Counts refer to catalogue entries; the same person may have separate source profiles. / Gezählt sind Katalogeinträge; Quellprofile derselben Person können getrennt vorkommen.
 
 ## Features / Funktionen
 
@@ -316,17 +316,36 @@ Screenshots from version 0.3.1-beta.1. / Screenshots aus Version 0.3.1-beta.1.
 
 ## Downloads
 
-**Current program version / Aktuelle Programmversion: 0.3.4-beta.1**  
+**Current program version / Aktuelle Programmversion: 0.3.5-beta.1**  
 **Model data / Modelldaten: 2026-10-21**
 
 | Download | Contents / Inhalt | Size / Größe |
 | --- | --- | --- |
-| **[Windows-Komplett.zip](https://github.com/Emberhost92/AdultClient/releases/download/v0.3.4-beta.1/AdultClient-0.3.4-beta.1-Windows-Komplett.zip)** | Program + model data / Programm + Modelldaten | approx. / ca. 405 MB |
-| **[Windows.zip](https://github.com/Emberhost92/AdultClient/releases/download/v0.3.4-beta.1/AdultClient-0.3.4-beta.1-Windows.zip)** | Program only / Nur das Programm | approx. / ca. 36 MB |
+| **[Windows-Komplett.zip](https://github.com/Emberhost92/AdultClient/releases/download/v0.3.5-beta.1/AdultClient-0.3.5-beta.1-Windows-Komplett.zip)** | Program + model data / Programm + Modelldaten | approx. / ca. 405 MB |
+| **[Windows.zip](https://github.com/Emberhost92/AdultClient/releases/download/v0.3.5-beta.1/AdultClient-0.3.5-beta.1-Windows.zip)** | Program only / Nur das Programm | approx. / ca. 36 MB |
 | **[star-data.sqlite3.gz](https://github.com/Emberhost92/AdultClient/releases/download/data-2026-10-21/star-data.sqlite3.gz)** | Separate model data package / Separates Modelldatenpaket | approx. / ca. 369 MB |
 | **[star-data.sqlite3.json](https://github.com/Emberhost92/AdultClient/releases/download/data-2026-10-21/star-data.sqlite3.json)** | Data package metadata and checksum / Beschreibung und Prüfsumme des Datenpakets | less than / kleiner als 1 KB |
 
-[All releases / Alle Veröffentlichungen](https://github.com/Emberhost92/AdultClient/releases) · [Current program release / Aktuelles Programm-Release](https://github.com/Emberhost92/AdultClient/releases/tag/v0.3.4-beta.1) · [Model data release / Modelldaten-Release](https://github.com/Emberhost92/AdultClient/releases/tag/data-2026-10-21)
+[All releases / Alle Veröffentlichungen](https://github.com/Emberhost92/AdultClient/releases) · [Current program release / Aktuelles Programm-Release](https://github.com/Emberhost92/AdultClient/releases/tag/v0.3.5-beta.1) · [Model data release / Modelldaten-Release](https://github.com/Emberhost92/AdultClient/releases/tag/data-2026-10-21)
+
+</details>
+
+<details>
+<summary><strong>Feedback & bug reports / Fehler und Wünsche melden</strong></summary>
+
+Open **Settings → Feedback & help** to report a bug, suggest a feature or share general feedback. Select the affected area, add a title and description, and optionally include the displayed program version and browser. **Prepare report on GitHub** opens a draft; review and publish it there using your GitHub account. Reports are public. Never include passwords, API keys, cookies or private information. Screenshots can be attached on GitHub. For very long reports, use **Copy text** and paste the description on GitHub.
+
+Unter **Einstellungen → Feedback & Hilfe** kannst du Fehler melden, Funktionen wünschen oder allgemeines Feedback geben. Wähle den Bereich, ergänze Titel und Beschreibung und füge bei Bedarf die angezeigte Programmversion und den Browser bei. **Meldung auf GitHub vorbereiten** öffnet einen Entwurf; erst auf GitHub prüfst und veröffentlichst du ihn mit deinem GitHub-Konto. Meldungen sind öffentlich. Keine Passwörter, API-Schlüssel, Cookies oder privaten Informationen einfügen. Screenshots lassen sich auf GitHub anhängen. Bei sehr langen Meldungen **Text kopieren** verwenden und die Beschreibung auf GitHub einfügen.
+
+Reports are grouped automatically / Meldungen werden automatisch eingeordnet:
+
+- **bug:** errors / Fehler
+- **enhancement:** feature requests / Wünsche und Verbesserungen
+- **feedback:** general feedback / allgemeine Rückmeldungen
+
+The affected area also appears in the title. / Der betroffene Bereich steht zusätzlich im Titel.
+
+[View reports / Meldungen ansehen](https://github.com/Emberhost92/AdultClient/issues)
 
 </details>
 
