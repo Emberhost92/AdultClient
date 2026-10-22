@@ -1312,6 +1312,12 @@ const HOMES = [["recent","Zuletzt geöffnet"],["favs","Lieblingsseiten"],["follo
 const FACTS = [["site","Herkunft"],["duration","Dauer"],["views","Aufrufe"],["when","Datum"],["rating","Bewertung"],["quality","Qualität"],["about","Beschreibung"],["stars","Darsteller"],["categories","Kategorien"],["tags","Tags"]];
 const ACTIONS = [["save","Merken"],["group","In Gruppe"],["multi","Multitube"],["follow","Kanal folgen"]];
 const PRESETS = {
+  "Dunkel · Gold": { bg:"#202124", panel:"#2b2d31", aside:"#25262a", line:"#53504a", text:"#f5f1e8", muted:"#c3bdb1", accent:"#d8b56a", grad2:"#202124", grad:false },
+  "Weiß · Gold": { bg:"#f7f8fa", panel:"#ffffff", aside:"#edf0f3", line:"#c9cdd3", text:"#25282e", muted:"#565e69", accent:"#d8b56a", grad2:"#f7f8fa", grad:false },
+  "Elfenbein · Gold": { bg:"#f3eee4", panel:"#fffaf0", aside:"#e9e1d1", line:"#c9bda7", text:"#30291e", muted:"#695b46", accent:"#d8b56a", grad2:"#f3eee4", grad:false },
+  "Mitternachtsblau · Gold": { bg:"#142033", panel:"#1e2d43", aside:"#18253a", line:"#43556c", text:"#f3f2ec", muted:"#bdc8d7", accent:"#d8b56a", grad2:"#23364e", grad:true },
+  "Salbei · Gold": { bg:"#e9eee6", panel:"#f8faf4", aside:"#dce4d7", line:"#b4c0ab", text:"#293426", muted:"#52614c", accent:"#d8b56a", grad2:"#e9eee6", grad:false },
+  "Aubergine · Gold": { bg:"#281f2c", panel:"#352a3b", aside:"#2e2433", line:"#62516b", text:"#f7eef4", muted:"#cebfce", accent:"#d8b56a", grad2:"#3b2b3a", grad:true },
   Gold: { bg:"#080807", panel:"#141310", aside:"#050505", line:"#3d3525", text:"#f4efe5", muted:"#b2a894", accent:"#d8b56a", grad2:"#1c170e", grad:false },
   Nacht: {},
   Rose: { bg:"#1a1016", panel:"#2a1720", aside:"#24141c", accent:"#e45b8a", grad2:"#4a1830", grad:true },
@@ -1599,8 +1605,25 @@ function buildThemeForm() {
   presets.innerHTML = "";
   for (const name of Object.keys(PRESETS)) {
     const button = document.createElement("button");
-    button.type = "button"; button.textContent = name;
-    button.onclick = () => { const palette={};for(const key of ["bg","panel","aside","line","text","muted","accent","grad2","grad","cardbg"])palette[key]=THEME_BASE[key];const next=Object.assign({},themeNow(),palette,PRESETS[name]);if(next.design){next.design.colors={input:name==="Hell"?"#ffffff":["Gold","Nacht"].includes(name)?"#1c1913":"#222836",buttonText:["Gold","Nacht"].includes(name)?"#161108":"#ffffff",hover:name==="Hell"?"#e8dce4":["Gold","Nacht"].includes(name)?"#2c2416":"#2a2230"};}next.facts=(next.facts||FACT_KEYS).slice();next.actions=(next.actions||ACTION_KEYS).slice();fillThemeForm(next);applyTheme(next);window.SettingsStudio?.instance?.record("preset"); };
+    button.type = "button"; button.dataset.preset = name;
+    const swatch=document.createElement("span");swatch.className="theme-preset-swatch";swatch.setAttribute("aria-hidden","true");
+    swatch.style.background=`linear-gradient(135deg,${PRESETS[name].bg||THEME_BASE.bg} 0 55%,${PRESETS[name].accent||THEME_BASE.accent} 55% 100%)`;
+    const label=document.createElement("span");label.textContent=name;button.append(swatch,label);
+    button.onclick = () => {
+      const palette={};
+      for(const key of ["bg","panel","aside","line","text","muted","accent","grad2","grad","cardbg"])palette[key]=THEME_BASE[key];
+      const next=Object.assign({},themeNow(),palette,PRESETS[name]);
+      if(next.design){
+        const gold=name.endsWith(" · Gold"),light=["Weiß · Gold","Elfenbein · Gold","Salbei · Gold"].includes(name);
+        next.design.colors=gold?{input:next.panel,buttonText:"#241b10",hover:light?next.aside:next.line}:{input:name==="Hell"?"#ffffff":["Gold","Nacht"].includes(name)?"#1c1913":"#222836",buttonText:["Gold","Nacht"].includes(name)?"#161108":"#ffffff",hover:name==="Hell"?"#e8dce4":["Gold","Nacht"].includes(name)?"#2c2416":"#2a2230"};
+        if(gold){
+          next.photo="";next.walls={};next.wallStamps={};next.wallMode="all";
+          next.design.backgrounds={all:window.SettingsDomain.background({mode:"legacy"}),pages:{}};
+        }
+      }
+      next.facts=(next.facts||FACT_KEYS).slice();next.actions=(next.actions||ACTION_KEYS).slice();
+      fillThemeForm(next);applyTheme(next);window.SettingsStudio?.instance?.record("preset");
+    };
     presets.append(button);
   }
   const menus = $("menu-toggles");

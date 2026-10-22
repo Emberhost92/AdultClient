@@ -124,6 +124,12 @@ body.ds-light-surfaces .shell > aside nav button.active:hover:not(:disabled) {
 }
 body.ds-light-surfaces .shell > aside nav button.active .chev { color:inherit; }
 body.ds-light-surfaces .ds-savebar { box-shadow:0 -5px 20px #49351a12; }
+body.ds-light-surfaces a { color:#78551c; }
+/* Keep the white lettering of the official artwork readable on light palettes. */
+body.ds-light-surfaces aside #brand:has(.official-brand-logo) { background:#29261f; border-radius:14px; }
+#theme-presets { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:10px; width:100%; }
+#theme-presets button { display:flex; align-items:center; gap:10px; text-align:left; min-height:48px; }
+.theme-preset-swatch { width:30px; height:30px; flex:0 0 30px; border-radius:50%; border:1px solid #8888; }
 /* The language switch remains available independently of the current view. */
 .ui-language-control{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:10px 0 16px;font-size:.82rem;}
 .ui-language-control label{white-space:nowrap;}
