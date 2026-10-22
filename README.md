@@ -18,9 +18,9 @@ Eine Suche über mehrere oder alle verfügbaren Suchquellen, deine Lieblings-Cam
 | **Downloads & Offline** | Download sex videos from supported providers and play them locally. / Sexvideos unterstützter Anbieter herunterladen und lokal abspielen. |
 | **Design & Updates** | Tailor the interface to your needs: customize colours, fonts, language and appearance. Update the program and model data separately. / Passe die Oberfläche an deine Bedürfnisse an: Farben, Schriften, Sprache und Darstellung individuell gestalten. Programm und Modelldaten separat aktualisieren. |
 
-<p><strong>Get started / Für den Einstieg:</strong> <a href="https://github.com/Emberhost92/AdultClient/releases/download/v0.3.6-beta.1/AdultClient-0.3.6-beta.1-Windows-Komplett.zip">Download complete package / Komplettpaket herunterladen</a> · <a href="#english">English guide</a> · <a href="#deutsch">Deutsche Anleitung</a></p>
+<p><strong>Get started / Für den Einstieg:</strong> <a href="https://github.com/Emberhost92/AdultClient/releases/download/v0.3.7-beta.1/AdultClient-0.3.7-beta.1-Windows-Komplett.zip">Download complete package / Komplettpaket herunterladen</a> · <a href="#english">English guide</a> · <a href="#deutsch">Deutsche Anleitung</a></p>
 
-**Snapshot / Stand:** 22.10.2026 · Program / Programm 0.3.6-beta.1 · Data package / Datenpaket 2026-10-21. Counts refer to catalogue entries; the same person may have separate source profiles. / Gezählt sind Katalogeinträge; Quellprofile derselben Person können getrennt vorkommen.
+**Snapshot / Stand:** 22.10.2026 · Program / Programm 0.3.7-beta.1 · Data package / Datenpaket 2026-10-21. Counts refer to catalogue entries; the same person may have separate source profiles. / Gezählt sind Katalogeinträge; Quellprofile derselben Person können getrennt vorkommen.
 
 ## Features / Funktionen
 
@@ -316,17 +316,17 @@ Screenshots from version 0.3.1-beta.1. / Screenshots aus Version 0.3.1-beta.1.
 
 ## Downloads
 
-**Current program version / Aktuelle Programmversion: 0.3.6-beta.1**  
+**Current program version / Aktuelle Programmversion: 0.3.7-beta.1**  
 **Model data / Modelldaten: 2026-10-21**
 
 | Download | Contents / Inhalt | Size / Größe |
 | --- | --- | --- |
-| **[Windows-Komplett.zip](https://github.com/Emberhost92/AdultClient/releases/download/v0.3.6-beta.1/AdultClient-0.3.6-beta.1-Windows-Komplett.zip)** | Program + model data / Programm + Modelldaten | approx. / ca. 405 MB |
-| **[Windows.zip](https://github.com/Emberhost92/AdultClient/releases/download/v0.3.6-beta.1/AdultClient-0.3.6-beta.1-Windows.zip)** | Program only / Nur das Programm | approx. / ca. 36 MB |
+| **[Windows-Komplett.zip](https://github.com/Emberhost92/AdultClient/releases/download/v0.3.7-beta.1/AdultClient-0.3.7-beta.1-Windows-Komplett.zip)** | Program + model data / Programm + Modelldaten | approx. / ca. 405 MB |
+| **[Windows.zip](https://github.com/Emberhost92/AdultClient/releases/download/v0.3.7-beta.1/AdultClient-0.3.7-beta.1-Windows.zip)** | Program only / Nur das Programm | approx. / ca. 36 MB |
 | **[star-data.sqlite3.gz](https://github.com/Emberhost92/AdultClient/releases/download/data-2026-10-21/star-data.sqlite3.gz)** | Separate model data package / Separates Modelldatenpaket | approx. / ca. 369 MB |
 | **[star-data.sqlite3.json](https://github.com/Emberhost92/AdultClient/releases/download/data-2026-10-21/star-data.sqlite3.json)** | Data package metadata and checksum / Beschreibung und Prüfsumme des Datenpakets | less than / kleiner als 1 KB |
 
-[All releases / Alle Veröffentlichungen](https://github.com/Emberhost92/AdultClient/releases) · [Current program release / Aktuelles Programm-Release](https://github.com/Emberhost92/AdultClient/releases/tag/v0.3.6-beta.1) · [Model data release / Modelldaten-Release](https://github.com/Emberhost92/AdultClient/releases/tag/data-2026-10-21)
+[All releases / Alle Veröffentlichungen](https://github.com/Emberhost92/AdultClient/releases) · [Current program release / Aktuelles Programm-Release](https://github.com/Emberhost92/AdultClient/releases/tag/v0.3.7-beta.1) · [Model data release / Modelldaten-Release](https://github.com/Emberhost92/AdultClient/releases/tag/data-2026-10-21)
 
 </details>
 
