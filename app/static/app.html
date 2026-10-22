@@ -1495,7 +1495,7 @@ function paintBrand(theme) {
   if (!file) {
     if (!brand.querySelector('img[data-main-logo]')) {
       brand.replaceChildren();
-      const img=document.createElement('img');img.src='/static/adult-client-logo.jpg';img.alt='Adult Client';img.className='brand-logo';img.dataset.mainLogo='1';
+      const img=document.createElement('img');img.src='/static/adult-client-logo.png';img.alt='Adult Client';img.className='brand-logo';img.dataset.mainLogo='1';
       img.onerror=()=>{brand.textContent='Adult Client';};brand.append(img);
     }
     return;

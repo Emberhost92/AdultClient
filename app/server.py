@@ -14313,9 +14313,10 @@ class Handler(BaseHTTPRequestHandler):
             with open(filename, "rb") as handle:
                 self._send(200, handle.read(), "image/png" if filename.endswith(".png") else "text/javascript; charset=utf-8", -1)
             return
-        if parsed.path == "/static/adult-client-logo.jpg":
-            with open(os.path.join(ROOT, "static", "adult-client-logo.jpg"), "rb") as handle:
-                self._send(200, handle.read(), "image/jpeg", -1)
+        if parsed.path in ("/static/adult-client-logo.jpg", "/static/adult-client-logo.png"):
+            filename = parsed.path.rsplit("/", 1)[-1]
+            with open(os.path.join(ROOT, "static", filename), "rb") as handle:
+                self._send(200, handle.read(), "image/png" if filename.endswith(".png") else "image/jpeg", -1)
             return
         if parsed.path in ("/", "/index.html"):
             page = os.path.join(ROOT, "static", "app.html")

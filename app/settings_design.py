@@ -100,6 +100,9 @@ def clean_design(raw=None, profiles=True):
             source = record(source.get(key))
             target = target.setdefault(key, {})
         target[parts[-1]] = clean_value(source.get(parts[-1]), rule)
+    if out['brand']['logo'] == 'c2cfefa1e3e32392f84cc37a80a29f68578996779285d13a8a067d4864090279.jpg':
+        out['brand']['logo'] = ''
+        out['brand']['background'] = 'transparent'
     for key in ('name', 'title'):
         if out['brand'][key] in ('AdultHideout', 'Adult Hideout'):
             out['brand'][key] = 'Adult Client'

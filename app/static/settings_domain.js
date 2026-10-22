@@ -97,6 +97,12 @@
     const out = { version: 1 };
     for (const [path, r] of Object.entries(S.fields))
       set(out, path, value(get(raw, path), r));
+    // Adopt the transparent official mark for profiles using our former bundled JPG.
+    // User-uploaded logos and their chosen backgrounds remain configurable.
+    if (out.brand.logo === 'c2cfefa1e3e32392f84cc37a80a29f68578996779285d13a8a067d4864090279.jpg') {
+      out.brand.logo = '';
+      out.brand.background = 'transparent';
+    }
     if (["AdultHideout", "Adult Hideout"].includes(out.brand.name))
       out.brand.name = "Adult Client";
     if (["AdultHideout", "Adult Hideout"].includes(out.brand.title))

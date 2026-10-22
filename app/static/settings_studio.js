@@ -1579,7 +1579,7 @@
         ? assetURL(this.d.brand.logo)
         : theme.logo && this.d.brand.mode === "legacy"
           ? this.ctx.brandSrc(theme.logo, theme.logoStamp)
-          : "";
+          : (["logo", "both"].includes(this.d.brand.mode) ? "/static/adult-client-logo.png" : "");
       logo.hidden = !logoURL;
       logo.classList.toggle("hidden", !logoURL);
       if (logoURL && logo.getAttribute("src") !== logoURL) logo.src = logoURL;
@@ -2097,7 +2097,7 @@
               ? assetURL(b.logo)
               : theme.logo
                 ? this.ctx.brandSrc(theme.logo, theme.logoStamp)
-                : "";
+                : "/static/adult-client-logo.png";
             if (source) {
               const img = el("img", {
                 src: source,
