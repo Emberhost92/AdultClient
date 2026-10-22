@@ -542,3 +542,11 @@ Beende das Programm über **Einstellungen → Updates & Modellbilder → Program
 Wenn sich die Oberfläche nicht öffnet: Prüfe zuerst, ob die ZIP vollständig entpackt ist und alle Unterordner vorhanden sind. Beim ersten Start mit Modelldaten kann die Vorbereitung länger dauern. Läuft das Programm bereits, öffnet ein erneuter Doppelklick auf `AdultClient.exe` seine Oberfläche. Bei einem Startfehler stehen Details gegebenenfalls unter `userdata\startup-error.txt` oder `userdata\startup.log`. Teile solche Dateien nur nach Prüfung auf persönliche Informationen.
 
 </details>
+
+---
+
+## Über das Projekt und Unterstützung / About the project and support
+
+**Deutsch:** In Adult Client und die dafür benötigten Tools sind viel Zeit, Arbeit und auch eigenes Geld geflossen. Vielen Dank an alle, die das Projekt begleiten – mit hilfreichem Feedback, netten Kommentaren oder freiwilliger Unterstützung. Jeder Beitrag ist willkommen, unabhängig von seiner Höhe. Die Nutzung von Adult Client ist nicht an eine Unterstützung gebunden.
+
+**English:** Developing Adult Client has taken time, effort and personal funds, including the tools used along the way. Thank you to everyone supporting the project through helpful feedback, kind comments or voluntary contributions. Every contribution is appreciated, regardless of its size. Using Adult Client does not depend on making a contribution.
