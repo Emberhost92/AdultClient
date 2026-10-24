@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "label": "portable",
+  "decoded_heights": [
+    1440,
+    360,
+    1440
+  ],
+  "options": [
+    "Beste Qualität",
+    "Automatisch",
+    "360p",
+    "720p",
+    "1440p"
+  ],
+  "adaptive": true,
+  "english": true,
+  "errors": []
+}

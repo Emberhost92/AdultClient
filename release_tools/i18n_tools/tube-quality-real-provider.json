@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "hoster": "xvideos",
+  "childProxy": false,
+  "sourceCount": 1,
+  "decoded": [
+    1920,
+    1080
+  ],
+  "available": [
+    360,
+    480,
+    1080
+  ],
+  "options": [
+    "Beste Qualität",
+    "Automatisch",
+    "360p",
+    "480p",
+    "1080p"
+  ],
+  "selection": "-2"
+}

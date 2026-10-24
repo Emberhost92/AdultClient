@@ -312,7 +312,7 @@
       const top=Math.max(0,this.area.getBoundingClientRect().top),foot=this.footer.getBoundingClientRect().height,height=Math.max(220,innerHeight-top-foot-12);this.area.style.height=height+'px';
       const width=this.canvas.clientWidth-2,c=this.config(),entries=this.visibleEntries().rows;
       if(width<=0)return;
-      const actual=entries.filter(e=>e.identity),layoutEntries=['mosaic','focus'].includes(c.layout)&&actual.length?[...actual]:entries;
+      const actual=entries.filter(e=>e.identity),layoutEntries=c.layout==='focus'&&actual.length?[...actual]:entries;
       let result;
       if(c.layout==='focus'&&actual.length){
         const focus=c.focus&&actual.some(e=>e.identity===c.focus)?c.focus:actual[0].identity;
@@ -324,7 +324,7 @@
       for(const entry of layoutEntries){const tile=entry.identity?this.players.get(entry.identity)?.cell:this.emptyTiles?.[entries.indexOf(entry)];const box=result.rects[index++];if(!tile||!box)continue;
         tile.hidden=false;Object.assign(tile.style,{left:box.x+'px',top:box.y+'px',width:box.width+'px',height:box.height+'px'});
         tile.dataset.focus=String(!!entry.identity&&c.focus===entry.identity);}
-      for(const tile of this.emptyTiles||[])if(tile&&['mosaic','focus'].includes(c.layout)&&actual.length)tile.hidden=true;
+      for(const tile of this.emptyTiles||[])if(tile&&c.layout==='focus'&&actual.length)tile.hidden=true;
       if(c.layout==='focus'&&!c.thumbnails)for(const p of this.players.values())if(!layoutEntries.some(e=>e.identity===p.identity))p.cell.hidden=true;
       this.refreshPauses();
     }
@@ -618,7 +618,7 @@
     applyQuality(player){if(!player?.hls?.levels?.length)return;const c=this.config(),prefs=this.prefs(player.identity),target=D.qualityTarget(c,prefs,this.players.size,c.focus===player.identity),index=D.levelIndex(player.hls.levels,target);if(player.qualityIndex!==index){player.hls.autoLevelCapping=index;player.hls.loadLevel=-1;player.qualityIndex=index;}}
     applyPlayer(player){
       if(!player||player.closed)return;const p=this.prefs(player.identity),c=this.config();
-      player.video.style.objectFit=c.layout==='mosaic'?'contain':c.fit;
+      player.video.style.objectFit=['grid','mosaic'].includes(c.layout)?'contain':c.fit;
       player.video.style.transform=`translate(${p.x}px,${p.y}px) rotate(${p.rotate}deg) scale(${p.zoom/100*(p.flipX?-1:1)},${p.zoom/100*(p.flipY?-1:1)})`;
       player.video.style.filter=`brightness(${p.brightness}%) contrast(${p.contrast}%) saturate(${p.saturation}%) hue-rotate(${p.hue}deg) sepia(${p.sepia}%) grayscale(${p.grayscale}%) invert(${p.invert}%) blur(${p.blur}px)`;
       const focus=c.focus||this.visibleEntries().rows.find(e=>e.identity)?.identity,audio=D.audioState(c,p,player.identity,focus);
